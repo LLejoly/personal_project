@@ -11,7 +11,7 @@
          $email = mysqli_real_escape_string($connectDB, $_POST['email']);
          $password = mysqli_real_escape_string($connectDB,$_POST['password']);
          $lang = mysqli_real_escape_string($connectDB,$_POST['language']);
-         $token = bin2hex(random_bytes(32)); #secure random
+         $token = bin2hex(random_bytes(32)); #secure random 1 byte = 2 hexadecimal
          $sql= "INSERT INTO User(email, password,token,language) VALUES('$email', '$password','$token','$lang')";
          $res= mysqli_query($connectDB, $sql);
 
