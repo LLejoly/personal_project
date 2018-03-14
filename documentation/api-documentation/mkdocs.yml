@@ -1,0 +1,7 @@
+site_name: Smart freezer
+pages:
+- Home: index.md
+- About: about.md
+- sample: sample.md
+- API: api.md
+theme: amelia

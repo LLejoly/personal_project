@@ -1,0 +1,93 @@
+\documentclass[a4paper, 10pt]{article}
+%\documentclass[11pt,a4paper,oneside]{report}
+
+\usepackage{hyperref}
+\usepackage{subfig}
+\newsubfloat{figure}
+%\usepackage{vmargin}
+\usepackage[pdftex]{graphicx}
+\usepackage[margin=1.8cm]{geometry}
+%\setmarginsrb{2cm}{0cm}{2cm}{0,2cm}{1cm}{1,5cm}{1cm}{1,5cm}
+%1 est la marge gauche
+%2 est la marge en haut
+%3 est la marge droite
+%4 est la marge en bas
+%5 fixe la hauteur de l'entête
+%6 fixe la distance entre l'entête et le texte
+%7 fixe la hauteur du pied de page
+%8 fixe la distance entre le texte et le pied de page
+%------------------------------Packages généraux------------------------------
+
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{ae}
+\usepackage{colortbl}
+%\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{gensymb}
+
+%-------------------------Mathématiques------------------------------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{eucal}
+%-----------------------Codes et algorithmes--------------------------
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+%------------------------------Graphics------------------------------
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{color}
+
+%------------------------------Début du document------------------------------
+
+\begin{document}
+
+%------------------------------Page de garde------------------------------
+
+\begin{titlepage}
+
+ 	\begin{tabular}{p{11cm}p{8cm}}    
+       		\includegraphics[scale=0.4]{logo_ulg.png}  &\raggedright{\includegraphics[scale=0.6]{Logo_FSAnew.png}}\\
+         \end{tabular}
+         
+         	\begin{center}
+		\unitlength = 1cm
+         		\vspace{0.1cm}
+         		\Large\textbf{Master 1 Data sciences}\\
+         		\vspace{2.5cm}
+
+{Personal project:}\\
+\vspace*{0.5cm}
+\Large Smart freezer
+	\end{center}
+
+      	\vspace*{2cm}
+        \begin{center}
+\end{center}
+\vspace{2cm}
+    \centering{\Large \noindent \it Loïc Lejoly s141123}\\
+    %Ajoutez votre nom sous la forme suivante :
+		%\centering{\large \noindent \it prenom \bsc{nom} $matricule$}
+	      	\vspace{2.5cm}
+
+	
+	\begin{tabular}{p{12cm}p{12cm} l r}    
+       		Academic year 2017-2018
+       		&\raggedright{\large \noindent \textsl{June 2018}}
+         \end{tabular}
+   \end{titlepage}
+  % \frontmatter
+   \setcounter{page}{1}
+
+
+\newpage
+%% To ensure the equation counter works correctly
+\tableofcontents
+\input{content.tex}
+\end{document}
