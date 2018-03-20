@@ -1,6 +1,6 @@
 <?php
    include('connectDB.php');
-   session_start();
+   #session_start();
    $error = "";
    $table = '<table class=".tableLib" style="width:100%"><tr><th>ID</th><th>type_name_en</th><th>type_name_fr</th></tr>';
 

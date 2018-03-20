@@ -9,6 +9,11 @@ class ValidatorDB:
         self.query_db = query_db
 
     def check_token(self, token):
+        """
+        Check if the token given is valid or not
+        :param token: A string that represents the token
+        :return: A boolean (true if it is correct)
+        """
         query = """SELECT EXISTS
                      (SELECT *
                       FROM User
@@ -21,6 +26,11 @@ class ValidatorDB:
             return False
 
     def check_type_id(self, type_id):
+        """
+        Check if the type of the product given is correct
+        :param type_id: An integer
+        :return: A boolean (true if it is correct)
+        """
         if not type_id.isdigit():
             return False
 
@@ -36,6 +46,12 @@ class ValidatorDB:
             return False
 
     def check_freezer_id(self, token, freezer_id):
+        """
+        Check if the id of the freezer given is correct
+        :param token: A string
+        :param freezer_id: An integer
+        :return: A boolean (true if it is correct)
+        """
         if not freezer_id.isdigit():
             return False
 
@@ -52,6 +68,11 @@ class ValidatorDB:
 
     @staticmethod
     def check_date(date_prod):
+        """
+        Check the date of the product
+        :param date_prod: A date in an ISO format XXXX-XX-XX
+        :return: A boolean (true if it is correct)
+        """
         datetime_today = datetime.strptime(str(date.today()), '%Y-%m-%d')
         try:
             datetime_format = datetime.strptime(date_prod, '%Y-%m-%d')
@@ -64,25 +85,37 @@ class ValidatorDB:
         return True
 
     def check_product_id(self, token, freezer_id, box_num, prod_num):
+        """
+
+        :param token:
+        :param freezer_id: An integer that represents the id of the
+        :param box_num: An integer that represents the box where the product is stored
+        :param prod_num: An integer that represents the id of the product in the box
+        :return: A boolean (true if it is correct)
+        """
         if not freezer_id.isdigit() and box_num.isdigit() and prod_num.isdigit():
             return False
 
         query = """SELECT prod_num
                       FROM Product
-                      WHERE freezer_id = %s AND token = %s AND box_num = %s AND prod_num = %s"""
+                      WHERE freezer_id = %s AND token = %s AND box_num = %s AND prod_num = %s AND date_out IS NULL """
         res = self.query_db.get_query_db(query, (freezer_id, token, box_num, prod_num, ))
 
-        if res[0] == 1:
-            return False
-        else:
-            return True
+        for l in res:
+            for e in l:
+                if e == int(prod_num):
+                    return False
+
+        return True
 
     def check_insert_product(self, token, header, product):
         product_formatted = {}
         if list(product.keys()) == header:
 
-            if not self.check_product_id(token, product['freezer_id'], product['box_num'], product['prod_num']):
+            if not self.check_product_id(token, product['freezer_id'],
+                                         product['box_num'], product['prod_num']):
                 return False, {}
+
             product_formatted['box_num'] = int(product['box_num'])
             product_formatted['prod_num'] = int(product['prod_num'])
 

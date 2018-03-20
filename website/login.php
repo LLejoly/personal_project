@@ -2,12 +2,19 @@
 <?php
    include('connectDB.php');
    session_start();
+   #the session is active
+   if(isset($_SESSION['login_user'])) {
+      header("location: ./user/user_interface.php");
+   }
+
    $error = "";
 
    if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $email = mysqli_real_escape_string($connectDB, $_POST['email']);
       $mypassword = mysqli_real_escape_string($connectDB, $_POST['password']);
       $mypassword = crypt($mypassword, $_SERVER['key_encrypt']); # encrypt the password with a salt to compare with the one in the database
+      echo $mypassword;
+      #test password loiclejoly@gmail.com lolo7890
 
       $query = "SELECT token FROM User where email = '$email' and password = '$mypassword'";
       $result = mysqli_query($connectDB, $query);
@@ -17,8 +24,7 @@
       if ($count == 1) {
          $_SESSION['login_user'] = $email;
          $_SESSION['token'] = $row["token"];
-         echo "<p> coucou ". $_SESSION['token'] ."</p>";
-         #header("location: adminPanel.php");
+         header("location: ./user/user_interface.php");
       }else {
          $error = "Your email or password is invalid";
       }

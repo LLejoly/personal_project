@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" href = "./css/formcss.css">
+    <!--https://codepen.io/mican/pen/dRWxZe-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Add product</title>
+</head>
+<body>
+    <form method="POST" name="myform" class="form" action="javascript:void(0);" onsubmit="validateForm()">
+        <p class='field required'>
+            <label class='label'>token
+                <input type="text" name="token" onChange="check_user(this.value);" required>
+            </label>
+        </p>
+        <p class='field required'>
+            <label class='label'>product name
+                <input type="text" name="product_name" required>
+            </label>
+        </p>
+
+        <p class='field required'>
+            <label class='label'>product description
+                <input type="text" name="text_descr" required>
+            </label>
+        </p>
+
+        <p class='field required'>
+            <label class='label'>freezer id
+                <select class="select" id="freezer_id" name="freezer_id" required></select>
+            </label>
+        </p>
+
+        <p class='field required'>
+            <label class='label'>type id
+                <select  class="select" id="type_id" name="type_id" required></select>
+            </label>
+        </p>
+
+        <p class='field required'>
+            <label class='label'>date in
+                <input type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" name="date_in"required>
+            </label>
+        </p>
+
+        <p class='field required'>
+            <label class='label'>period
+                <input type="number" name="period"required>
+            </label>
+        </p>
+
+        <p class='field required'>
+            <label class='label'>box num
+                <input type="number" name="box_num" required>
+            </label>
+        </p>
+
+        <p class='field required'>
+            <label class='label'>produ num
+                <input type="number" name="prod_num" required>
+            </label>
+        </p>
+
+        <p class='field required'>
+            <label class='label'>quantity
+                <input type="number" name="quantity" required>
+            </label>
+        </p>
+        <input class="button" type="submit" name ="submit">
+    </form>
+</body>
+
+<!-- <h1 onclick="return validateForm()">Click on this text!</h1> -->
+
+<script>
+set_types=function(arr){
+    console.log("set types")
+    var select, i, option;
+    select = document.getElementById('type_id');
+    //Clean up the type_id tag
+    var selectParentNode = select.parentNode;
+    var newSelectObj = select.cloneNode(false); // Make a shallow copy
+    selectParentNode.replaceChild(newSelectObj, select);
+    select = newSelectObj
+
+    while(arr.length  > 0){
+        var elem = arr.pop()
+        console.log(elem['type_id'] + " " + elem['type_name_en']);
+        option = document.createElement('option');
+        option.value = elem['type_id'];
+        option.text = elem['type_name_en'];
+        select.add(option);
+    }
+}
+
+set_freezers=function(arr){
+    console.log("set types")
+    var select, i, option;
+    select = document.getElementById('freezer_id');
+    //Clean up the type_id tag
+    var selectParentNode = select.parentNode;
+    var newSelectObj = select.cloneNode(false); // Make a shallow copy
+    selectParentNode.replaceChild(newSelectObj, select);
+    select = newSelectObj
+
+    while(arr.length  > 0){
+        var elem = arr.pop()
+        console.log(elem['freezer_id'] + " " + elem['freezer_name']);
+        option = document.createElement('option');
+        option.value = elem['freezer_id'];
+        option.text = elem['freezer_name'];
+        select.add(option);
+    }
+}
+
+function check_user(token){
+    console.log("change token")
+    var url = "http://localhost:5000/types/" + token;
+    ajax_request("GET", url, set_types)
+
+    var url = "http://localhost:5000/freezers/" + token;
+    ajax_request("GET", url, set_freezers)
+}
+
+function ajax_request(type, url, callback){
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var responseContent = JSON.parse(this.responseText);
+            callback(responseContent);
+        }
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+}
+
+function validateForm() {
+    var token = document.forms["myform"]["token"].value;
+    console.log(token);
+    console.log(document.getElementsByTagName('input'));
+    console.log(document.forms["myform"].length);
+    var length = document.forms["myform"].length;
+    var data = document.forms["myform"].elements;
+    var my_test = {};
+    for (i =0; i < length; i++) {
+        console.log("data" + data[i].name);
+        console.log(data[i].name != 'token');
+        if (data[i].name != 'token' && data[i].name != 'submit'){
+            my_test[data[i].name] = data[i].value;
+        }
+    }
+
+    console.log(my_test);
+    var http = new XMLHttpRequest();
+    var url = "http://localhost:5000/add_product/"+ token;
+    http.open("POST", url, true);
+
+    //Send the proper header information along with the request
+    http.setRequestHeader("Content-type", "application/json");
+
+    http.onreadystatechange = function() {//Call a function when the state changes.
+        if(http.readyState == 4 && http.status == 200) {
+            alert(http.responseText);
+        } else {
+            alert(http.responseText);
+        }
+    }
+    http.send(JSON.stringify(my_test));
+}
+</script>
+
+</html>
