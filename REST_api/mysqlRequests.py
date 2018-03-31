@@ -1,6 +1,12 @@
 GET_TYPES = """SELECT *
                FROM Description_type"""
 
+GET_FREEZERS = """SELECT Description_freezer.freezer_id,
+                         Description_freezer.number_boxes,
+                         Description_freezer.freezer_name 
+                  FROM Description_freezer INNER JOIN List_freezer
+                  WHERE token = %s AND Description_freezer.freezer_id = List_freezer.freezer_id"""
+
 
 GET_ALL_PRODUCTS_ALL_FREEZERS = """SELECT box_num, DATE_FORMAT(date_in, '%%Y-%%m-%%d') AS date_formatted_in,
                                    DATE_FORMAT(date_out, '%%Y-%%m-%%d') AS date_formatted_out, descr_id,

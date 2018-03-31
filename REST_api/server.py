@@ -14,7 +14,7 @@ from validatorDB import ValidatorDB
 
 # utiliser  mysqlclient-python
 app = Flask(__name__)
-CORS(app, support_credentials=True)
+CORS(app)
 connection = MySQLdb.connect(host="127.0.0.1", user="root", passwd="", db="freezer")
 
 query_db = QueryDB(connection)
@@ -28,51 +28,78 @@ def generate_response(status, details):
 
 
 @app.route("/", methods=['GET'])
-@cross_origin(supports_credentials=True)
-def ttest():
+def test():
     print("return the documentation")
+
+
+@app.route("/check_token/<string:token>", methods=['GET'])
+def check_token(token):
+    """
+    Check the validity of a given token
+    :param token: a user token to have access to the database
+    :return: a generate_response
+    """
+    if validator_db.check_token(token):
+        return generate_response(200, response_message.SUCCESS)
+
+    return generate_response(400, response_message.BAD_TOKEN)
 
 
 @app.route("/types/<string:token>", methods=["GET"])
 def get_types(token):
+    """
+    Return the different possible types present in the database.
+    :param token: a user token to have access to the database
+    :return: A JSON containing the types of an error occurred
+    """
     token = MySQLdb.escape_string(token)
+
     if validator_db.check_token(token):
         return jsonify(query_db.get_query_db(mysqlRequests.GET_TYPES,
                                              header=True))
 
     return generate_response(400, response_message.BAD_TOKEN)
 
-
 # gerer les response code
 # example
 # curl -H "Content-Type: application/json" -X POST -d '{"num_boxes":"4","name":"xyz"}' http://localhost:5000/freezers/93896fbc55089bbf31d7a4c5db8fc992/
 @app.route("/freezers/<string:token>", methods=['GET', 'POST'])
 def freezers(token):
+    """
+    This functions has a different behavior depending on the request Type:
+    - GET method will return a json object containing the different freezers owned by the user
+    - POST method will add a freezer to the freezers' list of the user.
+     The POST request takes a JSON of the following form: {"num_boxes":"4","name":"xyz"}
+    :param token: a user token to have access to the database
+    :return: A JSON object
+    """
     token = MySQLdb.escape_string(token)
+
     if request.method == 'GET':
         if validator_db.check_token(token):
-            query = """SELECT *
-                       FROM Description_freezer"""
-            return jsonify(query_db.get_query_db(query, header=True))
+            return jsonify(query_db.get_query_db(mysqlRequests.GET_FREEZERS,
+                                                 (token,), header=True))
 
         return generate_response(400, response_message.BAD_TOKEN)
 
     if request.method == 'POST':
-        freezer = request.get_json()
         if validator_db.check_token(token):
-            if list(freezer.keys()) == ['num_boxes', 'name']:
+            freezer = request.get_json()
+
+            if set(freezer.keys()) == {'num_boxes', 'name'}:
                 if not freezer['num_boxes'].isdigit():
                     return generate_response(400, response_message.BAD_FORMAT)
+
                 num = int(freezer['num_boxes'])
                 name = MySQLdb.escape_string(freezer['name'])
 
-                ## catch the error server if case of fails
-                query_db.insert_query_db(mysqlRequests.INSERT_FREEZER,
-                                         (num, name, token,))
+                if not query_db.insert_query_db(mysqlRequests.INSERT_FREEZER,
+                                                (num, name, token,)):
+                    return generate_response(500, response_message.BAD_FORMAT)
             else:
-                return generate_response(400, response_message.BAD_TOKEN)
+                return generate_response(400, response_message.BAD_FORMAT)
 
-        return Response(status=200)
+            return Response(status=200)
 
     return generate_response(400, response_message.BAD_TOKEN)
 
@@ -92,7 +119,7 @@ def add_product(token):
               'quantity']
 
     new_product = request.get_json()
-
+    print(token)
     if validator_db.check_token(token):
         correct, new_product = validator_db.check_insert_product(token, header, new_product)
 
@@ -227,7 +254,7 @@ def update_product(token, product_id, object):
 
                 query_db.insert_query_db(mysqlRequests.UPDATE_PERIOD,
                                          (value_formatted, product['prod_id'],))
-            ## box et prod num à faire
+            ## TODO box et prod num à faire
             if object == 'quantity':
                 if not value_formatted.isdigit():
                     return generate_response(400, response_message.BAD_FORMAT)

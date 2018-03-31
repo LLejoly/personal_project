@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/formcss.css">
+    <!--https://codepen.io/mican/pen/dRWxZe-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./js/dashboard/request.js"></script>
+    <script src="./js/dashboard/generate_types.js"></script>
+    <script src="./js/dashboard/generate_freezers.js"></script>
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <form method="POST" name="get_token" action="javascript:void(0);" onsubmit="setToken()">
+        <p>
+            <label>token
+                <input type="text" name="token">
+            </label>
+        </p>
+        <input class="button" type="submit" name="submit">
+    </form>
+    <p id="token_error"></p>
+    <h2>Possible types</h2>
+    <div id="types_table" style="overflow:auto; height:400px;">
+    </div>
+    <h2>Freezers</h2>
+    <div>
+        <div id="freezers_table" style="overflow:auto; height:400px;">
+        </div>
+        <form method="POST" name="add_freezer" class="form" action="javascript:void(0);" onsubmit="addFreezer('add_freezer')">
+            <p class='field required'>
+                <label class='label'>name
+                    <input type="text" name="name" required>
+                </label>
+            </p>
+            <p class='field required'>
+                <label class='label'>num_boxes
+                    <input type="text" name="num_boxes" required>
+                </label>
+            </p>
+            <input class="button" type="submit" name="submit">
+        </form>
+    </div>
+</body>
+<script>
+    var token = "";
+    var domainUrl = "http://localhost:5000/";
+    function setToken() {
+        token = document.forms["get_token"]["token"].value;
+        check_token();
+    }
+
+    function clear_dashboard() {
+        document.getElementById("token_error").innerHTML = "";
+        document.getElementById("types_table").innerHTML = "";
+        document.getElementById("freezers_table").innerHTML = "";
+    }
+
+    function check_token() {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                clear_dashboard();
+                setDashboard();
+            } else {
+                clear_dashboard();
+                document.getElementById("token_error").innerHTML = "the token given is not valid";
+            }
+            // need to manage other types exception
+        };
+        xmlhttp.open("GET", "http://localhost:5000/check_token/" + token, true);
+        xmlhttp.send();
+    }
+
+    function setDashboard() {
+        ajaxRequest({type: "GET", url: domainUrl + "types/" + token, elementId: "types_table" }, generateTableFromJson);
+        ajaxRequest({type: "GET", url: domainUrl + "freezers/" + token, elementId: "freezers_table" }, generateTableFromJson);
+    }
+</script>
+
+</html>

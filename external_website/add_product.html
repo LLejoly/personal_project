@@ -84,7 +84,7 @@ set_types=function(arr){
     selectParentNode.replaceChild(newSelectObj, select);
     select = newSelectObj
 
-    while(arr.length  > 0){
+    while(arr.length  > 0) {
         var elem = arr.pop()
         console.log(elem['type_id'] + " " + elem['type_name_en']);
         option = document.createElement('option');
@@ -114,7 +114,7 @@ set_freezers=function(arr){
     }
 }
 
-function check_user(token){
+function check_user(token) {
     console.log("change token")
     var url = "http://localhost:5000/types/" + token;
     ajax_request("GET", url, set_types)
@@ -146,7 +146,7 @@ function validateForm() {
     for (i =0; i < length; i++) {
         console.log("data" + data[i].name);
         console.log(data[i].name != 'token');
-        if (data[i].name != 'token' && data[i].name != 'submit'){
+        if (data[i].name != 'token' && data[i].name != 'submit') {
             my_test[data[i].name] = data[i].value;
         }
     }

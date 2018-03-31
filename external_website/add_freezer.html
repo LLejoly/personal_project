@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" href = "./css/formcss.css">
+    <!--https://codepen.io/mican/pen/dRWxZe-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Add product</title>
+</head>
+<body>
+    <form method="POST" name="myform" class="form" action="javascript:void(0);" onsubmit="validateForm()">
+        <p class='field required'>
+            <label class='label'>token
+                <input type="text" name="token" required>
+            </label>
+        </p>
+        <p class='field required'>
+            <label class='label'>name
+                <input type="text" name="name" required>
+            </label>
+        </p>
+        <p class='field required'>
+            <label class='label'>num_boxes
+                <input type="text" name="num_boxes" required>
+            </label>
+        </p>
+        <input class="button" type="submit" name ="submit">
+    </form>
+</body>
+
+<script>   
+    function validateForm() {
+        var token = document.forms["myform"]["token"].value;
+        console.log(token);
+        console.log(document.getElementsByTagName('input'));
+        console.log(document.forms["myform"].length);
+        var length = document.forms["myform"].length;
+        var data = document.forms["myform"].elements;
+        var my_test = {};
+        for (i =0; i < length; i++) {
+            console.log("data" + data[i].name);
+            console.log(data[i].name != 'token');
+            if (data[i].name != 'token' && data[i].name != 'submit'){
+                my_test[data[i].name] = data[i].value;
+            }
+        }
+    
+        console.log(my_test);
+        var http = new XMLHttpRequest();
+        var url = "http://localhost:5000/freezers/"+ token;
+        http.open("POST", url, true);
+    
+        //Send the proper header information along with the request
+        http.setRequestHeader("Content-type", "application/json");
+    
+        http.onreadystatechange = function() {//Call a function when the state changes.
+            if(http.readyState == 4 && http.status == 200) {
+                //console.log(this.responseText);
+            } else {
+                if (this.responseText.length > 0) {
+                    console.log(JSON.parse(this.responseText));
+                }
+                
+                //var t = "\'"+this.responseText +"\'";
+                //var myObject = eval('(' + this.responseText + ')');
+                var t2 = '{"details": "Bad token given", "status": 400}';
+                //console.log(t);
+                //console.log(myObject);
+                //var arr = JSON.parse(t2);
+                //console.log(arr);
+                //console.log(arr.details);
+            }
+        }
+        http.send(JSON.stringify(my_test));
+    }
+    </script>
+    </html>
