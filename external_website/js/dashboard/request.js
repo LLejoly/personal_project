@@ -6,6 +6,11 @@ function ajaxRequest(objContent, callback) {
         if (this.readyState == 4 && this.status == 200) {
             if (this.responseText.length > 0) {
                 objContent['content'] = JSON.parse(this.responseText);
+                if (objContent['cascadeCallback'] == true) {
+                    //console.log(objContent['callback']);
+                    objContent['callback'].call();
+                    //callback(objContent['callback']);
+                }
             } else {
                 objContent['content'] = '';
             }

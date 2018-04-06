@@ -8,6 +8,14 @@ class QueryDB:
         self.decode = decode
 
     def get_query_db(self, query, args=(), one=False, header=False):
+        """
+
+        :param query: a MySQL query
+        :param args: a list of arguments passed to the query
+        :param one: A boolean to say that we only want the first result of the query
+        :param header: A boolean to specify if we want the header associated to the data
+        :return: A list of elements
+        """
         cursor = self.connection.cursor()
         cursor.execute(query, args)
         head = []
@@ -17,7 +25,10 @@ class QueryDB:
         if one and header:
             data = cursor.fetchone()
             cursor.close()
-            return dict(zip(head, data))
+            if data:
+                return dict(zip(head, data))
+            return data
+
         elif one:
             data = cursor.fetchone()
             cursor.close()

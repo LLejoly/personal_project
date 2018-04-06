@@ -3,20 +3,36 @@ Smart freezer User's Guide
 
 Introduction
 ------------
-The Freezer API is an API used to retrieve data from the smart freezer application.
+The Freezer API is an API used to retrieve data from the smart freezer application. TO use it,
+you need to run the api by running the bash script `flask_run.sh`.
+The database server need to be active.
 
 Installation
 ------------
-To use the API no installation of specific tools are required. It can be used with 'curl' for instance.
+To use the API no installation of specific tools are required.
+It can be used with `curl` request, for instance.
 
 Commands
 ========
-A couple of commands can be used. For most of them a user's token will be needed. This token can be obtain by the user on the login page.
+A couple of commands can be used. These commands are explained above, for most of them a user's token is needed.
+This token can be obtain by the user on the login page. If you do not have an account you can create one on the 
+register page.
+
+*check_token* `GET`
+------------------
+Gives the possibility to check the validity of a token. If this one is valid
+a response with the status 200 is returned in other cases a response with the status 400 is returned.
+```
+localhost:5000/check_token/<token>
+```
+Parameters:
+
+- `<token>`: A user's token
+
 
 *types* `GET`
 -------------
 It is possible to obtain the different types of products present in the database.
-The simplest possible database connection is:
 ```
 localhost:5000/types/<token>
 ```

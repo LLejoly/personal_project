@@ -25,10 +25,11 @@
     <h2>Possible types</h2>
     <div id="types_table" style="overflow:auto; height:400px;">
     </div>
-    <h2>Freezers</h2>
+
     <div>
-        <div id="freezers_table" style="overflow:auto; height:400px;">
-        </div>
+        <h2>Freezers</h2>
+        <div id="freezers_table" style="overflow:auto; height:400px;"></div>
+        <p>Add a freezer</p>
         <form method="POST" name="add_freezer" class="form" action="javascript:void(0);" onsubmit="addFreezer('add_freezer')">
             <p class='field required'>
                 <label class='label'>name
@@ -43,10 +44,16 @@
             <input class="button" type="submit" name="submit">
         </form>
     </div>
+    <div id= "tmp">
+    </div>
+
 </body>
 <script>
     var token = "";
     var domainUrl = "http://localhost:5000/";
+    var typesObject = {};
+    var freezersObject = {};
+
     function setToken() {
         token = document.forms["get_token"]["token"].value;
         check_token();
@@ -74,9 +81,45 @@
         xmlhttp.send();
     }
 
+    function createRadioButton(group, val, text){
+        return '<input type="radio" name="' + group + '" value="' + val + '">' + text + '<br>';
+    }
+
+    function test() {
+        var f = document.createElement("form");
+        f.setAttribute('method', 'POST');
+        f.setAttribute('action', 'javascript:void(0);');
+
+        var params = ['all', 'inside', 'outside'];
+        var grp1 = "";
+        var grp2 = "";
+
+        for (var i = 0; i < params.length; i++) {
+            grp1 += createRadioButton("group1", params[i],params[i]);
+        }
+
+        //f.innerHTML = grp1;
+
+        grp2 += createRadioButton("group2", 0, "all freezers");
+
+        console.log(freezersObject.content);
+        console.log(freezersObject.content.length);
+        for (var i = 0; i < freezersObject.content.length; i++) {
+            grp2 += createRadioButton("group2", freezersObject.content[i]['freezer_id'], freezersObject.content[i]['freezer_name']);
+        }
+
+        f.innerHTML = grp1 + grp2;
+        // TODO ajouter le bouton submit
+        document.getElementById('tmp').appendChild(f);
+    }
+
     function setDashboard() {
-        ajaxRequest({type: "GET", url: domainUrl + "types/" + token, elementId: "types_table" }, generateTableFromJson);
-        ajaxRequest({type: "GET", url: domainUrl + "freezers/" + token, elementId: "freezers_table" }, generateTableFromJson);
+        typesObject = { type: "GET", url: domainUrl + "types/" + token, elementId: "types_table" };
+        freezersObject = { type: "GET", url: domainUrl + "freezers/" + token, elementId: "freezers_table", cascadeCallback: true, callback: test };
+        ajaxRequest(typesObject, generateTableFromJson);
+        ajaxRequest(freezersObject, generateTableFromJson);
+        console.log(freezersObject);
+        //console.log(freezersObject.type);
     }
 </script>
 

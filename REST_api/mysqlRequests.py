@@ -1,52 +1,119 @@
+PRODUCT_HEADER = ['product_name',
+                  'text_descr',
+                  'freezer_id',
+                  'type_id',
+                  'date_in',
+                  'period',
+                  'box_num',
+                  'prod_num',
+                  'quantity']
+"""
+Returns the possible types of products that can be saved in a freezer.
+"""
 GET_TYPES = """SELECT *
                FROM Description_type"""
-
+"""
+Returns information about a specific freezer
+"""
+GET_SPECIFIC_FREERZER = """SELECT freezer_id,
+                                  number_boxes,
+                                  freezer_name 
+                           FROM Description_freezer WHERE freezer_id = %s"""
+"""
+Returns a list of freezers associated to a specific token.
+"""
 GET_FREEZERS = """SELECT Description_freezer.freezer_id,
                          Description_freezer.number_boxes,
                          Description_freezer.freezer_name 
                   FROM Description_freezer INNER JOIN List_freezer
                   WHERE token = %s AND Description_freezer.freezer_id = List_freezer.freezer_id"""
+"""
+Returns a list of [[prod_num, box_num]] for a given freezer and token.
+"""
+GET_PROD_NUM_LIST = """SELECT prod_num, box_num
+                       FROM Product
+                       WHERE token = %s AND freezer_id = %s AND date_out IS NULL 
+                       ORDER BY box_num, prod_num"""
+
+param_all = """FROM ((Product
+                      INNER JOIN Description_product
+                        ON Product.descr_id = Description_product.descr_id
+                          AND Product.token = %s)
+                            INNER JOIN Description_freezer
+                              ON Product.freezer_id = Description_freezer.freezer_id)"""
+
+param_all_inside = """FROM ((Product
+                      INNER JOIN Description_product
+                        ON Product.descr_id = Description_product.descr_id
+                          AND Product.token = %s
+                          AND Product.date_out IS NULL)
+                            INNER JOIN Description_freezer
+                              ON Product.freezer_id = Description_freezer.freezer_id)"""
+
+param_all_outside = """FROM ((Product
+                      INNER JOIN Description_product
+                        ON Product.descr_id = Description_product.descr_id
+                          AND Product.token = %s
+                          AND Product.date_out IS NOT NULL)
+                            INNER JOIN Description_freezer
+                              ON Product.freezer_id = Description_freezer.freezer_id)"""
+
+param_one = """FROM ((Product
+                      INNER JOIN Description_product
+                        ON Product.descr_id = Description_product.descr_id
+                          AND Product.token = %s
+                          AND Product.freezer_id = %s)
+                            INNER JOIN Description_freezer
+                              ON Product.freezer_id = Description_freezer.freezer_id)"""
+
+param_one_inside = """FROM ((Product
+                      INNER JOIN Description_product
+                        ON Product.descr_id = Description_product.descr_id
+                          AND Product.token = %s
+                          AND Product.freezer_id = %s
+                          AND Product.date_out IS NULL)
+                            INNER JOIN Description_freezer
+                              ON Product.freezer_id = Description_freezer.freezer_id)"""
+
+param_one_outside = """FROM ((Product
+                      INNER JOIN Description_product
+                        ON Product.descr_id = Description_product.descr_id
+                          AND Product.token = %s
+                          AND Product.freezer_id = %s
+                          AND Product.date_out IS NOT NULL)
+                            INNER JOIN Description_freezer
+                              ON Product.freezer_id = Description_freezer.freezer_id)"""
 
 
-GET_ALL_PRODUCTS_ALL_FREEZERS = """SELECT box_num, DATE_FORMAT(date_in, '%%Y-%%m-%%d') AS date_formatted_in,
-                                   DATE_FORMAT(date_out, '%%Y-%%m-%%d') AS date_formatted_out, descr_id,
-                                   freezer_id, period, prod_id, prod_num, quantity, type_id
-                                   FROM Product
-                                   WHERE token = %s"""
+def generate_product_query(param):
+    select_col = """SELECT Product.freezer_id,
+                           Description_freezer.freezer_name,
+                           Description_freezer.number_boxes,
+                           Product.box_num,
+                           Product.prod_num,
+                           DATE_FORMAT(Product.date_in, '%%Y-%%m-%%d') AS date_formatted_in,
+                           DATE_FORMAT(Product.date_out, '%%Y-%%m-%%d') AS date_formatted_out,
+                           Product.period,
+                           Product.prod_id,
+                           Product.quantity,
+                           Product.type_id,
+                           Product.descr_id,
+                           Description_product.product_name,
+                           Description_product.text_descr """
+    if param == "all":
+        return select_col + param_all
+    if param == "all-one":
+        return select_col + param_one
+    if param == "inside":
+        return select_col + param_all_inside
+    if param == "inside-one":
+        return select_col + param_one_inside
+    if param == "outside":
+        return select_col + param_all_outside
+    if param == "outside-one":
+        return select_col + param_one_outside
 
-GET_ALL_PRODUCTS_ONE_FREEZER = """SELECT box_num, DATE_FORMAT(date_in, '%%Y-%%m-%%d') AS date_formatted_in,
-                                   DATE_FORMAT(date_out, '%%Y-%%m-%%d') AS date_formatted_out, descr_id,
-                                   freezer_id, period, prod_id, prod_num, quantity, type_id
-                                   FROM Product
-                                   WHERE token = %s AND freezer_id = %s"""
-
-GET_ALL_PRODUCTS_INSIDE_ALL_FREEZERS = """SELECT box_num, DATE_FORMAT(date_in, '%%Y-%%m-%%d') AS date_formatted_in,
-                                          DATE_FORMAT(date_out, '%%Y-%%m-%%d') AS date_formatted_out, descr_id,
-                                          freezer_id, period, prod_id, prod_num, quantity, type_id
-                                          FROM Product
-                                          WHERE token = %s AND date_out IS NULL """
-
-GET_ALL_PRODUCTS_INSIDE_ONE_FREEZER = """SELECT box_num, DATE_FORMAT(date_in, '%%Y-%%m-%%d') AS date_formatted_in,
-                                         DATE_FORMAT(date_out, '%%Y-%%m-%%d') AS date_formatted_out, descr_id,
-                                         freezer_id, period, prod_id, prod_num, quantity, type_id
-                                         FROM Product
-                                         WHERE token = %s AND freezer_id = %s AND date_out IS NULL """
-
-GET_ALL_PRODUCTS_OUTSIDE_ALL_FREEZERS = """SELECT box_num, DATE_FORMAT(date_in, '%%Y-%%m-%%d') AS date_formatted_in,
-                                          DATE_FORMAT(date_out, '%%Y-%%m-%%d') AS date_formatted_out, descr_id,
-                                          freezer_id, period, prod_id, prod_num, quantity, type_id
-                                          FROM Product
-                                          WHERE token = %s AND date_out IS NOT NULL """
-
-GET_ALL_PRODUCTS_OUTSIDE_ONE_FREEZER = """SELECT box_num, DATE_FORMAT(date_in, '%%Y-%%m-%%d') AS date_formatted_in,
-                                         DATE_FORMAT(date_out, '%%Y-%%m-%%d') AS date_formatted_out, descr_id,
-                                         freezer_id, period, prod_id, prod_num, quantity, type_id
-                                         FROM Product
-                                         WHERE token = %s AND freezer_id = %s AND date_out IS NOT NULL """
-
-
-
-
+    return
 
 
 INSERT_FREEZER = """BEGIN;

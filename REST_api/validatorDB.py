@@ -97,8 +97,8 @@ class ValidatorDB:
             return False
 
         query = """SELECT prod_num
-                      FROM Product
-                      WHERE freezer_id = %s AND token = %s AND box_num = %s AND prod_num = %s AND date_out IS NULL """
+                   FROM Product
+                   WHERE freezer_id = %s AND token = %s AND box_num = %s AND prod_num = %s AND date_out IS NULL """
         res = self.query_db.get_query_db(query, (freezer_id, token, box_num, prod_num, ))
 
         for l in res:
@@ -112,20 +112,23 @@ class ValidatorDB:
         product_formatted = {}
         if list(product.keys()) == header:
 
-            if not self.check_product_id(token, product['freezer_id'],
-                                         product['box_num'], product['prod_num']):
+            if not self.check_product_id(token,
+                                         product['freezer_id'],
+                                         product['box_num'],
+                                         product['prod_num']):
                 return False, {}
 
+            product_formatted['freezer_id'] = int(product['freezer_id'])
             product_formatted['box_num'] = int(product['box_num'])
             product_formatted['prod_num'] = int(product['prod_num'])
 
             for idx, value in enumerate(header):
 
-                if value == 'freezer_id' and not self.check_freezer_id(token, product[header[idx]]):
-                    return False, {}
-                elif value == 'freezer_id':
-                    product_formatted[header[idx]] = int(product[header[idx]])
-                    continue
+                # if value == 'freezer_id' and not self.check_freezer_id(token, product[header[idx]]):
+                #     return False, {}
+                # elif value == 'freezer_id':
+                #     product_formatted[header[idx]] = int(product[header[idx]])
+                #     continue
 
                 if value == 'type_id' and not self.check_type_id(product[header[idx]]):
                     return False, {}

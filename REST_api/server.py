@@ -60,6 +60,7 @@ def get_types(token):
 
     return generate_response(400, response_message.BAD_TOKEN)
 
+
 # gerer les response code
 # example
 # curl -H "Content-Type: application/json" -X POST -d '{"num_boxes":"4","name":"xyz"}' http://localhost:5000/freezers/93896fbc55089bbf31d7a4c5db8fc992/
@@ -104,33 +105,65 @@ def freezers(token):
     return generate_response(400, response_message.BAD_TOKEN)
 
 
+@app.route("/freezer_next_id/<string:token>/<int:freezer_id>", methods=['GET'])
+def freezer_next_id(token, freezer_id):
+    if validator_db.check_token(token):
+        freezer = query_db.get_query_db(mysqlRequests.GET_SPECIFIC_FREERZER,
+                                        (freezer_id,),
+                                        one=True,
+                                        header=True)
+
+        if not freezer:
+            return generate_response(400, response_message.BAD_FORMAT)
+
+        template = {}
+        for i in range(1, freezer['number_boxes'] + 1):
+            template[str(i)] = 1
+
+        products = query_db.get_query_db(mysqlRequests.GET_PROD_NUM_LIST,
+                                         (token,
+                                          freezer_id,))
+
+        for idx, box in products:
+            if template[str(box)] == idx:
+                template[str(box)] = idx + 1
+
+        return jsonify(template)
+
+    return generate_response(400, response_message.BAD_FORMAT)
+
+
 # # curl -H "Content-Type: application/json" -X POST -d '{"product_name":"Soupe de Noël","text_descr":"Soupe à base de tomate, poivrons et petits pois", "freezer_id":"1","type_id":"1","date_in":"2017-12-26","period":"6","box_num":"1","prod_num":"3","quantity":"4"}' http://localhost:5000/add_product/5b68dab9a6c606171473091280898d1c9e581159173d6ba267f3418a6573ae92
 @app.route("/add_product/<string:token>", methods=['POST'])
 def add_product(token):
+    """
+    Allow to add a new product to the database
+    :param token: a user token to have access to the database
+    :return: a status as response
+    """
     token = MySQLdb.escape_string(token)
-    header = ['product_name',
-              'text_descr',
-              'freezer_id',
-              'type_id',
-              'date_in',
-              'period',
-              'box_num',
-              'prod_num',
-              'quantity']
-
     new_product = request.get_json()
-    print(token)
+
     if validator_db.check_token(token):
-        correct, new_product = validator_db.check_insert_product(token, header, new_product)
+        correct, new_product = validator_db.check_insert_product(token,
+                                                                 mysqlRequests.PRODUCT_HEADER,
+                                                                 new_product)
 
         if not correct:
             return generate_response(400, response_message.BAD_FORMAT)
 
         query_db.insert_query_db(mysqlRequests.INSERT_PRODUCT,
-                                 (new_product['product_name'], new_product['text_descr'], new_product['type_id'],
-                                  token, new_product['freezer_id'], new_product['type_id'],
-                                  new_product['date_in'], new_product['period'], new_product['box_num'],
-                                  new_product['prod_num'], new_product['quantity'],))
+                                 (new_product['product_name'],
+                                  new_product['text_descr'],
+                                  new_product['type_id'],
+                                  token,
+                                  new_product['freezer_id'],
+                                  new_product['type_id'],
+                                  new_product['date_in'],
+                                  new_product['period'],
+                                  new_product['box_num'],
+                                  new_product['prod_num'],
+                                  new_product['quantity'],))
     else:
         return generate_response(400, response_message.BAD_TOKEN)
 
@@ -139,37 +172,47 @@ def add_product(token):
 
 @app.route("/get_product/<string:params>/<int:freezer_id>/<string:token>", methods=['GET'])
 def get_product(token, params, freezer_id):
+    """
+
+    :param token:
+    :param params:
+    :param freezer_id:
+    :return:
+    """
     token = MySQLdb.escape_string(token)
     if validator_db.check_token(token):
         if params == 'all':
             if freezer_id == 0:
-                return jsonify(query_db.get_query_db(mysqlRequests.GET_ALL_PRODUCTS_ALL_FREEZERS,
+                return jsonify(query_db.get_query_db(mysqlRequests.generate_product_query('all'),
                                                      (token,),
                                                      header=True))
             else:
-                return jsonify(query_db.get_query_db(mysqlRequests.GET_ALL_PRODUCTS_ONE_FREEZER,
-                                                     (token, freezer_id,),
+                return jsonify(query_db.get_query_db(mysqlRequests.generate_product_query('all-one'),
+                                                     (token,
+                                                      freezer_id,),
                                                      header=True))
 
         if params == 'inside':
             if freezer_id == 0:
-                return jsonify(query_db.get_query_db(mysqlRequests.GET_ALL_PRODUCTS_INSIDE_ALL_FREEZERS,
+                return jsonify(query_db.get_query_db(mysqlRequests.generate_product_query('inside'),
                                                      (token,),
                                                      header=True))
             else:
-                return jsonify(query_db.get_query_db(mysqlRequests.GET_ALL_PRODUCTS_INSIDE_ONE_FREEZER,
-                                                     (token, freezer_id,),
+                return jsonify(query_db.get_query_db(mysqlRequests.generate_product_query('inside-one'),
+                                                     (token,
+                                                      freezer_id,),
                                                      header=True))
 
         if params == 'outside':
             if validator_db.check_token(token):
                 if freezer_id == 0:
-                    return jsonify(query_db.get_query_db(mysqlRequests.GET_ALL_PRODUCTS_OUTSIDE_ALL_FREEZERS,
+                    return jsonify(query_db.get_query_db(mysqlRequests.generate_product_query('outside'),
                                                          (token,),
                                                          header=True))
                 else:
-                    return jsonify(query_db.get_query_db(mysqlRequests.GET_ALL_PRODUCTS_OUTSIDE_ONE_FREEZER,
-                                                         (token, freezer_id,),
+                    return jsonify(query_db.get_query_db(mysqlRequests.generate_product_query('outside-one'),
+                                                         (token,
+                                                          freezer_id,),
                                                          header=True))
 
         return generate_response(400, response_message.BAD_PARAMETER)
