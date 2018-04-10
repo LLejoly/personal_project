@@ -4,47 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/formcss.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--https://codepen.io/mican/pen/dRWxZe-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- jQuery: required (tablesorter works with jQuery 1.2.3+) -->
+    <script src="./js/tablesorter/docs/js/jquery-1.2.6.min.js"></script>
+    <!-- Pick a theme, load the plugin & initialize plugin -->
+    <link href="./js/tablesorter/dist/css/theme.bootstrap_4.min.css" rel="stylesheet">
+    <script src="./js/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
+    <script src="./js/tablesorter/dist/js/jquery.tablesorter.widgets.min.js"></script>
+
     <script src="./js/dashboard/request.js"></script>
     <script src="./js/dashboard/generate_types.js"></script>
     <script src="./js/dashboard/generate_freezers.js"></script>
     <title>Dashboard</title>
+    <style>
+        th {
+            padding: 20px;
+        }
+
+        td {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        h2, h3 {
+            text-align: center;
+            margin: 40px;
+        }
+    </style>
 </head>
 
 <body>
-    <form method="POST" name="get_token" action="javascript:void(0);" onsubmit="setToken()">
-        <p>
-            <label>token
-                <input type="text" name="token">
-            </label>
-        </p>
-        <input class="button" type="submit" name="submit">
-    </form>
-    <p id="token_error"></p>
-    <h2>Possible types</h2>
-    <div id="types_table" style="overflow:auto; height:400px;">
-    </div>
+    <div class="container">
+        <form method="POST" name="get_token" action="javascript:void(0);" onsubmit="setToken()">
+            <input type="text" name="token" class="form-control" placeholder="insert your token" required>
+            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+        </form </div>
+        <p id="token_error"></p>
+        <h2>Possible types</h2>
+        <div id="types_table">
+        </div>
 
-    <div>
-        <h2>Freezers</h2>
-        <div id="freezers_table" style="overflow:auto; height:400px;"></div>
-        <p>Add a freezer</p>
-        <form method="POST" name="add_freezer" class="form" action="javascript:void(0);" onsubmit="addFreezer('add_freezer')">
-            <p class='field required'>
-                <label class='label'>name
-                    <input type="text" name="name" required>
-                </label>
-            </p>
-            <p class='field required'>
-                <label class='label'>num_boxes
-                    <input type="text" name="num_boxes" required>
-                </label>
-            </p>
-            <input class="button" type="submit" name="submit">
-        </form>
-    </div>
-    <div id= "tmp">
+        <div>
+            <h2>Freezers</h2>
+            <div id="freezers_table"></div>
+            <h3>Add a freezer</h3>
+            <form method="POST" name="add_freezer" action="javascript:void(0);" onsubmit="addFreezer('add_freezer')">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" name="name" class="form-control " placeholder="freezer name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" name="num_boxes" class="form-control" placeholder="number of boxes" required>
+                    </div>
+                </div>
+                <input class="btn btn-primary" type="submit" name="submit">
+            </form>
+        </div>
+        <div>
+                <h2>Products</h2>
+                <div id="products_listing" class="custom-control custom-radio"></div>
+                <div id="products_table"></div>
+        </div>
     </div>
 
 </body>
@@ -63,6 +84,8 @@
         document.getElementById("token_error").innerHTML = "";
         document.getElementById("types_table").innerHTML = "";
         document.getElementById("freezers_table").innerHTML = "";
+        document.getElementById("products_listing").innerHTML = "";
+        document.getElementById("products_table").innerHTML = "";
     }
 
     function check_token() {
@@ -81,24 +104,31 @@
         xmlhttp.send();
     }
 
-    function createRadioButton(group, val, text){
+    function createRadioButton(group, val, text) {
         return '<input type="radio" name="' + group + '" value="' + val + '">' + text + '<br>';
     }
 
-    function test() {
+    function setProductsTable() {
+        var option1 = document.forms["product_selection"]["group1"].value;
+        var option2 = document.forms["product_selection"]["group2"].value;
+        productsObject = { type: "GET", url: domainUrl + "get_product/" + option1 + "/" + option2 + "/" + token, elementId: "products_table" };
+        ajaxRequest(productsObject, generateTableFromJson);
+    }
+
+    function productSelection() {
         var f = document.createElement("form");
         f.setAttribute('method', 'POST');
+        f.setAttribute('name', 'product_selection');
         f.setAttribute('action', 'javascript:void(0);');
+        f.setAttribute("onsubmit", "setProductsTable()");
 
         var params = ['all', 'inside', 'outside'];
         var grp1 = "";
         var grp2 = "";
 
         for (var i = 0; i < params.length; i++) {
-            grp1 += createRadioButton("group1", params[i],params[i]);
+            grp1 += createRadioButton("group1", params[i], params[i]);
         }
-
-        //f.innerHTML = grp1;
 
         grp2 += createRadioButton("group2", 0, "all freezers");
 
@@ -108,18 +138,21 @@
             grp2 += createRadioButton("group2", freezersObject.content[i]['freezer_id'], freezersObject.content[i]['freezer_name']);
         }
 
-        f.innerHTML = grp1 + grp2;
+        f.innerHTML = grp1 + "<hr>" + grp2;
+        var x = document.createElement("INPUT");
+        x.setAttribute("type", "submit");
+        x.setAttribute("class","btn btn-primary");
+        f.appendChild(x);
         // TODO ajouter le bouton submit
-        document.getElementById('tmp').appendChild(f);
+        document.getElementById('products_listing').appendChild(f);
     }
 
     function setDashboard() {
         typesObject = { type: "GET", url: domainUrl + "types/" + token, elementId: "types_table" };
-        freezersObject = { type: "GET", url: domainUrl + "freezers/" + token, elementId: "freezers_table", cascadeCallback: true, callback: test };
+        freezersObject = { type: "GET", url: domainUrl + "freezers/" + token, elementId: "freezers_table", cascadeCallback: true, callback: productSelection };
         ajaxRequest(typesObject, generateTableFromJson);
         ajaxRequest(freezersObject, generateTableFromJson);
         console.log(freezersObject);
-        //console.log(freezersObject.type);
     }
 </script>
 
