@@ -73,3 +73,44 @@ function generateTableFromJson(content) {
     //Call jquery function
     $.myjQuery("#" + content['elementId'] + "_table"); 
 }
+
+function createRadioButton(group, val, text) {
+    return '<input type="radio" name="' + group + '" value="' + val + '">' + text + '<br>';
+}
+
+function setProductsTable(productsObject) {
+    var option1 = document.forms["product_selection"]["group1"].value;
+    var option2 = document.forms["product_selection"]["group2"].value;
+    productsObject = { type: "GET", url: domainUrl + "get_product/" + option1 + "/" + option2 + "/" + token, elementId: "products_table" };
+    ajaxRequest(productsObject, generateTableFromJson);
+}
+
+function generateProductSelection(objectIdentifier) {
+    console.log(objectIdentifier);
+    var f = document.createElement("form");
+    f.setAttribute('method', 'POST');
+    f.setAttribute('name', 'product_selection');
+    f.setAttribute('action', 'javascript:void(0);');
+    f.setAttribute("onsubmit", "setProductsTable(freezersObject)");
+
+    var params = ['all', 'inside', 'outside'];
+    var grp1 = "";
+    var grp2 = "";
+
+    for (var i = 0; i < params.length; i++) {
+        grp1 += createRadioButton("group1", params[i], params[i]);
+    }
+
+    grp2 += createRadioButton("group2", 0, "all freezers");
+
+    for (var i = 0; i < freezersObject.content.length; i++) {
+        grp2 += createRadioButton("group2", freezersObject.content[i]['freezer_id'], freezersObject.content[i]['freezer_name']);
+    }
+
+    f.innerHTML = grp1 + "<hr>" + grp2;
+    var x = document.createElement("INPUT");
+    x.setAttribute("type", "submit");
+    x.setAttribute("class", "btn btn-primary");
+    f.appendChild(x);
+    document.getElementById(objectIdentifier.toString()).appendChild(f);
+}

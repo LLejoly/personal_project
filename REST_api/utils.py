@@ -1,15 +1,11 @@
-def is_number(s):
-    try:
-        float(s)
-        return True
-    except ValueError:
-        pass
-
-    try:
-        import unicodedata
-        unicodedata.numeric(s)
-        return True
-    except (TypeError, ValueError):
-        pass
+def is_valid_number(s):
+    if isinstance(s, int):
+        if s >= 0:
+            return True
+        return False
+    if isinstance(s, str):
+        if s.isdigit():
+            return True
+        return False
 
     return False

@@ -11,7 +11,9 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/REST_api$validatorDB.coverage" NAME="validatorDB Coverage Results" MODIFIED="1521056144038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/REST_api$REST_api.coverage" NAME="REST_api Coverage Results" MODIFIED="1520171978597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/REST_api$Unittests_in_test_py.coverage" NAME="Unittests in test.py Coverage Results" MODIFIED="1525072167044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/REST_api$main.coverage" NAME="main Coverage Results" MODIFIED="1524845561167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/REST_api$REST_api.coverage" NAME="REST_api Coverage Results" MODIFIED="1524846224067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/REST_api$test.coverage" NAME="test Coverage Results" MODIFIED="1519403449079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
@@ -46,11 +48,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="queryDB.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/queryDB.py">
+      <file leaf-file-name="responseMessage.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/responseMessage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+            <state relative-caret-position="396">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -59,58 +61,76 @@
       <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="172" column="31" lean-forward="true" selection-start-line="172" selection-start-column="12" selection-end-line="172" selection-end-column="31" />
+            <state relative-caret-position="5796">
+              <caret line="439" column="59" lean-forward="false" selection-start-line="439" selection-start-column="59" selection-end-line="439" selection-end-column="59" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <marker date="1523016250703" expanded="true" signature="9584:9668" ph="SELECT * FRO... Product" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mysqlRequests.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-234">
+              <caret line="38" column="60" lean-forward="false" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
+              <folding>
+                <element signature="e#56#66#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mysqlRequests.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mysqlRequests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="11" selection-end-column="3" />
+            <state relative-caret-position="792">
+              <caret line="116" column="0" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
               <folding>
-                <marker date="1523012496827" expanded="true" signature="367:412" ph="SELECT * FRO... Description_type" />
-                <marker date="1523012496827" expanded="true" signature="496:682" ph="SELECT freez... Description_freezer" />
-                <marker date="1523012496827" expanded="true" signature="496:684" ph="SELECT freez... Description_freezer" />
-                <marker date="1523012496827" expanded="true" signature="773:1092" ph="SELECT Descr... Description_freezer" />
-                <marker date="1523012496827" expanded="true" signature="1198:1390" ph="SELECT prod_... Product" />
+                <marker date="1524841250677" expanded="true" signature="367:412" ph="SELECT * FRO... Description_type" />
+                <marker date="1524841250677" expanded="true" signature="511:607" ph="SELECT * FRO... Product" />
+                <marker date="1524841250677" expanded="true" signature="511:642" ph="SELECT * FRO... Product" />
+                <marker date="1524841250677" expanded="true" signature="726:912" ph="SELECT freez... Description_freezer" />
+                <marker date="1524841250677" expanded="true" signature="726:914" ph="SELECT freez... Description_freezer" />
+                <marker date="1524841250677" expanded="true" signature="1003:1322" ph="SELECT Descr... Description_freezer" />
+                <marker date="1524841250677" expanded="true" signature="1428:1620" ph="SELECT prod_... Product" />
+                <marker date="1524841250677" expanded="true" signature="1759:2161" ph="SELECT Produ... Product_to_type" />
+                <marker date="1524841250677" expanded="true" signature="2512:2782" ph="SELECT type_... Product" />
+                <marker date="1524841250677" expanded="true" signature="2512:2845" ph="SELECT type_... Product" />
+                <marker date="1524841250677" expanded="true" signature="6678:6753" ph="INSERT INTO Description_freezer... " />
+                <marker date="1524841250677" expanded="true" signature="6775:6847" ph="INSERT INTO List_freezer... " />
+                <marker date="1524841250677" expanded="true" signature="6928:7003" ph="INSERT INTO Description_product... " />
+                <marker date="1524841250677" expanded="true" signature="7025:7103" ph="INSERT INTO Product_to_type... " />
+                <marker date="1524841250677" expanded="true" signature="7125:7298" ph="INSERT INTO Product... " />
+                <marker date="1524841250677" expanded="true" signature="7391:7507" ph="UPDATE Description_product... " />
+                <marker date="1524841250677" expanded="true" signature="7599:7709" ph="UPDATE Description_product... " />
+                <marker date="1524841250677" expanded="true" signature="7824:8018" ph="UPDATE Description_freezer... " />
+                <marker date="1524841250677" expanded="true" signature="8121:8218" ph="UPDATE Product... " />
+                <marker date="1524841250677" expanded="true" signature="8302:8319" ph="set @newtype... " />
+                <marker date="1524841250677" expanded="true" signature="8341:8436" ph="UPDATE Product... " />
+                <marker date="1524841250677" expanded="true" signature="8458:8563" ph="UPDATE Product_to_type... " />
+                <marker date="1524841250677" expanded="true" signature="8644:8736" ph="UPDATE Product... " />
+                <marker date="1524841250677" expanded="true" signature="8819:8914" ph="UPDATE Product... " />
+                <marker date="1524841250677" expanded="true" signature="8998:9014" ph="SET @mydate " />
+                <marker date="1524841250677" expanded="true" signature="9037:9261" ph="UPDATE Product... " />
+                <marker date="1524841250677" expanded="true" signature="9341:9428" ph="UPDATE Product... " />
+                <marker date="1524841250677" expanded="true" signature="9510:9603" ph="UPDATE Product... " />
+                <marker date="1524841250677" expanded="true" signature="9690:9864" ph="UPDATE Product... " />
+                <marker date="1524841250677" expanded="true" signature="9946:9964" ph="SET @freezeI... " />
+                <marker date="1524841250677" expanded="true" signature="9986:10059" ph="DELETE FROM List_freezer... " />
+                <marker date="1524841250677" expanded="true" signature="10081:10161" ph="DELETE FROM Description_freezer... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="response_message.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/response_message.py">
+      <file leaf-file-name="queryDB.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/queryDB.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="159">
+              <caret line="41" column="22" lean-forward="true" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="validatorDB.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/validatorDB.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="8" column="32" lean-forward="false" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#27#0" expanded="true" />
-                <marker date="1522918128969" expanded="true" signature="431:547" ph="SELECT EXIST... " />
-                <marker date="1522918128969" expanded="true" signature="467:546" ph="SELECT * FRO... User" />
-                <marker date="1522918128969" expanded="true" signature="993:1123" ph="SELECT EXIST... " />
-                <marker date="1522918128969" expanded="true" signature="1029:1122" ph="SELECT * FRO... Description_type" />
-                <marker date="1522918128969" expanded="true" signature="1619:1763" ph="SELECT EXIST... " />
-                <marker date="1522918128969" expanded="true" signature="1655:1762" ph="SELECT * FRO... List_freezer" />
-                <marker date="1522918128969" expanded="true" signature="3030:3168" ph="SELECT prod_... Product" />
-                <marker date="1522918128969" expanded="true" signature="3030:3189" ph="SELECT prod_... Product" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -118,8 +138,8 @@
       <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6c48ec17-cdaf-4c0f-9b2e-3b007b3677d7/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="12" column="136" lean-forward="false" selection-start-line="12" selection-start-column="72" selection-end-line="12" selection-end-column="136" />
+            <state relative-caret-position="594">
+              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -134,18 +154,31 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>isdigit</find>
+    </findStrings>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/utils.py" />
         <option value="$PROJECT_DIR$/mysqlRquests.py" />
         <option value="$PROJECT_DIR$/response_message.py" />
-        <option value="$PROJECT_DIR$/validatorDB.py" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6c48ec17-cdaf-4c0f-9b2e-3b007b3677d7/console.sql" />
-        <option value="$PROJECT_DIR$/mysqlRequests.py" />
         <option value="$PROJECT_DIR$/queryDB.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6c48ec17-cdaf-4c0f-9b2e-3b007b3677d7/console.sql" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/tests/__init__.py" />
+        <option value="$PROJECT_DIR$/__init__.py" />
+        <option value="$PROJECT_DIR$/utils.py" />
+        <option value="$PROJECT_DIR$/validatorDB.py" />
+        <option value="$PROJECT_DIR$/tests/test.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/api/server.py" />
+        <option value="$PROJECT_DIR$/api/__init__.py" />
         <option value="$PROJECT_DIR$/server.py" />
+        <option value="$PROJECT_DIR$/responseMessage.py" />
+        <option value="$PROJECT_DIR$/mysqlRequests.py" />
       </list>
     </option>
   </component>
@@ -155,7 +188,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1920" />
     <option name="y" value="-2" />
     <option name="width" value="1920" />
@@ -177,7 +210,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -185,16 +217,30 @@
               <item name="REST_api" type="b2602c69:ProjectViewProjectNode" />
               <item name="REST_api" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="REST_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="REST_api" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.SQL" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/api" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -208,7 +254,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.validatorDB">
+  <component name="RunManager" selected="Python tests.Unittests in test.py">
     <configuration name="REST_api" type="PythonConfigurationType" factoryName="Python" singleton="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -222,7 +268,26 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="REST_api" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/api/server.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="REST_api" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -260,21 +325,40 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="REST_api" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/validatorDB.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/api/validatorDB.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <list size="3">
+    <configuration name="Unittests in test.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="REST_api" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.REST_api" />
       <item index="1" class="java.lang.String" itemvalue="Python.test" />
       <item index="2" class="java.lang.String" itemvalue="Python.validatorDB" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in test.py" />
+      <item index="4" class="java.lang.String" itemvalue="Python.main" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.validatorDB" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in test.py" />
+        <item index="1" class="java.lang.String" itemvalue="Python.main" />
+        <item index="2" class="java.lang.String" itemvalue="Python.validatorDB" />
+        <item index="3" class="java.lang.String" itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -294,18 +378,51 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="Unittests_in_test_py - 2018.04.27 at 14h 43m 36s.xml">
+      <configuration name="Unittests in test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_py - 2018.04.27 at 14h 45m 29s.xml">
+      <configuration name="Unittests in test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_py - 2018.04.27 at 14h 45m 53s.xml">
+      <configuration name="Unittests in test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_py - 2018.04.27 at 14h 52m 17s.xml">
+      <configuration name="Unittests in test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_py - 2018.04.27 at 15h 05m 47s.xml">
+      <configuration name="Unittests in test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_py - 2018.04.27 at 15h 06m 30s.xml">
+      <configuration name="Unittests in test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_py - 2018.04.27 at 15h 08m 55s.xml">
+      <configuration name="Unittests in test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_py - 2018.04.27 at 15h 17m 11s.xml">
+      <configuration name="Unittests in test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_py - 2018.04.30 at 09h 08m 07s.xml">
+      <configuration name="Unittests in test.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_py - 2018.04.30 at 09h 09m 27s.xml">
+      <configuration name="Unittests in test.py" configurationId="tests" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="-2" width="1920" height="1024" extended-state="6" />
+    <frame x="1920" y="-2" width="1920" height="1024" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.50213444" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32960895" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13713981" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14354323" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20757738" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20757738" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -314,12 +431,36 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14194237" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20757738" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -329,90 +470,12 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/response_message.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/validatorDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1854">
-          <caret line="106" column="32" lean-forward="true" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-            <marker date="1522918128969" expanded="true" signature="431:547" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="467:546" ph="SELECT * FRO... User" />
-            <marker date="1522918128969" expanded="true" signature="993:1123" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="1029:1122" ph="SELECT * FRO... Description_type" />
-            <marker date="1522918128969" expanded="true" signature="1619:1763" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="1655:1762" ph="SELECT * FRO... List_freezer" />
-            <marker date="1522918128969" expanded="true" signature="3030:3168" ph="SELECT prod_... Product" />
-            <marker date="1522918128969" expanded="true" signature="3030:3189" ph="SELECT prod_... Product" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2682">
-          <caret line="161" column="31" lean-forward="false" selection-start-line="161" selection-start-column="31" selection-end-line="161" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-            <marker date="1523016250703" expanded="true" signature="9584:9668" ph="SELECT * FRO... Product" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/queryDB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6c48ec17-cdaf-4c0f-9b2e-3b007b3677d7/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="15" lean-forward="true" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2682">
-          <caret line="161" column="31" lean-forward="true" selection-start-line="161" selection-start-column="31" selection-end-line="161" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-            <marker date="1523016250703" expanded="true" signature="9584:9668" ph="SELECT * FRO... Product" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mysqlRequests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2052">
-          <caret line="114" column="0" lean-forward="true" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
-          <folding>
-            <marker date="1523012496827" expanded="true" signature="367:412" ph="SELECT * FRO... Description_type" />
-            <marker date="1523012496827" expanded="true" signature="496:682" ph="SELECT freez... Description_freezer" />
-            <marker date="1523012496827" expanded="true" signature="496:684" ph="SELECT freez... Description_freezer" />
-            <marker date="1523012496827" expanded="true" signature="773:1092" ph="SELECT Descr... Description_freezer" />
-            <marker date="1523012496827" expanded="true" signature="1198:1390" ph="SELECT prod_... Product" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/response_message.py">
+    <entry file="file://$PROJECT_DIR$/responseMessage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
@@ -425,15 +488,17 @@
         <state relative-caret-position="1602">
           <caret line="92" column="32" lean-forward="false" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
-            <marker date="1522918128969" expanded="true" signature="431:547" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="467:546" ph="SELECT * FRO... User" />
-            <marker date="1522918128969" expanded="true" signature="993:1123" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="1029:1122" ph="SELECT * FRO... Description_type" />
-            <marker date="1522918128969" expanded="true" signature="1619:1763" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="1655:1762" ph="SELECT * FRO... List_freezer" />
-            <marker date="1522918128969" expanded="true" signature="3030:3168" ph="SELECT prod_... Product" />
-            <marker date="1522918128969" expanded="true" signature="3030:3189" ph="SELECT prod_... Product" />
+            <element signature="e#0#27#0" expanded="false" />
+            <marker date="1524848947610" expanded="true" signature="476:592" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
+            <marker date="1524848947610" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
+            <marker date="1524848947610" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
+            <marker date="1524848947610" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
           </folding>
         </state>
       </provider>
@@ -451,11 +516,38 @@
         <state relative-caret-position="2034">
           <caret line="113" column="33" lean-forward="false" selection-start-line="113" selection-start-column="33" selection-end-line="113" selection-end-column="33" />
           <folding>
-            <marker date="1523012496827" expanded="true" signature="367:412" ph="SELECT * FRO... Description_type" />
-            <marker date="1523012496827" expanded="true" signature="496:682" ph="SELECT freez... Description_freezer" />
-            <marker date="1523012496827" expanded="true" signature="496:684" ph="SELECT freez... Description_freezer" />
-            <marker date="1523012496827" expanded="true" signature="773:1092" ph="SELECT Descr... Description_freezer" />
-            <marker date="1523012496827" expanded="true" signature="1198:1390" ph="SELECT prod_... Product" />
+            <marker date="1524841250677" expanded="true" signature="367:412" ph="SELECT * FRO... Description_type" />
+            <marker date="1524841250677" expanded="true" signature="511:607" ph="SELECT * FRO... Product" />
+            <marker date="1524841250677" expanded="true" signature="511:642" ph="SELECT * FRO... Product" />
+            <marker date="1524841250677" expanded="true" signature="726:912" ph="SELECT freez... Description_freezer" />
+            <marker date="1524841250677" expanded="true" signature="726:914" ph="SELECT freez... Description_freezer" />
+            <marker date="1524841250677" expanded="true" signature="1003:1322" ph="SELECT Descr... Description_freezer" />
+            <marker date="1524841250677" expanded="true" signature="1428:1620" ph="SELECT prod_... Product" />
+            <marker date="1524841250677" expanded="true" signature="1759:2161" ph="SELECT Produ... Product_to_type" />
+            <marker date="1524841250677" expanded="true" signature="2512:2782" ph="SELECT type_... Product" />
+            <marker date="1524841250677" expanded="true" signature="2512:2845" ph="SELECT type_... Product" />
+            <marker date="1524841250677" expanded="true" signature="6678:6753" ph="INSERT INTO Description_freezer... " />
+            <marker date="1524841250677" expanded="true" signature="6775:6847" ph="INSERT INTO List_freezer... " />
+            <marker date="1524841250677" expanded="true" signature="6928:7003" ph="INSERT INTO Description_product... " />
+            <marker date="1524841250677" expanded="true" signature="7025:7103" ph="INSERT INTO Product_to_type... " />
+            <marker date="1524841250677" expanded="true" signature="7125:7298" ph="INSERT INTO Product... " />
+            <marker date="1524841250677" expanded="true" signature="7391:7507" ph="UPDATE Description_product... " />
+            <marker date="1524841250677" expanded="true" signature="7599:7709" ph="UPDATE Description_product... " />
+            <marker date="1524841250677" expanded="true" signature="7824:8018" ph="UPDATE Description_freezer... " />
+            <marker date="1524841250677" expanded="true" signature="8121:8218" ph="UPDATE Product... " />
+            <marker date="1524841250677" expanded="true" signature="8302:8319" ph="set @newtype... " />
+            <marker date="1524841250677" expanded="true" signature="8341:8436" ph="UPDATE Product... " />
+            <marker date="1524841250677" expanded="true" signature="8458:8563" ph="UPDATE Product_to_type... " />
+            <marker date="1524841250677" expanded="true" signature="8644:8736" ph="UPDATE Product... " />
+            <marker date="1524841250677" expanded="true" signature="8819:8914" ph="UPDATE Product... " />
+            <marker date="1524841250677" expanded="true" signature="8998:9014" ph="SET @mydate " />
+            <marker date="1524841250677" expanded="true" signature="9037:9261" ph="UPDATE Product... " />
+            <marker date="1524841250677" expanded="true" signature="9341:9428" ph="UPDATE Product... " />
+            <marker date="1524841250677" expanded="true" signature="9510:9603" ph="UPDATE Product... " />
+            <marker date="1524841250677" expanded="true" signature="9690:9864" ph="UPDATE Product... " />
+            <marker date="1524841250677" expanded="true" signature="9946:9964" ph="SET @freezeI... " />
+            <marker date="1524841250677" expanded="true" signature="9986:10059" ph="DELETE FROM List_freezer... " />
+            <marker date="1524841250677" expanded="true" signature="10081:10161" ph="DELETE FROM Description_freezer... " />
           </folding>
         </state>
       </provider>
@@ -466,12 +558,11 @@
           <caret line="173" column="33" lean-forward="false" selection-start-line="173" selection-start-column="33" selection-end-line="173" selection-end-column="33" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1523016250703" expanded="true" signature="9584:9668" ph="SELECT * FRO... Product" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/response_message.py">
+    <entry file="file://$PROJECT_DIR$/responseMessage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
@@ -484,15 +575,17 @@
         <state relative-caret-position="1674">
           <caret line="96" column="65" lean-forward="false" selection-start-line="96" selection-start-column="65" selection-end-line="96" selection-end-column="65" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
-            <marker date="1522918128969" expanded="true" signature="431:547" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="467:546" ph="SELECT * FRO... User" />
-            <marker date="1522918128969" expanded="true" signature="993:1123" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="1029:1122" ph="SELECT * FRO... Description_type" />
-            <marker date="1522918128969" expanded="true" signature="1619:1763" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="1655:1762" ph="SELECT * FRO... List_freezer" />
-            <marker date="1522918128969" expanded="true" signature="3030:3168" ph="SELECT prod_... Product" />
-            <marker date="1522918128969" expanded="true" signature="3030:3189" ph="SELECT prod_... Product" />
+            <element signature="e#0#27#0" expanded="false" />
+            <marker date="1524848947610" expanded="true" signature="476:592" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
+            <marker date="1524848947610" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
+            <marker date="1524848947610" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
+            <marker date="1524848947610" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
           </folding>
         </state>
       </provider>
@@ -528,7 +621,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/response_message.py">
+    <entry file="file://$PROJECT_DIR$/responseMessage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
@@ -541,15 +634,17 @@
         <state relative-caret-position="1674">
           <caret line="96" column="65" lean-forward="false" selection-start-line="96" selection-start-column="65" selection-end-line="96" selection-end-column="65" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
-            <marker date="1522918128969" expanded="true" signature="431:547" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="467:546" ph="SELECT * FRO... User" />
-            <marker date="1522918128969" expanded="true" signature="993:1123" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="1029:1122" ph="SELECT * FRO... Description_type" />
-            <marker date="1522918128969" expanded="true" signature="1619:1763" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="1655:1762" ph="SELECT * FRO... List_freezer" />
-            <marker date="1522918128969" expanded="true" signature="3030:3168" ph="SELECT prod_... Product" />
-            <marker date="1522918128969" expanded="true" signature="3030:3189" ph="SELECT prod_... Product" />
+            <element signature="e#0#27#0" expanded="false" />
+            <marker date="1524848947610" expanded="true" signature="476:592" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
+            <marker date="1524848947610" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
+            <marker date="1524848947610" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
+            <marker date="1524848947610" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
           </folding>
         </state>
       </provider>
@@ -560,7 +655,6 @@
           <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1523016250703" expanded="true" signature="9584:9668" ph="SELECT * FRO... Product" />
           </folding>
         </state>
       </provider>
@@ -586,7 +680,6 @@
           <caret line="102" column="0" lean-forward="true" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1523016250703" expanded="true" signature="9584:9668" ph="SELECT * FRO... Product" />
           </folding>
         </state>
       </provider>
@@ -599,7 +692,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/response_message.py">
+    <entry file="file://$PROJECT_DIR$/responseMessage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
@@ -612,15 +705,17 @@
         <state relative-caret-position="1674">
           <caret line="96" column="65" lean-forward="false" selection-start-line="96" selection-start-column="65" selection-end-line="96" selection-end-column="65" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
-            <marker date="1522918128969" expanded="true" signature="431:547" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="467:546" ph="SELECT * FRO... User" />
-            <marker date="1522918128969" expanded="true" signature="993:1123" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="1029:1122" ph="SELECT * FRO... Description_type" />
-            <marker date="1522918128969" expanded="true" signature="1619:1763" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="1655:1762" ph="SELECT * FRO... List_freezer" />
-            <marker date="1522918128969" expanded="true" signature="3030:3168" ph="SELECT prod_... Product" />
-            <marker date="1522918128969" expanded="true" signature="3030:3189" ph="SELECT prod_... Product" />
+            <element signature="e#0#27#0" expanded="false" />
+            <marker date="1524848947610" expanded="true" signature="476:592" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
+            <marker date="1524848947610" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
+            <marker date="1524848947610" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
+            <marker date="1524848947610" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
           </folding>
         </state>
       </provider>
@@ -653,15 +748,17 @@
         <state relative-caret-position="1332">
           <caret line="77" column="8" lean-forward="false" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="42" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
-            <marker date="1522918128969" expanded="true" signature="431:547" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="467:546" ph="SELECT * FRO... User" />
-            <marker date="1522918128969" expanded="true" signature="993:1123" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="1029:1122" ph="SELECT * FRO... Description_type" />
-            <marker date="1522918128969" expanded="true" signature="1619:1763" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="1655:1762" ph="SELECT * FRO... List_freezer" />
-            <marker date="1522918128969" expanded="true" signature="3030:3168" ph="SELECT prod_... Product" />
-            <marker date="1522918128969" expanded="true" signature="3030:3189" ph="SELECT prod_... Product" />
+            <element signature="e#0#27#0" expanded="false" />
+            <marker date="1524848947610" expanded="true" signature="476:592" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
+            <marker date="1524848947610" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
+            <marker date="1524848947610" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
+            <marker date="1524848947610" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
           </folding>
         </state>
       </provider>
@@ -672,7 +769,6 @@
           <caret line="93" column="29" lean-forward="false" selection-start-line="93" selection-start-column="29" selection-end-line="93" selection-end-column="29" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1523016250703" expanded="true" signature="9584:9668" ph="SELECT * FRO... Product" />
           </folding>
         </state>
       </provider>
@@ -705,15 +801,17 @@
         <state relative-caret-position="1332">
           <caret line="77" column="8" lean-forward="true" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="42" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
-            <marker date="1522918128969" expanded="true" signature="431:547" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="467:546" ph="SELECT * FRO... User" />
-            <marker date="1522918128969" expanded="true" signature="993:1123" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="1029:1122" ph="SELECT * FRO... Description_type" />
-            <marker date="1522918128969" expanded="true" signature="1619:1763" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="1655:1762" ph="SELECT * FRO... List_freezer" />
-            <marker date="1522918128969" expanded="true" signature="3030:3168" ph="SELECT prod_... Product" />
-            <marker date="1522918128969" expanded="true" signature="3030:3189" ph="SELECT prod_... Product" />
+            <element signature="e#0#27#0" expanded="false" />
+            <marker date="1524848947610" expanded="true" signature="476:592" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
+            <marker date="1524848947610" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
+            <marker date="1524848947610" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
+            <marker date="1524848947610" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
           </folding>
         </state>
       </provider>
@@ -724,7 +822,6 @@
           <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1523016250703" expanded="true" signature="9584:9668" ph="SELECT * FRO... Product" />
           </folding>
         </state>
       </provider>
@@ -735,7 +832,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1523016250703" expanded="true" signature="9584:9668" ph="SELECT * FRO... Product" />
           </folding>
         </state>
       </provider>
@@ -761,7 +857,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1523016250703" expanded="true" signature="9584:9668" ph="SELECT * FRO... Product" />
           </folding>
         </state>
       </provider>
@@ -772,7 +867,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1523016250703" expanded="true" signature="9584:9668" ph="SELECT * FRO... Product" />
           </folding>
         </state>
       </provider>
@@ -783,82 +877,138 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1523016250703" expanded="true" signature="9584:9668" ph="SELECT * FRO... Product" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.py" />
-    <entry file="file://$PROJECT_DIR$/utils.py">
+    <entry file="file://$PROJECT_DIR$/tests/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/response_message.py">
+    <entry file="file://$PROJECT_DIR$/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/tests/responseMessage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py" />
+    <entry file="file://$PROJECT_DIR$/setup.py" />
+    <entry file="file://$PROJECT_DIR$/api/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/validatorDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="32" lean-forward="false" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        <state relative-caret-position="1026">
+          <caret line="57" column="49" lean-forward="false" selection-start-line="57" selection-start-column="49" selection-end-line="57" selection-end-column="49" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
-            <marker date="1522918128969" expanded="true" signature="431:547" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="467:546" ph="SELECT * FRO... User" />
-            <marker date="1522918128969" expanded="true" signature="993:1123" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="1029:1122" ph="SELECT * FRO... Description_type" />
-            <marker date="1522918128969" expanded="true" signature="1619:1763" ph="SELECT EXIST... " />
-            <marker date="1522918128969" expanded="true" signature="1655:1762" ph="SELECT * FRO... List_freezer" />
-            <marker date="1522918128969" expanded="true" signature="3030:3168" ph="SELECT prod_... Product" />
-            <marker date="1522918128969" expanded="true" signature="3030:3189" ph="SELECT prod_... Product" />
+            <element signature="e#0#27#0" expanded="false" />
+            <marker date="1524848947610" expanded="true" signature="476:592" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
+            <marker date="1524848947610" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
+            <marker date="1524848947610" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
+            <marker date="1524848947610" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
+            <marker date="1524848947610" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
+            <marker date="1524848947610" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6c48ec17-cdaf-4c0f-9b2e-3b007b3677d7/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="12" column="136" lean-forward="false" selection-start-line="12" selection-start-column="72" selection-end-line="12" selection-end-column="136" />
+        <state relative-caret-position="594">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="172" column="31" lean-forward="true" selection-start-line="172" selection-start-column="12" selection-end-line="172" selection-end-column="31" />
+        <state relative-caret-position="5796">
+          <caret line="439" column="59" lean-forward="false" selection-start-line="439" selection-start-column="59" selection-end-line="439" selection-end-column="59" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1523016250703" expanded="true" signature="9584:9668" ph="SELECT * FRO... Product" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysqlRequests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="116" column="0" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+          <folding>
+            <marker date="1524841250677" expanded="true" signature="367:412" ph="SELECT * FRO... Description_type" />
+            <marker date="1524841250677" expanded="true" signature="511:607" ph="SELECT * FRO... Product" />
+            <marker date="1524841250677" expanded="true" signature="511:642" ph="SELECT * FRO... Product" />
+            <marker date="1524841250677" expanded="true" signature="726:912" ph="SELECT freez... Description_freezer" />
+            <marker date="1524841250677" expanded="true" signature="726:914" ph="SELECT freez... Description_freezer" />
+            <marker date="1524841250677" expanded="true" signature="1003:1322" ph="SELECT Descr... Description_freezer" />
+            <marker date="1524841250677" expanded="true" signature="1428:1620" ph="SELECT prod_... Product" />
+            <marker date="1524841250677" expanded="true" signature="1759:2161" ph="SELECT Produ... Product_to_type" />
+            <marker date="1524841250677" expanded="true" signature="2512:2782" ph="SELECT type_... Product" />
+            <marker date="1524841250677" expanded="true" signature="2512:2845" ph="SELECT type_... Product" />
+            <marker date="1524841250677" expanded="true" signature="6678:6753" ph="INSERT INTO Description_freezer... " />
+            <marker date="1524841250677" expanded="true" signature="6775:6847" ph="INSERT INTO List_freezer... " />
+            <marker date="1524841250677" expanded="true" signature="6928:7003" ph="INSERT INTO Description_product... " />
+            <marker date="1524841250677" expanded="true" signature="7025:7103" ph="INSERT INTO Product_to_type... " />
+            <marker date="1524841250677" expanded="true" signature="7125:7298" ph="INSERT INTO Product... " />
+            <marker date="1524841250677" expanded="true" signature="7391:7507" ph="UPDATE Description_product... " />
+            <marker date="1524841250677" expanded="true" signature="7599:7709" ph="UPDATE Description_product... " />
+            <marker date="1524841250677" expanded="true" signature="7824:8018" ph="UPDATE Description_freezer... " />
+            <marker date="1524841250677" expanded="true" signature="8121:8218" ph="UPDATE Product... " />
+            <marker date="1524841250677" expanded="true" signature="8302:8319" ph="set @newtype... " />
+            <marker date="1524841250677" expanded="true" signature="8341:8436" ph="UPDATE Product... " />
+            <marker date="1524841250677" expanded="true" signature="8458:8563" ph="UPDATE Product_to_type... " />
+            <marker date="1524841250677" expanded="true" signature="8644:8736" ph="UPDATE Product... " />
+            <marker date="1524841250677" expanded="true" signature="8819:8914" ph="UPDATE Product... " />
+            <marker date="1524841250677" expanded="true" signature="8998:9014" ph="SET @mydate " />
+            <marker date="1524841250677" expanded="true" signature="9037:9261" ph="UPDATE Product... " />
+            <marker date="1524841250677" expanded="true" signature="9341:9428" ph="UPDATE Product... " />
+            <marker date="1524841250677" expanded="true" signature="9510:9603" ph="UPDATE Product... " />
+            <marker date="1524841250677" expanded="true" signature="9690:9864" ph="UPDATE Product... " />
+            <marker date="1524841250677" expanded="true" signature="9946:9964" ph="SET @freezeI... " />
+            <marker date="1524841250677" expanded="true" signature="9986:10059" ph="DELETE FROM List_freezer... " />
+            <marker date="1524841250677" expanded="true" signature="10081:10161" ph="DELETE FROM Description_freezer... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/queryDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+        <state relative-caret-position="159">
+          <caret line="41" column="22" lean-forward="true" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysqlRequests.py">
+    <entry file="file://$PROJECT_DIR$/responseMessage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="11" selection-end-column="3" />
+        <state relative-caret-position="396">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-234">
+          <caret line="38" column="60" lean-forward="false" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
           <folding>
-            <marker date="1523012496827" expanded="true" signature="367:412" ph="SELECT * FRO... Description_type" />
-            <marker date="1523012496827" expanded="true" signature="496:682" ph="SELECT freez... Description_freezer" />
-            <marker date="1523012496827" expanded="true" signature="496:684" ph="SELECT freez... Description_freezer" />
-            <marker date="1523012496827" expanded="true" signature="773:1092" ph="SELECT Descr... Description_freezer" />
-            <marker date="1523012496827" expanded="true" signature="1198:1390" ph="SELECT prod_... Product" />
+            <element signature="e#56#66#0" expanded="true" />
           </folding>
         </state>
       </provider>

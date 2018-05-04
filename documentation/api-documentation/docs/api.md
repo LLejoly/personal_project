@@ -1,4 +1,4 @@
-Smart freezer User's Guide
+Freezer User's Guide
 ==========================
 
 Introduction

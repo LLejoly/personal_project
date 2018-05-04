@@ -12,6 +12,13 @@ Returns the possible types of products that can be saved in a freezer.
 """
 GET_TYPES = """SELECT *
                FROM Description_type"""
+
+"""
+Returns all information about a product given its token and its id
+"""
+GET_A_PRODUCT = """SELECT *
+                   FROM Product
+                   WHERE token = %s AND freezer_id = %s AND box_num = %s AND prod_num = %s"""
 """
 Returns information about a specific freezer
 """
@@ -34,6 +41,30 @@ GET_PROD_NUM_LIST = """SELECT prod_num, box_num
                        FROM Product
                        WHERE token = %s AND freezer_id = %s AND date_out IS NULL 
                        ORDER BY box_num, prod_num"""
+
+"""
+Return a list of products inserted into the database and sorted by
+frequency in the descending order
+"""
+GET_GLOBAL_TENDENCY = """SELECT Product_to_type.type_id,
+                                Description_type.type_name_en,
+                                COUNT(*) AS freq
+                         FROM (Product_to_type
+                         INNER JOIN Description_type ON  Product_to_type.type_id = Description_type.type_id)
+                         GROUP BY Product_to_type.type_id 
+                         ORDER BY freq DESC;"""
+
+"""
+Return a personalized list of products present in the freezer of a user.
+These products are sorted by frequency, by type, and by the latest product of that type taken from the freezers.
+If all products of a certain type have never been taken then the result of the last type of product taken will be null.
+"""
+GET_PERSONALIZED_TENDENCY = """SELECT type_id,
+                                      DATE_FORMAT(max(date_out), '%%Y-%%m-%%d') AS latest,
+                                      COUNT(*) AS freq FROM Product
+                               WHERE token = %s
+                               GROUP BY type_id
+                               ORDER BY latest DESC, freq DESC;"""
 
 param_all = """FROM ((Product
                       INNER JOIN Description_product
@@ -94,7 +125,6 @@ def generate_product_query(param):
                            DATE_FORMAT(Product.date_in, '%%Y-%%m-%%d') AS date_formatted_in,
                            DATE_FORMAT(Product.date_out, '%%Y-%%m-%%d') AS date_formatted_out,
                            Product.period,
-                           Product.prod_id,
                            Product.quantity,
                            Product.type_id,
                            Product.descr_id,
@@ -128,6 +158,7 @@ INSERT_PRODUCT = """BEGIN;
                     period, box_num, prod_num, quantity) VALUES(%s,LAST_INSERT_ID(),%s,%s,%s,%s,%s,%s,%s) ;
                     COMMIT;"""
 
+
 UPDATE_PRODUCT_NAME = """BEGIN;
                          UPDATE Description_product
                          SET product_name =%s
@@ -140,6 +171,15 @@ UPDATE_TEXT_DESCR = """BEGIN;
                        WHERE descr_id =%s;
                        COMMIT;"""
 
+
+UPDATE_FREEZER_NAME_AND_BOXES = """BEGIN;
+                                   UPDATE Description_freezer
+                                   SET freezer_name =%s,
+                                       number_boxes=%s
+                                   WHERE freezer_id =%s;
+                                   COMMIT;"""
+
+
 UPDATE_FREEZER_ID = """BEGIN;
                        UPDATE Product
                        SET freezer_id =%s
@@ -147,9 +187,13 @@ UPDATE_FREEZER_ID = """BEGIN;
                        COMMIT;"""
 
 UPDATE_TYPE_ID = """BEGIN;
+                    set @newtype = %s;
                     UPDATE Product
-                    SET type_id =%s
+                    SET type_id = @newtype
                     WHERE prod_id =%s;
+                    UPDATE Product_to_type
+                    SET type_id = @newtype
+                    WHERE descr_id = %s;
                     COMMIT;"""
 
 UPDATE_DATE_IN = """BEGIN;
@@ -185,3 +229,19 @@ UPDATE_QUANTITY = """BEGIN;
                      SET quantity = %s
                      WHERE prod_id = %s;
                      COMMIT;"""
+
+UPDATE_EMPLACEMENT = """BEGIN;
+                     UPDATE Product
+                     SET freezer_id = %s,
+                         box_num = %s,
+                         prod_num = %s
+                     WHERE prod_id = %s;
+                     COMMIT;"""
+
+DELETE_FREEZER = """BEGIN;
+                    SET @freezeID = %s;
+                    DELETE FROM List_freezer
+                    WHERE freezer_id = @freezeID;
+                    DELETE FROM Description_freezer
+                    WHERE freezer_id = @freezeID;
+                    COMMIT;"""

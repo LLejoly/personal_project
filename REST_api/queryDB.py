@@ -9,10 +9,11 @@ class QueryDB:
 
     def get_query_db(self, query, args=(), one=False, header=False):
         """
-
+        To manage the GET mysql query and its output format.
         :param query: a MySQL query
         :param args: a list of arguments passed to the query
-        :param one: A boolean to say that we only want the first result of the query
+        :param one: A boolean to say that we only want the first result of
+        the query which is a simple dict or list in case of several outputs
         :param header: A boolean to specify if we want the header associated to the data
         :return: A list of elements
         """
@@ -38,24 +39,30 @@ class QueryDB:
 
         rv = []
         for row in data:
-            tmp = []
-            for idx, value in enumerate(row):
-                # latin to utf-8
-                if type(value) is str:
-                    tmp.append(value.encode(self.encode).decode(self.decode))
-                else:
-                    tmp.append(value)
+            # tmp = []
+            # for idx, value in enumerate(row):
+            #     # latin to utf-8
+            #     if type(value) is str:
+            #         #tmp.append(value.encode(self.encode).decode(self.decode))
+            #     else:
+            #         tmp.append(value)
 
             if header:
-                rv.append(dict(zip(head, tmp)))
+                rv.append(dict(zip(head, row)))
             else:
-                rv.append(tmp)
+                rv.append(row)
 
         self.connection.commit()  ## to be sure to have the last value stored in the database and not a local variable
         cursor.close()
         return rv
 
     def insert_query_db(self, query, args=()):
+        """
+        Manage the POST request.
+        :param query: a MySQL query
+        :param args: a list of arguments passed to the query
+        :return:
+        """
         cursor = self.connection.cursor()
         try:
             cursor.execute(query, args)

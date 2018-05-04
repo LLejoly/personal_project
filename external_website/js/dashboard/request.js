@@ -8,7 +8,8 @@ function ajaxRequest(objContent, callback) {
                 objContent['content'] = JSON.parse(this.responseText);
                 if (objContent['cascadeCallback'] == true) {
                     //console.log(objContent['callback']);
-                    objContent['callback'].call();
+                    console.log(objContent['callbackParams']);
+                    objContent['callback'].call(this, objContent['callbackParams']);
                     //callback(objContent['callback']);
                 }
             } else {
@@ -16,6 +17,7 @@ function ajaxRequest(objContent, callback) {
             }
             callback(objContent);
         }
+        console.log(this.responseText);
         // need to manage other types exception
     };
     xmlhttp.open(objContent['type'], objContent['url'], true);
