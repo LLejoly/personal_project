@@ -14,11 +14,6 @@ For this project the application is restricted to a web application but can be e
 
 Front-end part and back-end part a aborder
 \section{Content storing}
-\subsection{Account creation}
-To use the API a user need to create an account with an e-mail address and a password. This account created is linked to a token. This token is generated on the server side with the PHP function \textit{random\_bytes} which recommended to generate string of cryptographic random bytes that are suitable for cryptographic use. The length  specified for the generation is 32 bytes.Thus the number of possibilities is $(2^8)^32 = 2^256$. After that, the random sequence generated is transformed into a hexadecimal string to be more readable by a novice user.\\
-
-When the account is created a user can use the API to build its own software and manage his freezers with the help of The API and the token linked to its account or use an existing application that uses the API. In this second case the third part application should only asked your token and anything else.\\
-
 \subsection{Database model discussion}
 To store the different information about a user and the data related to his freezers a database is required. There exists several types of databases and it is no so easy to make a choice that will not have bad impacts on the future if the choice made at the beginning was not good. The choice made is a relational database. this choice is motivated by several things. First of all, the problem is known and I know the links to establish between data. Moreover, data would not change on the long-term which means that the architecture of the database would not change a lot and the quantity of information to store will never be huge. Finally, data to store is essentially texts and numbers, thus no need to have a database that can manage video streams etc like noSQL database.\\
 
@@ -67,13 +62,21 @@ The database is encoded in MySQL language. The engine used is InnoDB with utf8mb
 \label{fig:sqldb}
 \end{figure}
 
+As discussed above the architecture of the database allows to skip some tables to backup like Product\_to\_type and List\_freezers. These two table can be reconstruct with the others tables. Thus it is not mandatory to backups these ones.
 
-lokking at the schema we can see that these two relation can be rebuilt from the rest of the database. Thus it is not mandatory to backbup these two
+\subsection{Account creation}
+To use the API a user need to create an account with an e-mail address and a password. A webpage is built to achieve this goal( \textit{register.php}). When the account has been created it is linked to a token. This token is generated on the server side with the PHP function \textit{random\_bytes} which is recommended to generate string of cryptographic random bytes that are suitable for cryptographic use. The length  specified for the generation is 32 bytes.Thus the number of possibilities is $(2^8)^32 = 2^256$. After that, the random sequence generated is transformed into a hexadecimal string to be more readable by a novice user.\\
+
+When the account is created a user can use the API to build its own software and manage his freezers with the help of The API and the token linked to its account or use an existing application that uses the API. In this second case the third part application should only asked your token and anything else.\\
 
 pourquoi choix du relationel db
 mettre les schema entite relation expliquer les choix etc
 
  mentionner que l'encodage a été fait à la main et essentiellement pour un utilisateur -> fastidieux à faire et insérer des éléments aléatoirement n'a pas vraiment de sens du fait qu'un utilisateur n'a pas ce comportement. Ce la ne poserait pas de probleme pour la db mais c'est un travail inutile a réaliser dans l'optique du mon projet que de remplir la db avec des données aléatoire.
+\section{User panel}
+When a user possesses an account. He has the possibility to access to a user panel. This user panel is used to give to the user more information about its account. i.e: the email address, the token linked to the account, the possibility to change the password and the language.
+Panel pour creer un compte et avoir accès à son token ainsi qu'à certaines informations relatives au fonctionnement de l'API
+
 \section{API REST}
 \subsection{Sever}
 \subsection{functionalities implemented}
@@ -87,10 +90,6 @@ explication des differentes fonction
  
  Mentioner l'essai du preférence learning ce qui a été fait et pas fait les probleme rencontrés etc
  \subsection{formules}
- 
-
-\section{User panel}
-Panel pour creer un compte et avoir accès à son token ainsi qu'à certaines informations relatives au fonctionnement de l'API
 
 \section{Admin panel}
 Pas vraiment développé
