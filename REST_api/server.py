@@ -97,7 +97,7 @@ def freezers(token):
             if not utils.is_valid_number(freezer['num_boxes']):
                 return custom_response(400, responseMessage.BAD_FORMAT)
 
-            freezer['name'] = MySQLdb.escape_string(freezer['name'])
+            freezer['name'] = MySQLdb.escape_string(freezer['name']).decode("utf-8")
 
             if not query_db.insert_query_db(mysqlRequests.INSERT_FREEZER,
                                             (freezer['num_boxes'],
@@ -128,7 +128,7 @@ def freezers(token):
             if not freezer['name']:
                 freezer['name'] = curr_freezer['freezer_name']
             else:
-                freezer['name'] = MySQLdb.escape_string(freezer['freezer_name'])
+                freezer['name'] = MySQLdb.escape_string(freezer['freezer_name']).decode("utf-8")
 
             query_db.insert_query_db(mysqlRequests.UPDATE_FREEZER_NAME_AND_BOXES,
                                      (freezer['name'],
@@ -142,6 +142,7 @@ def freezers(token):
 
     if request.method == 'DELETE':
         freezer = request.get_json()
+        print(freezer)
         if set(freezer.keys()) == {'freezer_id'}:
             if validator_db.check_freezer_id(token, freezer['freezer_id'], available=False):
                 return custom_response(400, responseMessage.BAD_FORMAT)
@@ -211,12 +212,14 @@ def add_product(token):
         return custom_response(400, responseMessage.BAD_TOKEN)
 
     new_product = request.get_json()
+    print(new_product)
     correct, new_product = validator_db.check_insert_product(token,
                                                              mysqlRequests.PRODUCT_HEADER,
                                                              new_product)
-
     if not correct:
         return custom_response(400, new_product['error_type'])
+
+    print( new_product['text_descr'].decode('utf-8'))
 
     query_db.insert_query_db(mysqlRequests.INSERT_PRODUCT,
                              (new_product['product_name'],
@@ -304,7 +307,6 @@ def update_product(freezer_id, box_num, prod_num, token):
      "quantity":""
      }
        Where the fields to update need to be non empty. To remove the date out simply put null
-    :param product_id: the id of the product to update
     :param token: a user token to have access to the database
     :return:
     """

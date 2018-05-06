@@ -32,21 +32,77 @@
             text-align: center;
             margin: 40px;
         }
+
+        body {
+            color: #797979;
+            background: #f2f2f2;
+            font-family: 'Ruda', sans-serif;
+            padding: 0px !important;
+            margin: 0px !important;
+            font-size: 13px;
+        }
+
+        .title {
+            background: #ffd777;
+            color: #f2f2f2;
+            border-bottom: 2px solid #c9aa5f;
+            margin-bottom: 20px;
+        }
+
+        .title h1 {
+            margin: 0 auto;
+            padding: 20px;
+        }
     </style>
 </head>
 
 <body>
+    <header class="title">
+        <h1>Application to manage your freezers</h1>
+    </header>
+
     <div class="container">
-        <form method="POST" name="get_token" action="javascript:void(0);" onsubmit="setToken()">
-            <input type="text" name="token" class="form-control" placeholder="insert your token" required>
-            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-        </form>
-        <p id="token_error"></p>
-        <h2>Possible types</h2>
-        <div id="types_table">
+        <div class="row">
+            <p>Please enter your token to have access to the application:</p>
+            <form method="POST" name="get_token" action="javascript:void(0);" onsubmit="getToken()">
+                <input type="text" name="token" class="form-control" placeholder="insert your token" required>
+                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <p id="token_error"></p>
         </div>
 
-        <div>
+
+        <div class="row">
+            <div class="col-md-2 col-sm-2">
+                <p>Available types of products</p>
+                <button onclick="setVisibility('types_section')">Click me</button>
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <p>freezer section</p>
+                <button onclick="setVisibility('freezer_section')">Click me</button>
+                <p>coucou</p>
+            </div>
+            <div class="col-md-2 col-sm-2">
+                    <p>freezer section</p>
+                    <button onclick="setVisibility('product_section')">Click me</button>
+                    <p>coucou</p>
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <p>coucou</p>
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <p>coucou</p>
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <p>coucou</p>
+            </div>
+        </div>
+        <div id='types_section' style="display: none;">
+            <h2>Possible types</h2>
+            <div id="types_table"></div>
+        </div>
+
+        <div id='freezer_section' style="display: none;">
             <h2>Freezers</h2>
             <div id="freezers_table"></div>
             <h3>Add a freezer</h3>
@@ -61,46 +117,60 @@
                 </div>
                 <input class="btn btn-primary" type="submit" name="submit">
             </form>
-        </div>
-        <div>
-            <h2>Products</h2>
-            <div id="products_listing" class="custom-control custom-radio"></div>
-            <div id="products_table"></div>
-            <form method="POST" name="add_product" class="form" action="javascript:void(0);" onsubmit="addProduct()">
+            <h3>Remove a freezer</h3>
+            <p> To remove a freezer. It is mandatory that this freezer does not have an history. Thus it shoudl be empty contains
+                anything.
+            </p>
+            <form method="POST" name="remove_freezer" action="javascript:void(0);" onsubmit="removeFreezer('remove_freezer')">
                 <div class="row">
                     <div class="col-md-6">
-                        <input type="text" name="product_name" class="form-control" placeholder="product_name" required>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="text" name="text_descr" class="form-control" placeholder="product description" required>
-                    </div>
-                    <div class="col-md-6">
-                        <select type="select" id="freezer_id_form" name="freezer_id" class="form-control"></select>
-                    </div>
-                    <div class="col-md-6">
-                        <select type="select" id="type_id_form" name="type_id" class="form-control"></select>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" name="date_in" class="form-control" placeholder="2018-15-03"
-                            required>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="text" name="period" class="form-control" placeholder="period in month" required>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="number" name="box_num" class="form-control" placeholder="box number" required>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="number" name="prod_num" class="form-control" placeholder="product number" required>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="number" name="quantity" class="form-control" placeholder="quantity" required>
+                        <input type="text" name="freezer_id" class="form-control " placeholder="freezer identification" required>
                     </div>
                 </div>
-
-                <input class="button" type="submit" name="submit">
+                <input class="btn btn-primary" type="submit" name="submit">
             </form>
         </div>
+
+    </div>
+    <div id="product_section" style="display: none;">
+        <h2>Products</h2>
+        <div id="products_listing" class="custom-control custom-radio"></div>
+        <div id="products_table"></div>
+        <form method="POST" name="add_product" class="form" action="javascript:void(0);" onsubmit="addProduct()">
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" name="product_name" class="form-control" placeholder="product_name" required>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="text_descr" class="form-control" placeholder="product description" required>
+                </div>
+                <div class="col-md-6">
+                    <select type="select" id="freezer_id_form" name="freezer_id" class="form-control"></select>
+                </div>
+                <div class="col-md-6">
+                    <select type="select" id="type_id_form" name="type_id" class="form-control"></select>
+                </div>
+                <div class="col-md-6">
+                    <input type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" name="date_in" class="form-control" placeholder="2018-15-03"
+                        required>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="period" class="form-control" placeholder="period in month" required>
+                </div>
+                <div class="col-md-6">
+                    <input type="number" name="box_num" class="form-control" placeholder="box number" required>
+                </div>
+                <div class="col-md-6">
+                    <input type="number" name="prod_num" class="form-control" placeholder="product number" required>
+                </div>
+                <div class="col-md-6">
+                    <input type="number" name="quantity" class="form-control" placeholder="quantity" required>
+                </div>
+            </div>
+
+            <input class="button" type="submit" name="submit">
+        </form>
+    </div>
     </div>
 
 </body>
@@ -110,9 +180,24 @@
     var typesObject = {};
     var freezersObject = {};
 
-    function setToken() {
+    // This function is used to get The token an check its validity
+    // If the token is valid several and the server is alive. Several
+    // data will be collected. To see whate are the data collected please refer to 
+    // The function check_token
+    function getToken() {
         token = document.forms["get_token"]["token"].value;
         check_token();
+    }
+    // This function allows to set the visibility of an element
+    // If the element is already visible then it will be turned to none
+    // otherwise an element which is set to none will be turned to block.
+    // elementId: It is the id given to a element
+    function setVisibility(elementId) {
+        if (document.getElementById(elementId).style.display == 'none') {
+            document.getElementById(elementId).style.display = 'block';
+        } else {
+            document.getElementById(elementId).style.display = 'none';
+        }
     }
 
     function clear_dashboard() {
@@ -134,7 +219,7 @@
 
         for (var i = 0; i < typesObject.content.length; i++) {
             option = document.createElement('option');
-            option.value =  typesObject.content[i]['type_id'];
+            option.value = typesObject.content[i]['type_id'];
             option.text = typesObject.content[i]['type_name_en'];
             select.add(option);
         }
@@ -160,14 +245,17 @@
     function check_token() {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
+            if (this.readyState == 4 && this.status == 0) {
+                alert('Unable to connect with the server');
+            } else if (this.readyState == 4 && this.status >= 500) {
+                alert('There is a problem on the server side');
+            } else if (this.readyState == 4 && this.status == 200) {
                 clear_dashboard();
                 setDashboard();
-            } else {
+            } else if (this.readyState == 4) {
                 clear_dashboard();
                 document.getElementById("token_error").innerHTML = "the token given is not valid";
             }
-            // need to manage other types exception
         };
         xmlhttp.open("GET", "http://localhost:5000/check_token/" + token, true);
         xmlhttp.send();
@@ -200,6 +288,9 @@
         console.log(freezersObject);
     }
 
+    function notifyAdd() {
+        console.log("element added");
+    }
     function addProduct() {
         var length = document.forms["add_product"].length;
         var data = document.forms["add_product"].elements;
@@ -212,11 +303,11 @@
         //Send my_test to ajaxRequest
         product = {
             type: "POST",
-            url: domainUrl +"add_product/" + token,
+            url: domainUrl + "add_product/" + token,
             toSend: my_test
         }
         console.log(product);
-        ajaxRequest(product);
+        ajaxRequest(product, notifyAdd);
     }
 </script>
 

@@ -179,11 +179,11 @@ class ValidatorDB:
                     continue
 
                 if value == 'product_name':
-                    product_formatted[header[idx]] = MySQLdb.escape_string(product[header[idx]])
+                    product_formatted[header[idx]] = MySQLdb.escape_string(product[header[idx]]).decode('utf-8') #To have the characters in utf8 and not in unicode format
                     continue
 
                 if value == 'text_descr':
-                    product_formatted[header[idx]] = MySQLdb.escape_string(product[header[idx]])
+                    product_formatted[header[idx]] = MySQLdb.escape_string(product[header[idx]]).decode('utf-8') #To have the  character in utf8 and not in unicode format
                     continue
 
             return True, product_formatted
@@ -280,9 +280,9 @@ class ValidatorDB:
             format_prod['quantity'] = update['quantity']
 
         if update['product_name']:
-            format_prod['product_name'] = MySQLdb.escape_string(update['product_name'])
+            format_prod['product_name'] = MySQLdb.escape_string(update['product_name']).decode("utf-8")
 
         if update['text_descr']:
-            format_prod['text_descr'] = MySQLdb.escape_string(update['text_descr'])
+            format_prod['text_descr'] = MySQLdb.escape_string(update['text_descr']).decode("utf-8")
 
         return True, format_prod
