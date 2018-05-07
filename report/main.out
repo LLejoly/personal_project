@@ -1,17 +1,17 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{Explanation of the project itself}{section.1}% 2
 \BOOKMARK [1][-]{section.2}{Content storing}{}% 3
-\BOOKMARK [2][-]{subsection.2.1}{Account creation}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.2}{Database model discussion}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.3}{Relational database structure}{section.2}% 6
-\BOOKMARK [2][-]{subsection.2.4}{Entity-relationship model}{section.2}% 7
-\BOOKMARK [2][-]{subsection.2.5}{Relational model}{section.2}% 8
-\BOOKMARK [1][-]{section.3}{API REST}{}% 9
-\BOOKMARK [2][-]{subsection.3.1}{Sever}{section.3}% 10
-\BOOKMARK [2][-]{subsection.3.2}{functionalities implemented}{section.3}% 11
-\BOOKMARK [2][-]{subsection.3.3}{Documentation}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.4}{formules}{section.3}% 13
-\BOOKMARK [1][-]{section.4}{User panel}{}% 14
+\BOOKMARK [2][-]{subsection.2.1}{Database model discussion}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.2}{Relational database structure}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.3}{Entity-relationship model}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.4}{Relational model}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.5}{Account creation}{section.2}% 8
+\BOOKMARK [1][-]{section.3}{User panel}{}% 9
+\BOOKMARK [1][-]{section.4}{API REST}{}% 10
+\BOOKMARK [2][-]{subsection.4.1}{Sever}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.2}{functionalities implemented}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.3}{Documentation}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.4}{formules}{section.4}% 14
 \BOOKMARK [1][-]{section.5}{Admin panel}{}% 15
 \BOOKMARK [1][-]{section.6}{External website}{}% 16
 \BOOKMARK [1][-]{section.7}{unit tests}{}% 17

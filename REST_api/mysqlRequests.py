@@ -19,6 +19,21 @@ Returns all information about a product given its token and its id
 GET_A_PRODUCT = """SELECT *
                    FROM Product
                    WHERE token = %s AND freezer_id = %s AND box_num = %s AND prod_num = %s"""
+
+"""
+Returns all information about a product given its token and its id
+"""
+GET_A_PRODUCT_INSIDE = """SELECT *
+                   FROM Product
+                   WHERE token = %s AND freezer_id = %s AND box_num = %s AND prod_num = %s AND date_out IS NULL"""
+
+"""
+Returns all information about a product given its token and its id
+"""
+GET_A_PRODUCT_OUTSIDE = """SELECT *
+                           FROM Product
+                           WHERE token = %s AND freezer_id = %s AND box_num = %s AND prod_num = %s AND date_out IS NOT NULL"""
+
 """
 Returns information about a specific freezer
 """

@@ -20,6 +20,19 @@ var beautifulHeader = {
 $.myjQuery = function(id) {
     $(id).tablesorter();
  };
+//check the period in months between the current date and a date given
+// and a integer that represent the number of months. Return flase if the 
+// number is outdated.
+function checkPeriod(date_in, period){
+    var date1 = new Date(date_in);
+    var date2 = new Date();
+    var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    var diffMonths = Math.ceil(timeDiff / (1000 * 3600 * 24 * 30));
+    if (diffMonths > period) {
+        return false;
+    }
+    return true;
+}
 
 function generateTableFromJson(content) {
     var contentData = content['content'];
@@ -62,6 +75,13 @@ function generateTableFromJson(content) {
         for (var j = 0; j < col.length; j++) {
             var tabCell = tr.insertCell(-1);
             tabCell.innerHTML = contentData[i][col[j]];
+            // allow to check the period with the input date and the period
+            // only applied when date_formatted_in, period and daet_formatted_out are present.
+            if(contentData[i]['date_formatted_in'] && contentData[i]['period'] && contentData[i]['date_formatted_out'] == null){
+                if(!checkPeriod(contentData[i]['date_formatted_in'],contentData[i]['period'])){
+                    tr.style.backgroundColor= "red";
+                }
+            }
         }
     }
 
@@ -74,8 +94,18 @@ function generateTableFromJson(content) {
     $.myjQuery("#" + content['elementId'] + "_table"); 
 }
 
-function createRadioButton(group, val, text) {
-    return '<input type="radio" name="' + group + '" value="' + val + '">' + text + '<br>';
+// Create a radio button
+// group: specify the button group
+// val: scpecify the value given to the radio button
+// text: specify the text to display
+// checked: specify if by default the button must be checked
+function createRadioButton(group, val, text, checked) {
+    if (checked == true) {
+        return '<input type="radio" name="' + group + '" value="' + val + '" checked="checked">' + text + '<br>';
+    } else {
+        return '<input type="radio" name="' + group + '" value="' + val + '">' + text + '<br>';
+    }
+    
 }
 
 function setProductsTable(productsObject) {
@@ -98,13 +128,17 @@ function generateProductSelection(objectIdentifier) {
     var grp2 = "";
 
     for (var i = 0; i < params.length; i++) {
-        grp1 += createRadioButton("group1", params[i], params[i]);
+        if (i == 0) {
+            grp1 += createRadioButton("group1", params[i], params[i], true);
+        } else {
+            grp1 += createRadioButton("group1", params[i], params[i], false);
+        }
     }
 
-    grp2 += createRadioButton("group2", 0, "all freezers");
+    grp2 += createRadioButton("group2", 0, "all freezers", true);
 
     for (var i = 0; i < freezersObject.content.length; i++) {
-        grp2 += createRadioButton("group2", freezersObject.content[i]['freezer_id'], freezersObject.content[i]['freezer_name']);
+        grp2 += createRadioButton("group2", freezersObject.content[i]['freezer_id'], freezersObject.content[i]['freezer_name'], false);
     }
 
     f.innerHTML = grp1 + "<hr>" + grp2;

@@ -123,7 +123,6 @@ class ValidatorDB:
                                                  freezer_id,
                                                  box_num,
                                                  prod_num,))
-
         for l in res:
             for e in l:
                 if e == int(prod_num):
@@ -146,6 +145,7 @@ class ValidatorDB:
                                                   product['freezer_id'],
                                                   product['box_num'],
                                                   product['prod_num']):
+                print("coucou")
                 return False, {'error_type': responseMessage.BAD_PRODUCT_EMPLACEMENT}
 
             product_formatted['freezer_id'] = int(product['freezer_id'])

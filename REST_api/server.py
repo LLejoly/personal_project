@@ -14,7 +14,11 @@ from queryDB import QueryDB
 from validatorDB import ValidatorDB
 # TODO put flask limiter to limit the number of requests
 app = Flask(__name__)
-CORS(app)
+# One of the simplest configurations. Exposes all resources matching /* to
+# CORS and allows the Content-Type header, which is necessary to POST JSON
+# cross origin. All resources with this matching automatically has CORS headers set.
+CORS(app, resources=r'/*')
+
 connection = MySQLdb.connect(host="127.0.0.1",
                              user="root",
                              passwd="",
@@ -108,11 +112,11 @@ def freezers(token):
             return custom_response(400, responseMessage.BAD_FORMAT)
 
         return Response(status=200)
-
+    # Update an existing freezer
     if request.method == 'PUT':
         freezer = request.get_json()
         if set(freezer.keys()) == {'freezer_id', 'num_boxes', 'name'}:
-            if validator_db.check_freezer_id(token, freezer['freezer_id']):
+            if validator_db.check_freezer_id(token, freezer['freezer_id'], available=False):
                 return custom_response(400, responseMessage.BAD_FORMAT)
 
             curr_freezer = query_db.get_query_db(mysqlRequests.GET_SPECIFIC_FREERZER,
@@ -128,7 +132,7 @@ def freezers(token):
             if not freezer['name']:
                 freezer['name'] = curr_freezer['freezer_name']
             else:
-                freezer['name'] = MySQLdb.escape_string(freezer['freezer_name']).decode("utf-8")
+                freezer['name'] = MySQLdb.escape_string(freezer['name']).decode("utf-8")
 
             query_db.insert_query_db(mysqlRequests.UPDATE_FREEZER_NAME_AND_BOXES,
                                      (freezer['name'],
@@ -142,7 +146,6 @@ def freezers(token):
 
     if request.method == 'DELETE':
         freezer = request.get_json()
-        print(freezer)
         if set(freezer.keys()) == {'freezer_id'}:
             if validator_db.check_freezer_id(token, freezer['freezer_id'], available=False):
                 return custom_response(400, responseMessage.BAD_FORMAT)
@@ -212,14 +215,11 @@ def add_product(token):
         return custom_response(400, responseMessage.BAD_TOKEN)
 
     new_product = request.get_json()
-    print(new_product)
     correct, new_product = validator_db.check_insert_product(token,
                                                              mysqlRequests.PRODUCT_HEADER,
                                                              new_product)
     if not correct:
         return custom_response(400, new_product['error_type'])
-
-    print( new_product['text_descr'].decode('utf-8'))
 
     query_db.insert_query_db(mysqlRequests.INSERT_PRODUCT,
                              (new_product['product_name'],
@@ -290,8 +290,8 @@ def get_product(params, freezer_id, token):
     return custom_response(400, responseMessage.BAD_PARAMETER)
 
 
-@app.route("/update_product/<int:freezer_id>/<int:box_num>/<int:prod_num>/<string:token>", methods=['POST'])
-def update_product(freezer_id, box_num, prod_num, token):
+@app.route("/update_product/<int:freezer_id>/<int:box_num>/<int:prod_num>/<int:inside>/<string:token>", methods=['POST'])
+def update_product(freezer_id, box_num, prod_num, inside, token):
     """
     Update an existing product by giving its id and sending a json object of the form
     {
@@ -313,17 +313,28 @@ def update_product(freezer_id, box_num, prod_num, token):
     token = MySQLdb.escape_string(token)
     if not validator_db.valid_token(token):
         return custom_response(400, responseMessage.BAD_TOKEN)
+    product = None
+    if inside > 0:
+        product = query_db.get_query_db(mysqlRequests.GET_A_PRODUCT_INSIDE,
+                                        (token,
+                                         freezer_id,
+                                         box_num,
+                                         prod_num,),
+                                        one=True,
+                                        header=True)
+    else:
+        product = query_db.get_query_db(mysqlRequests.GET_A_PRODUCT_OUTSIDE,
+                                        (token,
+                                         freezer_id,
+                                         box_num,
+                                         prod_num,),
+                                        one=True,
+                                        header=True)
 
-    product = query_db.get_query_db(mysqlRequests.GET_A_PRODUCT,
-                                    (token,
-                                     freezer_id,
-                                     box_num,
-                                     prod_num,),
-                                    one=True,
-                                    header=True)
     if not product:
         return custom_response(400, responseMessage.BAD_PARAMETER)
 
+    print(product)
     validity, update_prod = validator_db.check_update_product(product,
                                                               request.get_json(),
                                                               token)

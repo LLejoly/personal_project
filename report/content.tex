@@ -65,7 +65,16 @@ The database is encoded in MySQL language. The engine used is InnoDB with utf8mb
 As discussed above the architecture of the database allows to skip some tables to backup like Product\_to\_type and List\_freezers. These two table can be reconstruct with the others tables. Thus it is not mandatory to backups these ones.
 
 \subsection{Account creation}
-To use the API a user need to create an account with an e-mail address and a password. A webpage is built to achieve this goal( \textit{register.php}). When the account has been created it is linked to a token. This token is generated on the server side with the PHP function \textit{random\_bytes} which is recommended to generate string of cryptographic random bytes that are suitable for cryptographic use. The length  specified for the generation is 32 bytes.Thus the number of possibilities is $(2^8)^32 = 2^256$. After that, the random sequence generated is transformed into a hexadecimal string to be more readable by a novice user.\\
+To use the API a user need to create an account with an e-mail address and a password. A webpage (\autoref{fig:register}) is built to achieve this goal( \textit{register.php}). To have a the password encrypted using the function \textit{crypt()} with a salt. By default crypt uses the DES algorithm and it is the algorithm chosen for this project. Note that the DES algorithm is not secure but sufficient to hide a password from the admin.\\
+If the objective is to put in production the project. It is recommended to change the  password encryption to use another type of encryption like SHA 512 or another secure encryption algorithm. \\
+
+When the account has been created it is linked to a token. This token is generated on the server side with the PHP function \textit{random\_bytes} which is recommended to generate string of cryptographic random bytes that are suitable for cryptographic use. The length  specified for the generation is 32 bytes.Thus the number of possibilities is $(2^8)^{32} = 2^{256}$. After that, the random sequence generated is transformed into a hexadecimal string to be more readable by a novice user.\\
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{./images/register.png}
+\caption{register page}
+\label{fig:register}
+\end{figure}
 
 When the account is created a user can use the API to build its own software and manage his freezers with the help of The API and the token linked to its account or use an existing application that uses the API. In this second case the third part application should only asked your token and anything else.\\
 
@@ -74,7 +83,7 @@ mettre les schema entite relation expliquer les choix etc
 
  mentionner que l'encodage a été fait à la main et essentiellement pour un utilisateur -> fastidieux à faire et insérer des éléments aléatoirement n'a pas vraiment de sens du fait qu'un utilisateur n'a pas ce comportement. Ce la ne poserait pas de probleme pour la db mais c'est un travail inutile a réaliser dans l'optique du mon projet que de remplir la db avec des données aléatoire.
 \section{User panel}
-When a user possesses an account. He has the possibility to access to a user panel. This user panel is used to give to the user more information about its account. i.e: the email address, the token linked to the account, the possibility to change the password and the language. For the scope of the project the user panel is not developed more than that but
+When a user possesses an account. He has the possibility to access to a user panel. This user panel is used to give to the user more information about its account. i.e: the email address, the token linked to the account, the possibility to change the password and the language. For the scope of the project the user panel is not developed more than that but for production project it should be the case.
 Panel pour creer un compte et avoir accès à son token ainsi qu'à certaines informations relatives au fonctionnement de l'API
 
 \section{API REST}

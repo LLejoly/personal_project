@@ -12,8 +12,7 @@
    if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $email = mysqli_real_escape_string($connectDB, $_POST['email']);
       $mypassword = mysqli_real_escape_string($connectDB, $_POST['password']);
-      $mypassword = crypt($mypassword, $_SERVER['key_encrypt']); # encrypt the password with a salt to compare with the one in the database
-      echo $mypassword;
+      $mypassword = crypt($mypassword, $_SERVER['key_encrypt']); # encrypt the password with a salt DES and compare the encryption with the database
       #test password loiclejoly@gmail.com lolo7890
 
       $query = "SELECT token FROM User where email = '$email' and password = '$mypassword'";

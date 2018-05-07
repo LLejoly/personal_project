@@ -33,11 +33,12 @@ function ajaxRequest(objContent, callback) {
                 objContent['content'] = '';
             }
             callback(objContent);
-        } else if ( this.readyState == 4 && this. status >= 500) {
+        } else if (this.readyState == 4 && this.status >= 500) {
             alert('Impossible to establish a connection with the server');
+        } else if (this.readyState == 4 && this.status == 400) {
+            console.log(this.responseText);
         }
-        console.log(this.responseText);
-        // need to manage other types exception
+        // console.log(this.responseText);
     };
     xmlhttp.open(objContent['type'], objContent['url'], true);
     if (type == "POST" || type == "DELETE" || type == "PUT") {

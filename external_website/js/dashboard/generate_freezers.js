@@ -23,6 +23,28 @@ function addFreezer(elementId) {
     }, updateFreezerTable);
 }
 
+function updateFreezer(elementId) {
+    console.log(document.getElementsByTagName('input'));
+    console.log(document.forms[elementId].length);
+    var length = document.forms[elementId].length;
+    var data = document.forms[elementId].elements;
+    var jsonData = {};
+    for (i = 0; i < length; i++) {
+        if (data[i].name != 'submit') {
+            jsonData[data[i].name] = data[i].value;
+        }
+    }
+    console.log(jsonData);
+
+    ajaxRequest({
+            type: "PUT",
+            url: domainUrl + "freezers/" + token,
+            elementId: "update_freezer",
+            toSend: jsonData
+        },
+        updateFreezerTable);
+}
+
 function removeFreezer(elementId) {
     console.log(document.getElementsByTagName('input'));
     console.log(document.forms[elementId].length);

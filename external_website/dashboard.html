@@ -16,6 +16,8 @@
     <script src="./js/dashboard/request.js"></script>
     <script src="./js/dashboard/generate_table.js"></script>
     <script src="./js/dashboard/generate_freezers.js"></script>
+    <script src="./js/dashboard/add_product.js"></script>
+    <script src="./js/dashboard/update_product.js"></script>
     <title>Dashboard</title>
     <style>
         th {
@@ -53,6 +55,10 @@
             margin: 0 auto;
             padding: 20px;
         }
+
+        .queryBtn {
+            margin: 10px;
+        }
     </style>
 </head>
 
@@ -66,7 +72,7 @@
             <p>Please enter your token to have access to the application:</p>
             <form method="POST" name="get_token" action="javascript:void(0);" onsubmit="getToken()">
                 <input type="text" name="token" class="form-control" placeholder="insert your token" required>
-                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" name="submit" class="btn btn-primary queryBtn">Submit</button>
             </form>
             <p id="token_error"></p>
         </div>
@@ -83,9 +89,9 @@
                 <p>coucou</p>
             </div>
             <div class="col-md-2 col-sm-2">
-                    <p>freezer section</p>
-                    <button onclick="setVisibility('product_section')">Click me</button>
-                    <p>coucou</p>
+                <p>freezer section</p>
+                <button onclick="setVisibility('product_section')">Click me</button>
+                <p>coucou</p>
             </div>
             <div class="col-md-2 col-sm-2">
                 <p>coucou</p>
@@ -109,13 +115,33 @@
             <form method="POST" name="add_freezer" action="javascript:void(0);" onsubmit="addFreezer('add_freezer')">
                 <div class="row">
                     <div class="col-md-6">
+                        <label>Freezer name: </label>
                         <input type="text" name="name" class="form-control " placeholder="freezer name" required>
                     </div>
                     <div class="col-md-6">
+                        <label>number of boxes: </label>
                         <input type="text" name="num_boxes" class="form-control" placeholder="number of boxes" required>
                     </div>
                 </div>
-                <input class="btn btn-primary" type="submit" name="submit">
+                <input class="btn btn-primary queryBtn" type="submit" name="submit">
+            </form>
+            <h3>Update a freezer</h3>
+            <form method="POST" name="update_freezer" action="javascript:void(0);" onsubmit="updateFreezer('update_freezer')">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Freezer identification: </label>
+                        <input type="number" name="freezer_id" class="form-control " placeholder="freezer name">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Change name (keep empty if you do not want to change it): </label>
+                        <input type="text" name="name" class="form-control " placeholder="freezer name">
+                    </div>
+                    <div class="col-md-6">
+                            <label>Change number of boxes (keep empty if you do not want to change it): </label>
+                        <input type="text" name="num_boxes" class="form-control" placeholder="number of boxes">
+                    </div>
+                </div>
+                <input class="btn btn-primary queryBtn" type="submit" name="submit">
             </form>
             <h3>Remove a freezer</h3>
             <p> To remove a freezer. It is mandatory that this freezer does not have an history. Thus it shoudl be empty contains
@@ -134,37 +160,110 @@
     </div>
     <div id="product_section" style="display: none;">
         <h2>Products</h2>
+        <!-- Display a menu to select products -->
         <div id="products_listing" class="custom-control custom-radio"></div>
+        <!-- Display the products following the restritions asked -->
         <div id="products_table"></div>
+
+        <h3>Add a product</h3>
         <form method="POST" name="add_product" class="form" action="javascript:void(0);" onsubmit="addProduct()">
             <div class="row">
                 <div class="col-md-6">
+                    <label>Product name: </label>
                     <input type="text" name="product_name" class="form-control" placeholder="product_name" required>
                 </div>
                 <div class="col-md-6">
+                    <label>Description of the product: </label>
                     <input type="text" name="text_descr" class="form-control" placeholder="product description" required>
                 </div>
                 <div class="col-md-6">
-                    <select type="select" id="freezer_id_form" name="freezer_id" class="form-control"></select>
+                    <label>Selection of the freezer: </label>
+                    <select type="select" id="freezer_id_add_form" name="freezer_id" class="form-control" onchange="addSetFreezerOptions(this.value)"></select>
                 </div>
                 <div class="col-md-6">
-                    <select type="select" id="type_id_form" name="type_id" class="form-control"></select>
+                    <label>Product type selection: </label>
+                    <select type="select" id="type_id_add_form" name="type_id" class="form-control"></select>
                 </div>
                 <div class="col-md-6">
+                    <label>Insertion date: </label>
                     <input type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" name="date_in" class="form-control" placeholder="2018-15-03"
                         required>
                 </div>
                 <div class="col-md-6">
+                    <label>Product period to stay in the freezer: </label>
                     <input type="text" name="period" class="form-control" placeholder="period in month" required>
                 </div>
                 <div class="col-md-6">
-                    <input type="number" name="box_num" class="form-control" placeholder="box number" required>
+                    <label>Freezer box number: </label>
+                    <select type="select" id="box_id_add_form" name="box_num" class="form-control" onchange="addSetNumber('prod_id_add_form', this.value)"></select>
                 </div>
                 <div class="col-md-6">
-                    <input type="number" name="prod_num" class="form-control" placeholder="product number" required>
+                    <label>Product identifier inside the box chosen: </label>
+                    <input type="number" id="prod_id_add_form" name="prod_num" class="form-control" placeholder="product number" required>
                 </div>
                 <div class="col-md-6">
+                    <label>Quantity (number of people): </label>
                     <input type="number" name="quantity" class="form-control" placeholder="quantity" required>
+                </div>
+            </div>
+
+            <input class="button" type="submit" name="submit">
+        </form>
+        <h3>Update a product</h3>
+        <form method="POST" name="update_product" class="form" action="javascript:void(0);" onsubmit="updateProduct()">
+            <div class="row" style="margin-bottom: 40px">
+                <label>The freezer where the product is located: </label>
+                <select type="select" id="freezer_id_main" name="freezer_id" class="form-control"></select>
+                <label>The box where the product is located: </label>
+                <input type="number" name="box_num_id" class="form-control" placeholder="box number" required>
+                <label>The identifiaction of this product inside the box: </label>
+                <input type="number" name="prod_num_id" class="form-control" placeholder="box number" required>
+                <label>Specify the if the product is already in the freezer: </label>
+                <select type="select" name="prod_loc" class="form-control">
+                    <option value="1">Inside the freezer</option>
+                    <option value="0">Outside the freezer</option>
+                </select>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Product name: </label>
+                    <input type="text" name="product_name" class="form-control" placeholder="product_name">
+                </div>
+                <div class="col-md-6">
+                    <label>Description of the product: </label>
+                    <input type="text" name="text_descr" class="form-control" placeholder="product description">
+                </div>
+                <div class="col-md-6">
+                    <label>Selection of the freezer: </label>
+                    <select type="select" id="freezer_id_updt_form" name="freezer_id" class="form-control" onchange="updtSetFreezerOptions(this.value)"></select>
+                </div>
+                <div class="col-md-6">
+                    <label>Product type selection: </label>
+                    <select type="select" id="type_id_updt_form" name="type_id" class="form-control"></select>
+                </div>
+                <div class="col-md-6">
+                    <label>Insertion date: </label>
+                    <input type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" name="date_in" class="form-control" placeholder="2018-15-03">
+                </div>
+                <div class="col-md-6">
+                    <label>Output date: </label>
+                    <input type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" name="date_out" class="form-control" placeholder="2018-16-03">
+                </div>
+                <div class="col-md-6">
+                    <label>Product period to stay in the freezer: </label>
+                    <input type="text" name="period" class="form-control" placeholder="period in month">
+                </div>
+                <div class="col-md-6">
+                    <label>Freezer box number: </label>
+                    <select type="select" id="box_id_updt_form" name="box_num" class="form-control" onchange="updtSetNumber('prod_id_updt_form', this.value)"></select>
+                </div>
+                <div class="col-md-6">
+                    <label>Product identifier inside the box chosen: </label>
+                    <input type="number" id="prod_id_updt_form" name="prod_num" class="form-control" placeholder="product number">
+                </div>
+                <div class="col-md-6">
+                    <label>Quantity (number of people): </label>
+                    <input type="number" name="quantity" class="form-control" placeholder="quantity">
                 </div>
             </div>
 
@@ -177,8 +276,12 @@
 <script>
     var token = "";
     var domainUrl = "http://localhost:5000/";
+    // Global objects used in other files
+    // If you modify the name of it pay attention to also modify it on other files.
     var typesObject = {};
     var freezersObject = {};
+    var addObject = {};
+    var updtObject = {};
 
     // This function is used to get The token an check its validity
     // If the token is valid several and the server is alive. Several
@@ -188,6 +291,7 @@
         token = document.forms["get_token"]["token"].value;
         check_token();
     }
+
     // This function allows to set the visibility of an element
     // If the element is already visible then it will be turned to none
     // otherwise an element which is set to none will be turned to block.
@@ -208,36 +312,25 @@
         document.getElementById("products_table").innerHTML = "";
     }
 
-    function setTypesChoices(objectIdentifier) {
+    function setSelectOption(objectIdentifier, obj, val, txt) {
         var select, i, option;
         select = document.getElementById(objectIdentifier);
-        //Clean up the type_id tag
+        //Clean up the the html node
         var selectParentNode = select.parentNode;
         var newSelectObj = select.cloneNode(false); // Make a shallow copy
         selectParentNode.replaceChild(newSelectObj, select);
-        select = newSelectObj
-
-        for (var i = 0; i < typesObject.content.length; i++) {
+        select = newSelectObj;
+        // Set the default choice
+        option = document.createElement('option');
+        option.setAttribute('disabled', 'disabled');
+        option.setAttribute('selected', true);
+        option.text = ' -- select an option -- ';
+        select.add(option);
+        //set the different options
+        for (var i = 0; i < obj.content.length; i++) {
             option = document.createElement('option');
-            option.value = typesObject.content[i]['type_id'];
-            option.text = typesObject.content[i]['type_name_en'];
-            select.add(option);
-        }
-    }
-
-    function setFreezersChoices(objectIdentifier) {
-        var select, i, option;
-        select = document.getElementById(objectIdentifier);
-        //Clean up the type_id tag
-        var selectParentNode = select.parentNode;
-        var newSelectObj = select.cloneNode(false); // Make a shallow copy
-        selectParentNode.replaceChild(newSelectObj, select);
-        select = newSelectObj
-
-        for (var i = 0; i < freezersObject.content.length; i++) {
-            option = document.createElement('option');
-            option.value = freezersObject.content[i]['freezer_id'];
-            option.text = freezersObject.content[i]['freezer_name'];
+            option.value = obj.content[i][val];
+            option.text = obj.content[i][txt];
             select.add(option);
         }
     }
@@ -263,8 +356,17 @@
 
     function generateProductStuffs() {
         generateProductSelection('products_listing');
-        setFreezersChoices('freezer_id_form');
-        setTypesChoices('type_id_form');
+        setSelectOption('freezer_id_add_form', freezersObject, 'freezer_id', 'freezer_name');
+        //setFreezersChoices('freezer_id_form');
+        setSelectOption('type_id_add_form', typesObject, 'type_id', 'type_name_en');
+        //setTypesChoices('type_id_form');
+        generateUpdateProd();
+    }
+
+    function generateUpdateProd() {
+        setSelectOption('freezer_id_main', freezersObject, 'freezer_id', 'freezer_name');
+        setSelectOption('freezer_id_updt_form', freezersObject, 'freezer_id', 'freezer_name');
+        setSelectOption('type_id_updt_form', typesObject, 'type_id', 'type_name_en');
     }
 
     function setDashboard() {
@@ -291,20 +393,56 @@
     function notifyAdd() {
         console.log("element added");
     }
+
     function addProduct() {
         var length = document.forms["add_product"].length;
         var data = document.forms["add_product"].elements;
-        var my_test = {};
+        var newProduct = {};
         for (i = 0; i < length; i++) {
             if (data[i].name != 'submit') {
-                my_test[data[i].name] = data[i].value;
+                newProduct[data[i].name] = data[i].value;
             }
         }
-        //Send my_test to ajaxRequest
+        console.log(newProduct);
+        //Send newProduct to ajaxRequest
         product = {
             type: "POST",
             url: domainUrl + "add_product/" + token,
-            toSend: my_test
+            toSend: newProduct
+        }
+        console.log(product);
+        ajaxRequest(product, notifyAdd);
+    }
+
+    function updateProduct() {
+        var length = document.forms["update_product"].length;
+        var data = document.forms["update_product"].elements;
+        var updtProduct = {};
+        var freezer_id;
+        var box_num;
+        var prod_num;
+        var prod_loc;
+        for (i = 0; i < length; i++) {
+            if (data[i].name == 'freezer_id_main') {
+                freezer_id = data[i].value;
+            } else if (data[i].name == 'box_num_id') {
+                box_num = data[i].value;
+            } else if (data[i].name == 'prod_num_id') {
+                prod_num = data[i].value;
+            } else if (data[i].name == 'prod_loc') {
+                prod_loc = data[i].value;
+            } else if (data[i].name != 'submit') {
+                updtProduct[data[i].name] = data[i].value;
+            }
+        }
+        console.log(domainUrl + "update_product/" + freezer_id + "/" + box_num + "/" + prod_num + "/" + prod_loc + "/" +
+            token);
+        //Send newProduct to ajaxRequest
+        product = {
+            type: "POST",
+            url: domainUrl + "update_product/" + freezer_id + "/" + box_num + "/" + prod_num + "/" + prod_loc + "/" +
+                token,
+            toSend: updtProduct
         }
         console.log(product);
         ajaxRequest(product, notifyAdd);

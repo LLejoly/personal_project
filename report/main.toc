@@ -2,20 +2,20 @@
 \contentsline {section}{\numberline {1}Introduction}{2}{section.1}
 \contentsline {subsection}{\numberline {1.1}Explanation of the project itself}{2}{subsection.1.1}
 \contentsline {section}{\numberline {2}Content storing}{2}{section.2}
-\contentsline {subsection}{\numberline {2.1}Account creation}{2}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Database model discussion}{2}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Relational database structure}{3}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Entity-relationship model}{3}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Relational model}{4}{subsection.2.5}
-\contentsline {section}{\numberline {3}API REST}{5}{section.3}
-\contentsline {subsection}{\numberline {3.1}Sever}{5}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}functionalities implemented}{5}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Documentation}{5}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}formules}{5}{subsection.3.4}
-\contentsline {section}{\numberline {4}User panel}{5}{section.4}
-\contentsline {section}{\numberline {5}Admin panel}{5}{section.5}
-\contentsline {section}{\numberline {6}External website}{6}{section.6}
-\contentsline {section}{\numberline {7}unit tests}{6}{section.7}
-\contentsline {section}{\numberline {8}problemes rencontr\IeC {\'e}s}{6}{section.8}
-\contentsline {section}{\numberline {9}future work}{6}{section.9}
-\contentsline {section}{\numberline {10}Conclusion}{6}{section.10}
+\contentsline {subsection}{\numberline {2.1}Database model discussion}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Relational database structure}{2}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Entity-relationship model}{3}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Relational model}{4}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Account creation}{5}{subsection.2.5}
+\contentsline {section}{\numberline {3}User panel}{6}{section.3}
+\contentsline {section}{\numberline {4}API REST}{6}{section.4}
+\contentsline {subsection}{\numberline {4.1}Sever}{6}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}functionalities implemented}{6}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Documentation}{6}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}formules}{6}{subsection.4.4}
+\contentsline {section}{\numberline {5}Admin panel}{6}{section.5}
+\contentsline {section}{\numberline {6}External website}{7}{section.6}
+\contentsline {section}{\numberline {7}unit tests}{7}{section.7}
+\contentsline {section}{\numberline {8}problemes rencontr\IeC {\'e}s}{7}{section.8}
+\contentsline {section}{\numberline {9}future work}{7}{section.9}
+\contentsline {section}{\numberline {10}Conclusion}{7}{section.10}
