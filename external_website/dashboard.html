@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/formcss.css">
+    <!-- Font that comes from https://fontawesome.com/ -->
+    <link href="./css/font/css/fontawesome-all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--https://codepen.io/mican/pen/dRWxZe-->
     <!-- jQuery: required (tablesorter works with jQuery 1.2.3+) -->
@@ -18,6 +20,7 @@
     <script src="./js/dashboard/generate_freezers.js"></script>
     <script src="./js/dashboard/add_product.js"></script>
     <script src="./js/dashboard/update_product.js"></script>
+
     <title>Dashboard</title>
     <style>
         th {
@@ -46,7 +49,7 @@
 
         .title {
             background: #ffd777;
-            color: #f2f2f2;
+            color: #797979;
             border-bottom: 2px solid #c9aa5f;
             margin-bottom: 20px;
         }
@@ -58,6 +61,40 @@
 
         .queryBtn {
             margin: 10px;
+        }
+
+        .menuBtn {
+            display: block;
+            margin: 0 auto;
+            border: 2px solid #C9AE34;
+            color: #705D07;
+            border-radius: 3px 3px 3px 3px;
+            -webkit-border-radius: 3px 3px 3px 3px;
+            -moz-border-radius: 3px 3px 3px 3px;
+            font-family: Verdana;
+            width: auto;
+            height: auto;
+            font-size: 16px;
+            padding: 8px 33px
+        }
+
+        .menuBtn.active {
+            background: #ea0000;
+            color: #fff;
+        }
+
+        .setIcon {
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        .menuTile {
+            border: solid;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
         }
     </style>
 </head>
@@ -77,36 +114,50 @@
             <p id="token_error"></p>
         </div>
 
-
         <div class="row">
-            <div class="col-md-2 col-sm-2">
-                <p>Available types of products</p>
-                <button onclick="setVisibility('types_section')">Click me</button>
+            <div class="col-md-3">
+                <div class="menuTile">
+                    <p>Available types of products</p>
+                    <i class="fas fa-align-center fa-5x setIcon"></i>
+                    <button class="menuBtn" onclick="setVisibility('types_section')">Click me</button>
+                </div>
             </div>
-            <div class="col-md-2 col-sm-2">
-                <p>freezer section</p>
-                <button onclick="setVisibility('freezer_section')">Click me</button>
-                <p>coucou</p>
+            <div class="col-md-3">
+                <div class="menuTile">
+                    <p>freezer section</p>
+                    <i class="fas fa-archive fa-5x setIcon"></i>
+                    <button class="menuBtn" onclick="setVisibility('freezer_section')">Click me</button>
+                </div>
             </div>
-            <div class="col-md-2 col-sm-2">
-                <p>freezer section</p>
-                <button onclick="setVisibility('product_section')">Click me</button>
-                <p>coucou</p>
+            <div class="col-md-3">
+                <div class="menuTile">
+                    <p>product section</p>
+                    <i class="fas fa-utensils fa-5x setIcon"></i>
+                    <button class="menuBtn" onclick="setVisibility('product_section')">Click me</button>
+                </div>
             </div>
-            <div class="col-md-2 col-sm-2">
-                <p>coucou</p>
-            </div>
-            <div class="col-md-2 col-sm-2">
-                <p>coucou</p>
-            </div>
-            <div class="col-md-2 col-sm-2">
-                <p>coucou</p>
+            <div class="col-md-3">
+                <div class="menuTile">
+                    <p>coucou</p>
+                </div>
             </div>
         </div>
         <div id='types_section' style="display: none;">
             <h2>Possible types</h2>
             <div id="types_table"></div>
         </div>
+        <!-- Keep color of a button until it is clicked again -->
+        <script>
+            $('.menuBtn').click(function () {
+                if ($(this).hasClass('active')) {
+                    $(this).removeClass('active');
+                    $(this).text('Show');
+                } else {
+                    $(this).addClass('active');
+                    $(this).text('Hide');
+                }
+            });
+        </script>
 
         <div id='freezer_section' style="display: none;">
             <h2>Freezers</h2>
@@ -137,7 +188,7 @@
                         <input type="text" name="name" class="form-control " placeholder="freezer name">
                     </div>
                     <div class="col-md-6">
-                            <label>Change number of boxes (keep empty if you do not want to change it): </label>
+                        <label>Change number of boxes (keep empty if you do not want to change it): </label>
                         <input type="text" name="num_boxes" class="form-control" placeholder="number of boxes">
                     </div>
                 </div>

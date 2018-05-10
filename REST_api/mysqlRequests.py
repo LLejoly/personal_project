@@ -80,6 +80,14 @@ GET_PERSONALIZED_TENDENCY = """SELECT type_id,
                                WHERE token = %s
                                GROUP BY type_id
                                ORDER BY latest DESC, freq DESC;"""
+"""
+GET the types used by a user
+"""
+GET_TYPES_USED = """SELECT  DISTINCT type_id
+                    FROM Product 
+                    WHERE token = %s
+                    AND date_out IS NULL 
+                    ORDER BY type_id ASC;"""
 
 param_all = """FROM ((Product
                       INNER JOIN Description_product

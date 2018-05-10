@@ -12,6 +12,7 @@ import responseMessage
 import utils
 from queryDB import QueryDB
 from validatorDB import ValidatorDB
+
 # TODO put flask limiter to limit the number of requests
 app = Flask(__name__)
 # One of the simplest configurations. Exposes all resources matching /* to
@@ -97,6 +98,10 @@ def freezers(token):
     if request.method == 'POST':
         freezer = request.get_json()
 
+        # data sent is not 'application/json' type
+        if freezer is None:
+            return custom_response(415, responseMessage.BAD_CONTENT_TYPE)
+
         if set(freezer.keys()) == {'num_boxes', 'name'}:
             if not utils.is_valid_number(freezer['num_boxes']):
                 return custom_response(400, responseMessage.BAD_FORMAT)
@@ -115,8 +120,12 @@ def freezers(token):
     # Update an existing freezer
     if request.method == 'PUT':
         freezer = request.get_json()
+        # data sent is not 'application/json' type
+        if freezer is None:
+            return custom_response(415, responseMessage.BAD_CONTENT_TYPE)
+
         if set(freezer.keys()) == {'freezer_id', 'num_boxes', 'name'}:
-            if validator_db.check_freezer_id(token, freezer['freezer_id'], available=False):
+            if not validator_db.valid_freezer_id(token, freezer['freezer_id'], available=False):
                 return custom_response(400, responseMessage.BAD_FORMAT)
 
             curr_freezer = query_db.get_query_db(mysqlRequests.GET_SPECIFIC_FREERZER,
@@ -146,20 +155,26 @@ def freezers(token):
 
     if request.method == 'DELETE':
         freezer = request.get_json()
+        # data sent is not 'application/json' type
+        if freezer is None:
+            return custom_response(415, responseMessage.BAD_CONTENT_TYPE)
+
         if set(freezer.keys()) == {'freezer_id'}:
-            if validator_db.check_freezer_id(token, freezer['freezer_id'], available=False):
+            if not validator_db.valid_freezer_id(token, freezer['freezer_id'], available=False):
                 return custom_response(400, responseMessage.BAD_FORMAT)
+
             res = query_db.get_query_db(mysqlRequests.GET_PROD_NUM_LIST,
                                         (token,
                                          freezer['freezer_id'],),
                                         one=True,
                                         header=True)
+
             if res:
                 return custom_response(400, responseMessage.DELETE_FREEZER)
 
             query_db.insert_query_db(mysqlRequests.DELETE_FREEZER,
                                      (freezer['freezer_id'],))
-        return Response(status=200)
+            return Response(status=200)
 
     return custom_response(400, responseMessage.BAD_REQUEST)
 
@@ -215,6 +230,10 @@ def add_product(token):
         return custom_response(400, responseMessage.BAD_TOKEN)
 
     new_product = request.get_json()
+    # data sent is not 'application/json' type
+    if new_product is None:
+        return custom_response(415, responseMessage.BAD_CONTENT_TYPE)
+
     correct, new_product = validator_db.check_insert_product(token,
                                                              mysqlRequests.PRODUCT_HEADER,
                                                              new_product)
@@ -290,7 +309,8 @@ def get_product(params, freezer_id, token):
     return custom_response(400, responseMessage.BAD_PARAMETER)
 
 
-@app.route("/update_product/<int:freezer_id>/<int:box_num>/<int:prod_num>/<int:inside>/<string:token>", methods=['POST'])
+@app.route("/update_product/<int:freezer_id>/<int:box_num>/<int:prod_num>/<int:inside>/<string:token>",
+           methods=['POST'])
 def update_product(freezer_id, box_num, prod_num, inside, token):
     """
     Update an existing product by giving its id and sending a json object of the form
@@ -307,36 +327,44 @@ def update_product(freezer_id, box_num, prod_num, inside, token):
      "quantity":""
      }
        Where the fields to update need to be non empty. To remove the date out simply put null
+    :param inside:
+    :param prod_num:
+    :param box_num:
+    :param freezer_id:
     :param token: a user token to have access to the database
     :return:
     """
     token = MySQLdb.escape_string(token)
     if not validator_db.valid_token(token):
         return custom_response(400, responseMessage.BAD_TOKEN)
-    product = None
     if inside > 0:
-        product = query_db.get_query_db(mysqlRequests.GET_A_PRODUCT_INSIDE,
-                                        (token,
-                                         freezer_id,
-                                         box_num,
-                                         prod_num,),
-                                        one=True,
-                                        header=True)
+        curr_product = query_db.get_query_db(mysqlRequests.GET_A_PRODUCT_INSIDE,
+                                             (token,
+                                              freezer_id,
+                                              box_num,
+                                              prod_num,),
+                                             one=True,
+                                             header=True)
     else:
-        product = query_db.get_query_db(mysqlRequests.GET_A_PRODUCT_OUTSIDE,
-                                        (token,
-                                         freezer_id,
-                                         box_num,
-                                         prod_num,),
-                                        one=True,
-                                        header=True)
+        curr_product = query_db.get_query_db(mysqlRequests.GET_A_PRODUCT_OUTSIDE,
+                                             (token,
+                                              freezer_id,
+                                              box_num,
+                                              prod_num,),
+                                             one=True,
+                                             header=True)
 
-    if not product:
+    if not curr_product:
         return custom_response(400, responseMessage.BAD_PARAMETER)
 
-    print(product)
-    validity, update_prod = validator_db.check_update_product(product,
-                                                              request.get_json(),
+    print(curr_product)
+    updt_product = request.get_json()
+    # data sent is not 'application/json' type
+    if updt_product is None:
+        return custom_response(415, responseMessage.BAD_CONTENT_TYPE)
+
+    validity, update_prod = validator_db.check_update_product(curr_product,
+                                                              updt_product,
                                                               token)
 
     if not validity:
@@ -349,108 +377,40 @@ def update_product(freezer_id, box_num, prod_num, inside, token):
                                  (update_prod['freezer_id'],
                                   update_prod['box_num'],
                                   update_prod['prod_num'],
-                                  product['prod_id'],))
+                                  curr_product['prod_id'],))
 
     if update_prod['product_name']:
         query_db.insert_query_db(mysqlRequests.UPDATE_PRODUCT_NAME,
-                                 (update_prod['product_name'], product['descr_id'],))
+                                 (update_prod['product_name'], curr_product['descr_id'],))
     if update_prod['text_descr']:
         query_db.insert_query_db(mysqlRequests.UPDATE_TEXT_DESCR,
-                                 (update_prod['text_descr'], product['descr_id'],))
+                                 (update_prod['text_descr'], curr_product['descr_id'],))
     if update_prod['freezer_id']:
         query_db.insert_query_db(mysqlRequests.UPDATE_FREEZER_ID,
-                                 (update_prod['freezer_id'], product['prod_id'],))
+                                 (update_prod['freezer_id'], curr_product['prod_id'],))
     if update_prod['type_id']:
         query_db.insert_query_db(mysqlRequests.UPDATE_TYPE_ID,
-                                 (update_prod['type_id'], product['prod_id'], product['descr_id'],))
+                                 (update_prod['type_id'], curr_product['prod_id'], curr_product['descr_id'],))
     if update_prod['date_in']:
         query_db.insert_query_db(mysqlRequests.UPDATE_DATE_IN,
-                                 (update_prod['date_in'], product['prod_id'],))
+                                 (update_prod['date_in'], curr_product['prod_id'],))
     if update_prod['date_out']:
         if update_prod['remove']:
             query_db.insert_query_db(mysqlRequests.REMOVE_DATE_OUT,
-                                     (product['prod_id'],))
+                                     (curr_product['prod_id'],))
         else:
             query_db.insert_query_db(mysqlRequests.UPDATE_DATE_OUT,
-                                     (update_prod['date_out'], product['prod_id'],))
+                                     (update_prod['date_out'], curr_product['prod_id'],))
     if update_prod['period']:
         query_db.insert_query_db(mysqlRequests.UPDATE_PERIOD,
-                                 (update_prod['period'], product['prod_id'],))
+                                 (update_prod['period'], curr_product['prod_id'],))
     if update_prod['quantity']:
         query_db.insert_query_db(mysqlRequests.UPDATE_QUANTITY,
-                                 (update_prod['quantity'], product['prod_id'],))
+                                 (update_prod['quantity'], curr_product['prod_id'],))
     return Response(status=200)
-    # if query_result:
-    #     product = query_result[0]
-    # else:
-    #     return
-    #
-    # if validator_db.check_token(token):
-    #     new_product = request.get_json()
-    #     if list(new_product.keys()) == [object]:
-    #         value_formatted = MySQLdb.escape_string(new_product[object])
-    #
-    #         if object == 'product_name':
-    #             query_db.insert_query_db(mysqlRequests.UPDATE_PRODUCT_NAME,
-    #                                      (value_formatted, product['descr_id'],))
-    #
-    #         if object == 'text_descr':
-    #             query_db.insert_query_db(mysqlRequests.UPDATE_TEXT_DESCR,
-    #                                      (value_formatted, product['descr_id'],))
-    #
-    #         if object == 'freezer_id':
-    #             if not validator_db.check_freezer_id(token, value_formatted):
-    #                 return generate_response(400, response_message.BAD_FORMAT)
-    #             query_db.insert_query_db(mysqlRequests.UPDATE_FREEZER_ID,
-    #                                      (int(value_formatted), product['prod_id'],))
-    #
-    #         if object == 'type_id':
-    #             if not validator_db.check_type_id(value_formatted):
-    #                 return generate_response(400, response_message.BAD_FORMAT)
-    #             query_db.insert_query_db(mysqlRequests.UPDATE_TYPE_ID,
-    #                                      (int(value_formatted), product['prod_id'],))
-    #
-    #         if object == 'date_in':
-    #             if not validator_db.check_date(value_formatted.decode("utf-8")):
-    #                 return generate_response(400, response_message.BAD_FORMAT)
-    #
-    #             query_db.insert_query_db(mysqlRequests.UPDATE_DATE_IN,
-    #                                      (value_formatted, product['prod_id'],))
-    #
-    #         if object == 'date_out':
-    #             remove = False
-    #             if value_formatted.decode("utf-8") == 'null':
-    #                 remove = True
-    #             elif not validator_db.check_date(value_formatted.decode("utf-8")):
-    #                 return generate_response(400, response_message.BAD_FORMAT)
-    #
-    #             if remove:
-    #                 query_db.insert_query_db(mysqlRequests.REMOVE_DATE_OUT,
-    #                                          (product['prod_id'],))
-    #             else:
-    #                 query_db.insert_query_db(mysqlRequests.UPDATE_DATE_OUT,
-    #                                          (value_formatted, product['prod_id'],))
-    #
-    #         if object == 'period':
-    #             if not value_formatted.isdigit():
-    #                 return generate_response(400, response_message.BAD_FORMAT)
-    #
-    #             query_db.insert_query_db(mysqlRequests.UPDATE_PERIOD,
-    #                                      (value_formatted, product['prod_id'],))
-    #         ## TODO box et prod num à faire
-    #         if object == 'quantity':
-    #             if not value_formatted.isdigit():
-    #                 return generate_response(400, response_message.BAD_FORMAT)
-    #
-    #             query_db.insert_query_db(mysqlRequests.UPDATE_QUANTITY,
-    #                                      (value_formatted, product['prod_id'],))
-    #
-    #         return Response(status=200)
-    #
-    # return generate_response(400, response_message.BAD_TOKEN)
 
 
-#TODO TAKE product is just a modification of update product
+# TODO TAKE product is just a modification of update product
 # get_product("5b68dab9a6c606171473091280898d1c9e581159173d6ba267f3418a6573ae92", 2, 3)
 
 @app.route("/get_general_tendency/<string:token>", methods=['GET'])

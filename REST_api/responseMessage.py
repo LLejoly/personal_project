@@ -2,6 +2,7 @@ BAD_TOKEN = "Bad token given"
 BAD_PARAMETER = "The parameter given is not correct"
 BAD_FORMAT = "The request does not follow the format rule. Please try again with the correct format"
 BAD_REQUEST = "Bad request"
+BAD_CONTENT_TYPE = "The content-type sent is not an application/json. Please try again with this content type."
 
 BAD_PRODUCT_EMPLACEMENT = "The emplacement where you try to store your new product is not valid." \
                           "Please check the box number, the freezer and the product identifier assigned to it." \

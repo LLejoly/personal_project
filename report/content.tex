@@ -65,7 +65,7 @@ The database is encoded in MySQL language. The engine used is InnoDB with utf8mb
 As discussed above the architecture of the database allows to skip some tables to backup like Product\_to\_type and List\_freezers. These two table can be reconstruct with the others tables. Thus it is not mandatory to backups these ones.
 
 \subsection{Account creation}
-To use the API a user need to create an account with an e-mail address and a password. A webpage (\autoref{fig:register}) is built to achieve this goal( \textit{register.php}). To have a the password encrypted using the function \textit{crypt()} with a salt. By default crypt uses the DES algorithm and it is the algorithm chosen for this project. Note that the DES algorithm is not secure but sufficient to hide a password from the admin.\\
+To use the API a user need to create an account with an e-mail address and a password. A webpage (\autoref{fig:register}) is built to achieve this goal( \textit{website/register.php}). To have a the password encrypted using the function \textit{crypt()} with a salt. By default crypt uses the DES algorithm and it is the algorithm chosen for this project. Note that the DES algorithm is not secure but sufficient to hide a password from the admin.\\
 If the objective is to put in production the project. It is recommended to change the  password encryption to use another type of encryption like SHA 512 or another secure encryption algorithm. \\
 
 When the account has been created it is linked to a token. This token is generated on the server side with the PHP function \textit{random\_bytes} which is recommended to generate string of cryptographic random bytes that are suitable for cryptographic use. The length  specified for the generation is 32 bytes.Thus the number of possibilities is $(2^8)^{32} = 2^{256}$. After that, the random sequence generated is transformed into a hexadecimal string to be more readable by a novice user.\\
@@ -83,13 +83,238 @@ mettre les schema entite relation expliquer les choix etc
 
  mentionner que l'encodage a été fait à la main et essentiellement pour un utilisateur -> fastidieux à faire et insérer des éléments aléatoirement n'a pas vraiment de sens du fait qu'un utilisateur n'a pas ce comportement. Ce la ne poserait pas de probleme pour la db mais c'est un travail inutile a réaliser dans l'optique du mon projet que de remplir la db avec des données aléatoire.
 \section{User panel}
-When a user possesses an account. He has the possibility to access to a user panel. This user panel is used to give to the user more information about its account. i.e: the email address, the token linked to the account, the possibility to change the password and the language. For the scope of the project the user panel is not developed more than that but for production project it should be the case.
-Panel pour creer un compte et avoir accès à son token ainsi qu'à certaines informations relatives au fonctionnement de l'API
+When a user possesses an account. He has the possibility to access to a user panel with the \textit{website/login.php} page (\autoref{fig:login}). If the information given are correct, you will be redirected to the user panel panel page \textit{website/user/user\_interface.php}.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{./images/login.png}
+\caption{Login page}
+\label{fig:login}
+\end{figure}
+
+This user panel is used to give to the user more information about its account. i.e: the email address, the token linked to the account, the possibility to change the password and the language. For the scope of the project the user panel is not developed more than that but for production project it should be the case. We could add some features to manage our freezers, etc.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.25]{./images/userPanel.png}
+\caption{User panel}
+\label{fig:login}
+\end{figure}
 
 \section{API REST}
 \subsection{Sever}
 \subsection{functionalities implemented}
+Several functionalities have been implemented.
+\subsubsection{check\_token}
+This request implements a single method which is \textit{GET} method. It gives the possibility to check the validity of a given token. If this one is correct a response with the status code 200 is sent. Otherwise, a response with the status code 400 is returned. Moreover, when the status code 400 is returned a JSON object is also sent back with two fields \textit{details and status}. Where details field explains the reason of this status code. And status field which give the status a second time to help third applications to obtain that easily. \\
+
+The prototype of this request is the following:
+
+$$<domainUrl>/check\_token/<token>$$
+
+Parameters:
+\begin{enumerate}
+\item <domailUrl>: The url of the server API. In the case of the project the server is run on the \textit{localhost:5000}
+\item <token>: A user's token that corresponds to an existing account.
+\end{enumerate}
+
+\subsubsection{types}
+This request implements a single method which is \textit{GET} method. It gives the possible types of products that can be encoded into the database. To obtain these types you need to give an existing token. If this token is correct a JSON object containing the different types of products is sent and the status code of the response is 200. Otherwise the status code 400 is returned with the two fields \textit{details and status} described earlier.\\
+
+The prototype of this request is the following:
+
+$$<domainUrl>/types/<token>$$
+
+Parameters:
+\begin{enumerate}
+\item <domailUrl>: The url of the server API. In the case of the project the server is run on the \textit{localhost:5000}
+\item <token>: A user's token that corresponds to an existing account.
+\end{enumerate}
+
+The architecture of the JSON file returned is the following:
+\begin{lstlisting}
+[
+    {
+        "type_id": 1,
+        "type_name_en": "soup",
+        "type_name_fr": "soupe"
+    },
+    {
+        "type_id": 2,
+        "type_name_en": "meal soup",
+        "type_name_fr": "soupe repas"
+    },
+    ...
+]
+\end{lstlisting}
+
+Explanation of the  JSON object:
+\begin{enumerate}
+\item \textit{type\_id}: An `integer` that represents the id of the product's type
+\item \textit{type\_name\_en}: The type name in English
+\item \textit{type\_name\_fr}: The type name in French
+\end{enumerate}
+
+Note that it is not possible for a user to add a product type. It is the desired behaviour since we do not want a user with the possibility to add random product types or define several times the same product type. This functionality should only given to the admin of the system.
+%*freezer* `GET`
+%------------
+%To obtain the informations about all freezer associated to a specific user identified by its token.
+%
+%The prototype of the request:
+%```
+%localhost:5000/freezers/<token>
+%```
+%Parameters:
+%- `<token>`: A user's token
+%
+%This request returns a JSON object of the form:
+%```
+%[
+%    {
+%        "freezer_id": 1,
+%        "freezer_name": "frigo 1",
+%        "number_boxes": 4
+%    },
+%    ...
+%]
+%```
+%### A simple example
+%This is a simple example using the `curl` tool:
+%```
+%>>> curl http://localhost:5000/freezers/5b68dab9a6c606171473091280898d1c9e581159173d6ba267f3418a6573ae92
+%```
+%
+%---
+%
+%*freezer* `POST`
+%--------------
+%The prototype of the request:
+%```
+%localhost:5000/freezers/<token>
+%```
+%Parameters:
+%- `<token>`: A user's token
+%
+%
+%It is possible to add a new freezer for a specific user identified by its token.
+%The post method need to be used to add it and has to respect the JSON format which follows
+%the following schema:
+%```
+%{
+%    "num_boxes": "4",
+%    "name": "my_name"
+%}
+%```
+%- `num_boxes`: An `integer` that represent the number of boxes.
+%- `name`: An `string` that represents the new name given to the freezer.
+%### A simple example
+%This is a simple example using the `curl` tool:
+%```
+%>>> curl -H "Content-Type: application/json" -X POST -d '{"num_boxes":"4", "name":"toy"}' http://localhost:5000/freezers/5b68dab9a6c606171473091280898d1c9e581159173d6ba267f3418a6573ae92
+%```
+%
+%---
+%
+%---
+%
+%*freezer* `PUT`
+%--------------
+%The prototype of the request:
+%```
+%localhost:5000/freezers/<token>
+%```
+%Parameters:
+%- `<token>`: A user's token
+%
+%
+%It is possible to update an existing freezer if you want to change the name of your freezer or/and change the number of
+%boxes that it has. The Put request uses a JSON to send data to the server. The JSON format uses the following schema:
+%```
+%{
+%    "freezer_id": the id of an exisitng freezer,
+%    "num_boxes": "4",
+%    "name": "my_name"
+%}
+%```
+%- `freezer_id`: An `integer` that represents the id of an existing freezer that belongs to the user with the token given.
+%- `num_boxes`: An `integer` that represent the number of boxes. Can be leaved empty if we do not want to update the number of boxes.
+%- `name`: An `string` that represents the new name given to the freezer. Can be leaved empty if we do not want to update the name.
+%
+%
+%### A simple example
+%This is a simple example using the `curl` tool:
+%```
+%>>> curl -H "Content-Type: application/json" -X PUT -d '{"freezer_id":3, "num_boxes":"", "name":"toy"}' http://localhost:5000/freezers/5b68dab9a6c606171473091280898d1c9e581159173d6ba267f3418a6573ae92
+%```
+%
+%---
+%
+%*freezer* `DELETE`
+%--------------
+%The prototype of the request:
+%```
+%localhost:5000/freezers/<token>
+%```
+%Parameters:
+%- `<token>`: A user's token
+%
+%
+%It is possible to delete a freezer. But to delete this one, it needs to follows some conditions.
+%This freezer should be empty and do not have an history. In other words, this freezer must not have any link with a product.
+%The DELETE request uses a JSON to send data to the server. The JSON format uses the following schema:
+%```
+%{
+%    "freezer_id": the id of an exisitng freezer
+%}
+%```
+%- `freezer_id`: An `integer` that represents the id of an existing freezer that belongs to the user with the token given.
+%
+%### A simple example
+%This is a simple example using the `curl` tool:
+%```
+%>>> curl -H "Content-Type: application/json" -X DELETE -d '{"freezer_id": "an exisitng id"}' http://localhost:5000/freezers/5b68dab9a6c606171473091280898d1c9e581159173d6ba267f3418a6573ae92
+%```
+%
+%---
+%
+%*freezer_next_id* `GET`
+%-------------
+%The prototype of the request:
+%```
+%localhost:5000/freezer_next_id/<freezer_id>/<token>
+%```
+%Parameters:
+%- `freezer_id`: An `integer` that represents the id of an existing freezer that belongs to the user with the token given.
+%- `<token>`: A user's token
+%
+%To obtain the next identification of all boxes of a given freezer for the add of a new product.
+%
+%This request returns a JSON object of the form:
+%```
+%{
+%  "1": 8, 
+%  "2": 3, 
+%  "3": 4, 
+%  "4": 3
+%}
+%```
+%Where for instance, "1" represents the box number and 8 the next available id for the product in the box 1.
+%
+%
+%### A simple example
+%This is a simple example using the `curl` tool:
+%```
+%>>> curl 'http://localhost:5000/freezer_next_id/1/5b68dab9a6c606171473091280898d1c9e581159173d6ba267f3418a6573ae92'
+%```
+%
+%---
+
 \subsection{Documentation}
+To understand how to use the REST API a website with a documentation has been made. The tool used to built this documentation is \textit{MkDocs}. This tool is commonly used to build documentation and are used for instance by \textit{Keras}. Markdown is used to write the documentation and the tools translates it into static html page. It is really easy to use if you know the Markdown language. \\
+
+This documentation explain what are the available requests that can be done, how to achieve a correct request and what are the results sent back.
+For each request an example using the \textit{client URL request library (cURL)} is given. The choice of this tool has been made because  it is cross-platform and not difficult to use. But it can be used with any other tool that can achieve http requests.
+
+
 explication des differentes fonction
  mentioner l'instoration d'une documentation détaillée et de l'utilisation 
  mentioner cORS pour prendre en compte les different domaines
@@ -112,5 +337,6 @@ Le but de cettte application est d'avoir une sorte de dashboard
 \section{unit tests}
 
 \section{problemes rencontrés}
+l'architecture n'est pas  la plus adéquate pour faire les unit test. sur le site flask une autre approche d'architecutre est proposée 
 \section{future work}
 \section{Conclusion}

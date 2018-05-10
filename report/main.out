@@ -10,11 +10,13 @@
 \BOOKMARK [1][-]{section.4}{API REST}{}% 10
 \BOOKMARK [2][-]{subsection.4.1}{Sever}{section.4}% 11
 \BOOKMARK [2][-]{subsection.4.2}{functionalities implemented}{section.4}% 12
-\BOOKMARK [2][-]{subsection.4.3}{Documentation}{section.4}% 13
-\BOOKMARK [2][-]{subsection.4.4}{formules}{section.4}% 14
-\BOOKMARK [1][-]{section.5}{Admin panel}{}% 15
-\BOOKMARK [1][-]{section.6}{External website}{}% 16
-\BOOKMARK [1][-]{section.7}{unit tests}{}% 17
-\BOOKMARK [1][-]{section.8}{problemes rencontr\351s}{}% 18
-\BOOKMARK [1][-]{section.9}{future work}{}% 19
-\BOOKMARK [1][-]{section.10}{Conclusion}{}% 20
+\BOOKMARK [3][-]{subsubsection.4.2.1}{check\137token}{subsection.4.2}% 13
+\BOOKMARK [3][-]{subsubsection.4.2.2}{types}{subsection.4.2}% 14
+\BOOKMARK [2][-]{subsection.4.3}{Documentation}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.4}{formules}{section.4}% 16
+\BOOKMARK [1][-]{section.5}{Admin panel}{}% 17
+\BOOKMARK [1][-]{section.6}{External website}{}% 18
+\BOOKMARK [1][-]{section.7}{unit tests}{}% 19
+\BOOKMARK [1][-]{section.8}{problemes rencontr\351s}{}% 20
+\BOOKMARK [1][-]{section.9}{future work}{}% 21
+\BOOKMARK [1][-]{section.10}{Conclusion}{}% 22

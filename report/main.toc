@@ -8,14 +8,16 @@
 \contentsline {subsection}{\numberline {2.4}Relational model}{4}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}Account creation}{5}{subsection.2.5}
 \contentsline {section}{\numberline {3}User panel}{6}{section.3}
-\contentsline {section}{\numberline {4}API REST}{6}{section.4}
-\contentsline {subsection}{\numberline {4.1}Sever}{6}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}functionalities implemented}{6}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Documentation}{6}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}formules}{6}{subsection.4.4}
-\contentsline {section}{\numberline {5}Admin panel}{6}{section.5}
-\contentsline {section}{\numberline {6}External website}{7}{section.6}
-\contentsline {section}{\numberline {7}unit tests}{7}{section.7}
-\contentsline {section}{\numberline {8}problemes rencontr\IeC {\'e}s}{7}{section.8}
-\contentsline {section}{\numberline {9}future work}{7}{section.9}
-\contentsline {section}{\numberline {10}Conclusion}{7}{section.10}
+\contentsline {section}{\numberline {4}API REST}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}Sever}{7}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}functionalities implemented}{7}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}check\_token}{7}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}types}{7}{subsubsection.4.2.2}
+\contentsline {subsection}{\numberline {4.3}Documentation}{8}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}formules}{8}{subsection.4.4}
+\contentsline {section}{\numberline {5}Admin panel}{8}{section.5}
+\contentsline {section}{\numberline {6}External website}{8}{section.6}
+\contentsline {section}{\numberline {7}unit tests}{9}{section.7}
+\contentsline {section}{\numberline {8}problemes rencontr\IeC {\'e}s}{9}{section.8}
+\contentsline {section}{\numberline {9}future work}{9}{section.9}
+\contentsline {section}{\numberline {10}Conclusion}{9}{section.10}

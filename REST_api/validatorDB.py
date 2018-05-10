@@ -47,7 +47,7 @@ class ValidatorDB:
         else:
             return False
 
-    def check_freezer_id(self, token, freezer_id, available=True):
+    def valid_freezer_id(self, token, freezer_id, available=True):
         """
         Check if the id of the freezer given is correct
         :param available:
@@ -65,9 +65,9 @@ class ValidatorDB:
         res = self.query_db.get_query_db(query, (freezer_id, token,), one=True)
 
         if res[0] == 1:
-            val = True
-        else:
             val = False
+        else:
+            val = True
 
         if available:
             return val
