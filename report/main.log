@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.11.7)  10 MAY 2018 14:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.11.7)  13 MAY 2018 18:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -201,7 +201,7 @@ File: listings.cfg 2015/06/04 1.6 listings configuration
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
 
-Package subfig Warning: The subfigure type is already defined. on input line 7.
+Package subfig Warning: The subfigure type is already defined. on input line 6.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
@@ -940,14 +940,14 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 56.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<logo_ulg.png, id=92, 351.3125pt x 170.6375pt>
+<logo_ulg.png, id=128, 351.3125pt x 170.6375pt>
 File: logo_ulg.png Graphic file (type png)
 <use logo_ulg.png>
 Package pdftex.def Info: logo_ulg.png  used on input line 57. on input line 57.
 
 Package pdftex.def Info: Requested size: 140.5225pt x 68.25378pt on input line 
 57.
-<Logo_FSAnew.png, id=93, 80.3pt x 94.3525pt>
+<Logo_FSAnew.png, id=129, 80.3pt x 94.3525pt>
 File: Logo_FSAnew.png Graphic file (type png)
 <use Logo_FSAnew.png>
 Package pdftex.def Info: Logo_FSAnew.png  used on input line 57. on input line 
@@ -987,36 +987,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 18--19
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 22--23
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--25
-
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 26--27
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
@@ -1026,96 +996,244 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--31
 
  []
 
+<./images/archi.png, id=178, 545.03625pt x 141.52875pt>
+File: ./images/archi.png Graphic file (type png)
+<use ./images/archi.png>
+Package pdftex.def Info: ./images/archi.png  used on input line 35. on input li
+ne 35.
+Package pdftex.def Info: Requested size: 272.51746pt x 70.76419pt on input line
+ 35.
 
-Underfull \hbox (badness 10000) in paragraph at lines 32--33
+Underfull \hbox (badness 10000) in paragraph at lines 32--38
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--36
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
 
-<./images/reldb.png, id=137, 805.0075pt x 820.06375pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--54
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
+
+ []
+
+[3 <./images/archi.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
+
+ []
+
+<./images/reldb.png, id=205, 805.0075pt x 820.06375pt>
 File: ./images/reldb.png Graphic file (type png)
 <use ./images/reldb.png>
-Package pdftex.def Info: ./images/reldb.png  used on input line 39. on input li
-ne 39.
+Package pdftex.def Info: ./images/reldb.png  used on input line 81. on input li
+ne 81.
 Package pdftex.def Info: Requested size: 402.50278pt x 410.03087pt on input lin
-e 39.
-[3]
-Overfull \hbox (10.23402pt too wide) in paragraph at lines 53--54
+e 81.
+[4]
+Overfull \hbox (10.23402pt too wide) in paragraph at lines 95--96
 []\T1/aer/m/n/10 Product($[]$, #to-ken, #de-scr_id, #freezer_id, #type_id, date
 _in, date_out, pe-riod, box_num, prod_num,
  []
 
-<./images/sqldb.jpg, id=145, 521.95pt x 568.1225pt>
+<./images/sqldb.jpg, id=212, 521.95pt x 568.1225pt>
 File: ./images/sqldb.jpg Graphic file (type jpg)
 <use ./images/sqldb.jpg>
-Package pdftex.def Info: ./images/sqldb.jpg  used on input line 60. on input li
-ne 60.
+Package pdftex.def Info: ./images/sqldb.jpg  used on input line 102. on input l
+ine 102.
 Package pdftex.def Info: Requested size: 260.97435pt x 284.06055pt on input lin
-e 60.
-[4 <./images/reldb.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 68--70
+e 102.
+[5 <./images/reldb.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
 
  []
 
-<./images/register.png, id=161, 612.2875pt x 520.94624pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--123
+
+ []
+
+[6 <./images/sqldb.jpg>]
+<./images/register.png, id=233, 612.2875pt x 520.94624pt>
 File: ./images/register.png Graphic file (type png)
 <use ./images/register.png>
-Package pdftex.def Info: ./images/register.png  used on input line 74. on input
- line 74.
+Package pdftex.def Info: ./images/register.png  used on input line 127. on inpu
+t line 127.
 Package pdftex.def Info: Requested size: 244.91066pt x 208.3748pt on input line
- 74.
+ 127.
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--77
-
- []
-
-[5 <./images/sqldb.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 79--80
+Underfull \hbox (badness 10000) in paragraph at lines 124--130
 
  []
 
-<./images/login.png, id=169, 587.19376pt x 482.80376pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
+
+ []
+
+<./images/login.png, id=235, 587.19376pt x 482.80376pt>
 File: ./images/login.png Graphic file (type png)
 <use ./images/login.png>
-Package pdftex.def Info: ./images/login.png  used on input line 89. on input li
-ne 89.
+Package pdftex.def Info: ./images/login.png  used on input line 138. on input l
+ine 138.
 Package pdftex.def Info: Requested size: 234.87334pt x 193.11807pt on input lin
-e 89.
-<./images/userPanel.png, id=170, 1916.15875pt x 929.4725pt>
+e 138.
+[7 <./images/register.png> <./images/login.png>]
+<./images/userPanel.png, id=245, 1916.15875pt x 929.4725pt>
 File: ./images/userPanel.png Graphic file (type png)
 <use ./images/userPanel.png>
-Package pdftex.def Info: ./images/userPanel.png  used on input line 98. on inpu
-t line 98.
+Package pdftex.def Info: ./images/userPanel.png  used on input line 147. on inp
+ut line 147.
 Package pdftex.def Info: Requested size: 479.03851pt x 232.36755pt on input lin
-e 98.
-[6 <./images/register.png> <./images/login.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 108--109
+e 147.
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
+
+ []
+
+<./images/adminLogin.png, id=247, 697.60625pt x 139.52126pt>
+File: ./images/adminLogin.png Graphic file (type png)
+<use ./images/adminLogin.png>
+Package pdftex.def Info: ./images/adminLogin.png  used on input line 157. on in
+put line 157.
+Package pdftex.def Info: Requested size: 279.03755pt x 55.8075pt on input line 
+157.
+<./images/adminPanel.png, id=249, 1913.1475pt x 1078.0275pt>
+File: ./images/adminPanel.png Graphic file (type png)
+<use ./images/adminPanel.png>
+Package pdftex.def Info: ./images/adminPanel.png  used on input line 165. on in
+put line 165.
+Package pdftex.def Info: Requested size: 478.2857pt x 269.50621pt on input line
+ 165.
+[8 <./images/userPanel.png> <./images/adminLogin.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
+Underfull \hbox (badness 10000) in paragraph at lines 197--198
 
  []
 
-[7 <./images/userPanel.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 312--313
+[9 <./images/adminPanel.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
 
  []
 
-[8])
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 265--266
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--282
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 299--300
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 314--315
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 339--340
+
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 408--409
+
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 448--449
+
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 479--480
+
+ []
+
+[15])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 95.
- [9]
+ [16]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 95.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 95.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 95.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6C261DC9FF996401FAC6B46B00D7E931;1314.
+(rerunfilecheck)             Checksum: 1458AFA2C741C2A9940297C674799083;1944.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1123,13 +1241,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 95.
  ) 
 Here is how much of TeX's memory you used:
- 11623 strings out of 494813
- 163092 string characters out of 6178109
- 269848 words of memory out of 5000000
- 14660 multiletter control sequences out of 15000+600000
+ 11821 strings out of 494813
+ 165588 string characters out of 6178109
+ 279998 words of memory out of 5000000
+ 14685 multiletter control sequences out of 15000+600000
  33409 words of font info for 65 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 44i,14n,43p,1197b,1758s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,14n,43p,1195b,1760s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -1140,10 +1258,10 @@ ype1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmti12.pfb>
-Output written on main.pdf (10 pages, 448406 bytes).
+Output written on main.pdf (17 pages, 552493 bytes).
 PDF statistics:
- 266 PDF objects out of 1000 (max. 8388607)
- 230 compressed objects within 3 object streams
- 66 named destinations out of 1000 (max. 500000)
- 212 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 541 PDF objects out of 1000 (max. 8388607)
+ 490 compressed objects within 5 object streams
+ 236 named destinations out of 1000 (max. 500000)
+ 299 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -35,6 +35,8 @@ function ajaxRequest(objContent, callback) {
             callback(objContent);
         } else if (this.readyState == 4 && this.status >= 500) {
             alert('Impossible to establish a connection with the server');
+        } else if (this.readyState == 4 && this.status == 404) {
+            alert('The route of the request does not exist.');
         } else if (this.readyState == 4 && this.status == 400) {
             console.log(this.responseText);
         }

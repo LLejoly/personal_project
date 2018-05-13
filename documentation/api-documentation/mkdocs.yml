@@ -1,7 +1,12 @@
-site_name: Smart freezer
+site_name: freezer manager
 pages:
 - Home: index.md
 - About: about.md
-- sample: sample.md
 - API: api.md
-theme: amelia
+- Requests:
+  - check_token: requests/check_token.md
+  - types: requests/types.md
+  - freezer: requests/freezers.md
+  - freezer_next_id: requests/freezer_next_id.md
+theme:
+  name: 'material'

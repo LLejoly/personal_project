@@ -142,7 +142,6 @@ param_one_outside = """FROM ((Product
 def generate_product_query(param):
     select_col = """SELECT Product.freezer_id,
                            Description_freezer.freezer_name,
-                           Description_freezer.number_boxes,
                            Product.box_num,
                            Product.prod_num,
                            DATE_FORMAT(Product.date_in, '%%Y-%%m-%%d') AS date_formatted_in,

@@ -227,21 +227,89 @@ class TestFunctions(unittest.TestCase):
         content = r.json()
         self.assertEqual(content['details'], responseMessage.DELETE_FREEZER)
 
-    # FREEZER
+    # GET NEXT FREEZER
     def test_25_get_next_freezer_id(self):
         url = self.domain + "/freezer_next_id/1/" + self.token
         r = requests.get(url)
         self.assertEqual(r.status_code, 200)
 
-    def test_26_get_nex_freezer_id_bad_id(self):
+    def test_26_get_next_freezer_id_bad_id(self):
         url = self.domain + "/freezer_next_id/15/" + self.token
         r = requests.get(url)
         self.assertEqual(r.status_code, 400)
 
-    def test_27_get_nex_freezer_id_bad_id(self):
+    def test_27_get_next_freezer_id_bad_id_type(self):
         url = self.domain + "/freezer_next_id/15d/" + self.token
         r = requests.get(url)
         self.assertEqual(r.status_code, 404)
+
+    def test_28_get_next_freezer_id_bad_route(self):
+        url = self.domain + "/freezer_next_id/" + self.token
+        r = requests.get(url)
+        self.assertEqual(r.status_code, 404)
+
+    def test_29_get_next_freezer_id_not_implemented(self):
+        self.methods_not_implemented("freezer_next_id/1", ['PUT', 'POST', 'DELETE'])
+
+    # ADD A PRODUCT
+    def test_30_add_product_not_implemented_methods(self):
+        self.methods_not_implemented("add_product", ['GET', 'PUT', 'DELETE'])
+
+    def test_31_add_product_bad_content_type(self):
+        url = self.domain + "/add_product/" + self.token
+        r = requests.post(url,
+                          data=json.dumps(dict(product_name="name",
+                                               text_descr="description",
+                                               freezer_id=1,
+                                               type_id=1,
+                                               date_in='2016-03-05',
+                                               period=21,
+                                               box_num=1,
+                                               prod_num=15,
+                                               quantity=2)))
+        self.assertEqual(r.status_code, 415)
+
+    def test_32_add_product_bad_data(self):
+        url = self.domain + "/freezers/" + self.token
+        headers = {
+            'Content-Type': 'application/json',
+        }
+        r = requests.post(url,
+                          data=json.dumps(dict(product_name="name",
+                                               text_descr="description",
+                                               freezer_id=1,
+                                               type_id=1,
+                                               date_in='2016-03-05',
+                                               period=21,
+                                               box_num=1,
+                                               prod_num=15,
+                                               quantity=2)),
+                          headers=headers)
+        self.assertEqual(r.status_code, 400)
+        content = r.json()
+        self.assertEqual(content['details'], responseMessage.BAD_FORMAT)
+
+    # add a correct product can be essentially done with the external website
+
+    # UPDATE A PRODUCT
+    def test_33_update_product_methods_not_implemented(self):
+        self.methods_not_implemented("update_product/1/1/1/1", ['GET', 'PUT', 'DELETE'])
+
+    def test_34_update_product_bad_content_type(self):
+        url = self.domain + "/update_product/1/1/1/1/" + self.token
+        r = requests.post(url,
+                          data=json.dumps(dict(product_name="name",
+                                               text_descr="description",
+                                               freezer_id=1,
+                                               type_id=1,
+                                               date_in='2016-03-05',
+                                               date_out='2016-03-05',
+                                               period=21,
+                                               box_num=1,
+                                               prod_num=15,
+                                               quantity=2)))
+        self.assertEqual(r.status_code, 415)
+
 
 
 if __name__ == '__main__':

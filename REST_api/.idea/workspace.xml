@@ -61,8 +61,8 @@
       <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2538">
-              <caret line="313" column="52" lean-forward="false" selection-start-line="313" selection-start-column="52" selection-end-line="313" selection-end-column="52" />
+            <state relative-caret-position="-3798">
+              <caret line="32" column="16" lean-forward="false" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -73,46 +73,45 @@
       <file leaf-file-name="mysqlRequests.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mysqlRequests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="87" column="36" lean-forward="true" selection-start-line="87" selection-start-column="36" selection-end-line="87" selection-end-column="36" />
+            <state relative-caret-position="2574">
+              <caret line="143" column="60" lean-forward="false" selection-start-line="143" selection-start-column="60" selection-end-line="143" selection-end-column="60" />
               <folding>
-                <marker date="1525867554153" expanded="true" signature="367:412" ph="SELECT * FRO... Description_type" />
-                <marker date="1525867554153" expanded="true" signature="511:607" ph="SELECT * FRO... Product" />
-                <marker date="1525867554153" expanded="true" signature="511:642" ph="SELECT * FRO... Product" />
-                <marker date="1525867554153" expanded="true" signature="511:645" ph="SELECT * FRO... Product" />
-                <marker date="1525867554153" expanded="true" signature="748:900" ph="SELECT * FRO... Product" />
-                <marker date="1525867554153" expanded="true" signature="1007:1179" ph="SELECT * FRO... Product" />
-                <marker date="1525867554153" expanded="true" signature="1264:1450" ph="SELECT freez... Description_freezer" />
-                <marker date="1525867554153" expanded="true" signature="1264:1452" ph="SELECT freez... Description_freezer" />
-                <marker date="1525867554153" expanded="true" signature="1541:1860" ph="SELECT Descr... Description_freezer" />
-                <marker date="1525867554153" expanded="true" signature="1966:2158" ph="SELECT prod_... Product" />
-                <marker date="1525867554153" expanded="true" signature="2297:2699" ph="SELECT Produ... Product_to_type" />
-                <marker date="1525867554153" expanded="true" signature="3050:3320" ph="SELECT type_... Product" />
-                <marker date="1525867554153" expanded="true" signature="3050:3383" ph="SELECT type_... Product" />
-                <marker date="1525867554153" expanded="true" signature="3445:3623" ph="SELECT DISTI... Product" />
-                <marker date="1525867554153" expanded="true" signature="3445:3640" ph="SELECT DISTI... Product" />
-                <marker date="1525867554153" expanded="true" signature="7456:7531" ph="INSERT INTO Description_freezer... " />
-                <marker date="1525867554153" expanded="true" signature="7553:7625" ph="INSERT INTO List_freezer... " />
-                <marker date="1525867554153" expanded="true" signature="7706:7781" ph="INSERT INTO Description_product... " />
-                <marker date="1525867554153" expanded="true" signature="7803:7881" ph="INSERT INTO Product_to_type... " />
-                <marker date="1525867554153" expanded="true" signature="7903:8076" ph="INSERT INTO Product... " />
-                <marker date="1525867554153" expanded="true" signature="8169:8285" ph="UPDATE Description_product... " />
-                <marker date="1525867554153" expanded="true" signature="8377:8487" ph="UPDATE Description_product... " />
-                <marker date="1525867554153" expanded="true" signature="8602:8796" ph="UPDATE Description_freezer... " />
-                <marker date="1525867554153" expanded="true" signature="8899:8996" ph="UPDATE Product... " />
-                <marker date="1525867554153" expanded="true" signature="9080:9097" ph="set @newtype... " />
-                <marker date="1525867554153" expanded="true" signature="9119:9214" ph="UPDATE Product... " />
-                <marker date="1525867554153" expanded="true" signature="9236:9341" ph="UPDATE Product_to_type... " />
-                <marker date="1525867554153" expanded="true" signature="9422:9514" ph="UPDATE Product... " />
-                <marker date="1525867554153" expanded="true" signature="9597:9692" ph="UPDATE Product... " />
-                <marker date="1525867554153" expanded="true" signature="9776:9792" ph="SET @mydate " />
-                <marker date="1525867554153" expanded="true" signature="9815:10039" ph="UPDATE Product... " />
-                <marker date="1525867554153" expanded="true" signature="10119:10206" ph="UPDATE Product... " />
-                <marker date="1525867554153" expanded="true" signature="10288:10381" ph="UPDATE Product... " />
-                <marker date="1525867554153" expanded="true" signature="10468:10642" ph="UPDATE Product... " />
-                <marker date="1525867554153" expanded="true" signature="10724:10742" ph="SET @freezeI... " />
-                <marker date="1525867554153" expanded="true" signature="10764:10837" ph="DELETE FROM List_freezer... " />
-                <marker date="1525867554153" expanded="true" signature="10859:10939" ph="DELETE FROM Description_freezer... " />
+                <marker date="1526215882921" expanded="true" signature="367:412" ph="SELECT * FRO... Description_type" />
+                <marker date="1526215882921" expanded="true" signature="511:607" ph="SELECT * FRO... Product" />
+                <marker date="1526215882921" expanded="true" signature="511:642" ph="SELECT * FRO... Product" />
+                <marker date="1526215882921" expanded="true" signature="511:645" ph="SELECT * FRO... Product" />
+                <marker date="1526215882921" expanded="true" signature="748:900" ph="SELECT * FRO... Product" />
+                <marker date="1526215882921" expanded="true" signature="1007:1179" ph="SELECT * FRO... Product" />
+                <marker date="1526215882921" expanded="true" signature="1264:1450" ph="SELECT freez... Description_freezer" />
+                <marker date="1526215882921" expanded="true" signature="1264:1452" ph="SELECT freez... Description_freezer" />
+                <marker date="1526215882921" expanded="true" signature="1541:1860" ph="SELECT Descr... Description_freezer" />
+                <marker date="1526215882921" expanded="true" signature="1966:2158" ph="SELECT prod_... Product" />
+                <marker date="1526215882921" expanded="true" signature="2297:2699" ph="SELECT Produ... Product_to_type" />
+                <marker date="1526215882921" expanded="true" signature="3050:3320" ph="SELECT type_... Product" />
+                <marker date="1526215882921" expanded="true" signature="3050:3383" ph="SELECT type_... Product" />
+                <marker date="1526215882921" expanded="true" signature="3445:3623" ph="SELECT DISTI... Product" />
+                <marker date="1526215882921" expanded="true" signature="7395:7470" ph="INSERT INTO Description_freezer... " />
+                <marker date="1526215882921" expanded="true" signature="7492:7564" ph="INSERT INTO List_freezer... " />
+                <marker date="1526215882921" expanded="true" signature="7645:7720" ph="INSERT INTO Description_product... " />
+                <marker date="1526215882921" expanded="true" signature="7742:7820" ph="INSERT INTO Product_to_type... " />
+                <marker date="1526215882921" expanded="true" signature="7842:8015" ph="INSERT INTO Product... " />
+                <marker date="1526215882921" expanded="true" signature="8108:8224" ph="UPDATE Description_product... " />
+                <marker date="1526215882921" expanded="true" signature="8316:8426" ph="UPDATE Description_product... " />
+                <marker date="1526215882921" expanded="true" signature="8541:8735" ph="UPDATE Description_freezer... " />
+                <marker date="1526215882921" expanded="true" signature="8838:8935" ph="UPDATE Product... " />
+                <marker date="1526215882921" expanded="true" signature="9019:9036" ph="set @newtype... " />
+                <marker date="1526215882921" expanded="true" signature="9058:9153" ph="UPDATE Product... " />
+                <marker date="1526215882921" expanded="true" signature="9175:9280" ph="UPDATE Product_to_type... " />
+                <marker date="1526215882921" expanded="true" signature="9361:9453" ph="UPDATE Product... " />
+                <marker date="1526215882921" expanded="true" signature="9536:9631" ph="UPDATE Product... " />
+                <marker date="1526215882921" expanded="true" signature="9715:9731" ph="SET @mydate " />
+                <marker date="1526215882921" expanded="true" signature="9754:9978" ph="UPDATE Product... " />
+                <marker date="1526215882921" expanded="true" signature="10058:10145" ph="UPDATE Product... " />
+                <marker date="1526215882921" expanded="true" signature="10227:10320" ph="UPDATE Product... " />
+                <marker date="1526215882921" expanded="true" signature="10407:10581" ph="UPDATE Product... " />
+                <marker date="1526215882921" expanded="true" signature="10663:10681" ph="SET @freezeI... " />
+                <marker date="1526215882921" expanded="true" signature="10703:10776" ph="DELETE FROM List_freezer... " />
+                <marker date="1526215882921" expanded="true" signature="10798:10878" ph="DELETE FROM Description_freezer... " />
               </folding>
             </state>
           </provider>
@@ -128,42 +127,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="validatorDB.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/validatorDB.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="626">
-              <caret line="67" column="23" lean-forward="true" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
-              <folding>
-                <marker date="1525876918030" expanded="true" signature="476:592" ph="SELECT EXIST... " />
-                <marker date="1525876918030" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
-                <marker date="1525876918030" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
-                <marker date="1525876918030" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
-                <marker date="1525876918030" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
-                <marker date="1525876918030" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
-                <marker date="1525876918030" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
-                <marker date="1525876918030" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
-                <marker date="1525876918030" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
-                <marker date="1525876918030" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6c48ec17-cdaf-4c0f-9b2e-3b007b3677d7/console.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="48" column="26" lean-forward="false" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="753">
-              <caret line="240" column="43" lean-forward="false" selection-start-line="240" selection-start-column="43" selection-end-line="240" selection-end-column="43" />
+            <state relative-caret-position="5094">
+              <caret line="288" column="26" lean-forward="false" selection-start-line="288" selection-start-column="26" selection-end-line="288" selection-end-column="26" />
               <folding>
                 <element signature="e#56#66#0" expanded="true" />
               </folding>
@@ -175,8 +143,29 @@
         <entry file="file://$PROJECT_DIR$/tests/responseMessage.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="396">
-              <caret line="22" column="100" lean-forward="true" selection-start-line="22" selection-start-column="100" selection-end-line="22" selection-end-column="100" />
+              <caret line="22" column="100" lean-forward="false" selection-start-line="22" selection-start-column="100" selection-end-line="22" selection-end-column="100" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="validatorDB.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/validatorDB.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="627">
+              <caret line="178" column="0" lean-forward="true" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
+              <folding>
+                <marker date="1526235492013" expanded="true" signature="476:592" ph="SELECT EXIST... " />
+                <marker date="1526235492013" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
+                <marker date="1526235492013" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
+                <marker date="1526235492013" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
+                <marker date="1526235492013" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
+                <marker date="1526235492013" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
+                <marker date="1526235492013" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
+                <marker date="1526235492013" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
+                <marker date="1526235492013" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
+                <marker date="1526235492013" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -214,13 +203,13 @@
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/api/server.py" />
         <option value="$PROJECT_DIR$/api/__init__.py" />
-        <option value="$PROJECT_DIR$/mysqlRequests.py" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6c48ec17-cdaf-4c0f-9b2e-3b007b3677d7/console.sql" />
         <option value="$PROJECT_DIR$/responseMessage.py" />
         <option value="$PROJECT_DIR$/tests/responseMessage.py" />
-        <option value="$PROJECT_DIR$/validatorDB.py" />
-        <option value="$PROJECT_DIR$/server.py" />
+        <option value="$PROJECT_DIR$/mysqlRequests.py" />
         <option value="$PROJECT_DIR$/tests/test.py" />
+        <option value="$PROJECT_DIR$/server.py" />
+        <option value="$PROJECT_DIR$/validatorDB.py" />
       </list>
     </option>
   </component>
@@ -231,8 +220,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-69" />
-    <option name="width" value="1910" />
+    <option name="x" value="1990" />
+    <option name="width" value="1900" />
     <option name="height" value="766" />
   </component>
   <component name="ProjectView">
@@ -250,8 +239,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -452,28 +441,28 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-69" y="0" width="1920" height="1024" extended-state="6" />
+    <frame x="1990" y="0" width="1920" height="1024" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.50213444" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18659218" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18659218" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14834578" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15154749" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20757738" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -528,16 +517,16 @@
         <state relative-caret-position="1602">
           <caret line="92" column="32" lean-forward="false" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
           <folding>
-            <marker date="1525876918030" expanded="true" signature="476:592" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
-            <marker date="1525876918030" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
-            <marker date="1525876918030" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
-            <marker date="1525876918030" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
+            <marker date="1526235492013" expanded="true" signature="476:592" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
+            <marker date="1526235492013" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
+            <marker date="1526235492013" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
+            <marker date="1526235492013" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
           </folding>
         </state>
       </provider>
@@ -555,43 +544,42 @@
         <state relative-caret-position="2034">
           <caret line="113" column="33" lean-forward="false" selection-start-line="113" selection-start-column="33" selection-end-line="113" selection-end-column="33" />
           <folding>
-            <marker date="1525867554153" expanded="true" signature="367:412" ph="SELECT * FRO... Description_type" />
-            <marker date="1525867554153" expanded="true" signature="511:607" ph="SELECT * FRO... Product" />
-            <marker date="1525867554153" expanded="true" signature="511:642" ph="SELECT * FRO... Product" />
-            <marker date="1525867554153" expanded="true" signature="511:645" ph="SELECT * FRO... Product" />
-            <marker date="1525867554153" expanded="true" signature="748:900" ph="SELECT * FRO... Product" />
-            <marker date="1525867554153" expanded="true" signature="1007:1179" ph="SELECT * FRO... Product" />
-            <marker date="1525867554153" expanded="true" signature="1264:1450" ph="SELECT freez... Description_freezer" />
-            <marker date="1525867554153" expanded="true" signature="1264:1452" ph="SELECT freez... Description_freezer" />
-            <marker date="1525867554153" expanded="true" signature="1541:1860" ph="SELECT Descr... Description_freezer" />
-            <marker date="1525867554153" expanded="true" signature="1966:2158" ph="SELECT prod_... Product" />
-            <marker date="1525867554153" expanded="true" signature="2297:2699" ph="SELECT Produ... Product_to_type" />
-            <marker date="1525867554153" expanded="true" signature="3050:3320" ph="SELECT type_... Product" />
-            <marker date="1525867554153" expanded="true" signature="3050:3383" ph="SELECT type_... Product" />
-            <marker date="1525867554153" expanded="true" signature="3445:3623" ph="SELECT DISTI... Product" />
-            <marker date="1525867554153" expanded="true" signature="3445:3640" ph="SELECT DISTI... Product" />
-            <marker date="1525867554153" expanded="true" signature="7456:7531" ph="INSERT INTO Description_freezer... " />
-            <marker date="1525867554153" expanded="true" signature="7553:7625" ph="INSERT INTO List_freezer... " />
-            <marker date="1525867554153" expanded="true" signature="7706:7781" ph="INSERT INTO Description_product... " />
-            <marker date="1525867554153" expanded="true" signature="7803:7881" ph="INSERT INTO Product_to_type... " />
-            <marker date="1525867554153" expanded="true" signature="7903:8076" ph="INSERT INTO Product... " />
-            <marker date="1525867554153" expanded="true" signature="8169:8285" ph="UPDATE Description_product... " />
-            <marker date="1525867554153" expanded="true" signature="8377:8487" ph="UPDATE Description_product... " />
-            <marker date="1525867554153" expanded="true" signature="8602:8796" ph="UPDATE Description_freezer... " />
-            <marker date="1525867554153" expanded="true" signature="8899:8996" ph="UPDATE Product... " />
-            <marker date="1525867554153" expanded="true" signature="9080:9097" ph="set @newtype... " />
-            <marker date="1525867554153" expanded="true" signature="9119:9214" ph="UPDATE Product... " />
-            <marker date="1525867554153" expanded="true" signature="9236:9341" ph="UPDATE Product_to_type... " />
-            <marker date="1525867554153" expanded="true" signature="9422:9514" ph="UPDATE Product... " />
-            <marker date="1525867554153" expanded="true" signature="9597:9692" ph="UPDATE Product... " />
-            <marker date="1525867554153" expanded="true" signature="9776:9792" ph="SET @mydate " />
-            <marker date="1525867554153" expanded="true" signature="9815:10039" ph="UPDATE Product... " />
-            <marker date="1525867554153" expanded="true" signature="10119:10206" ph="UPDATE Product... " />
-            <marker date="1525867554153" expanded="true" signature="10288:10381" ph="UPDATE Product... " />
-            <marker date="1525867554153" expanded="true" signature="10468:10642" ph="UPDATE Product... " />
-            <marker date="1525867554153" expanded="true" signature="10724:10742" ph="SET @freezeI... " />
-            <marker date="1525867554153" expanded="true" signature="10764:10837" ph="DELETE FROM List_freezer... " />
-            <marker date="1525867554153" expanded="true" signature="10859:10939" ph="DELETE FROM Description_freezer... " />
+            <marker date="1526215882921" expanded="true" signature="367:412" ph="SELECT * FRO... Description_type" />
+            <marker date="1526215882921" expanded="true" signature="511:607" ph="SELECT * FRO... Product" />
+            <marker date="1526215882921" expanded="true" signature="511:642" ph="SELECT * FRO... Product" />
+            <marker date="1526215882921" expanded="true" signature="511:645" ph="SELECT * FRO... Product" />
+            <marker date="1526215882921" expanded="true" signature="748:900" ph="SELECT * FRO... Product" />
+            <marker date="1526215882921" expanded="true" signature="1007:1179" ph="SELECT * FRO... Product" />
+            <marker date="1526215882921" expanded="true" signature="1264:1450" ph="SELECT freez... Description_freezer" />
+            <marker date="1526215882921" expanded="true" signature="1264:1452" ph="SELECT freez... Description_freezer" />
+            <marker date="1526215882921" expanded="true" signature="1541:1860" ph="SELECT Descr... Description_freezer" />
+            <marker date="1526215882921" expanded="true" signature="1966:2158" ph="SELECT prod_... Product" />
+            <marker date="1526215882921" expanded="true" signature="2297:2699" ph="SELECT Produ... Product_to_type" />
+            <marker date="1526215882921" expanded="true" signature="3050:3320" ph="SELECT type_... Product" />
+            <marker date="1526215882921" expanded="true" signature="3050:3383" ph="SELECT type_... Product" />
+            <marker date="1526215882921" expanded="true" signature="3445:3623" ph="SELECT DISTI... Product" />
+            <marker date="1526215882921" expanded="true" signature="7395:7470" ph="INSERT INTO Description_freezer... " />
+            <marker date="1526215882921" expanded="true" signature="7492:7564" ph="INSERT INTO List_freezer... " />
+            <marker date="1526215882921" expanded="true" signature="7645:7720" ph="INSERT INTO Description_product... " />
+            <marker date="1526215882921" expanded="true" signature="7742:7820" ph="INSERT INTO Product_to_type... " />
+            <marker date="1526215882921" expanded="true" signature="7842:8015" ph="INSERT INTO Product... " />
+            <marker date="1526215882921" expanded="true" signature="8108:8224" ph="UPDATE Description_product... " />
+            <marker date="1526215882921" expanded="true" signature="8316:8426" ph="UPDATE Description_product... " />
+            <marker date="1526215882921" expanded="true" signature="8541:8735" ph="UPDATE Description_freezer... " />
+            <marker date="1526215882921" expanded="true" signature="8838:8935" ph="UPDATE Product... " />
+            <marker date="1526215882921" expanded="true" signature="9019:9036" ph="set @newtype... " />
+            <marker date="1526215882921" expanded="true" signature="9058:9153" ph="UPDATE Product... " />
+            <marker date="1526215882921" expanded="true" signature="9175:9280" ph="UPDATE Product_to_type... " />
+            <marker date="1526215882921" expanded="true" signature="9361:9453" ph="UPDATE Product... " />
+            <marker date="1526215882921" expanded="true" signature="9536:9631" ph="UPDATE Product... " />
+            <marker date="1526215882921" expanded="true" signature="9715:9731" ph="SET @mydate " />
+            <marker date="1526215882921" expanded="true" signature="9754:9978" ph="UPDATE Product... " />
+            <marker date="1526215882921" expanded="true" signature="10058:10145" ph="UPDATE Product... " />
+            <marker date="1526215882921" expanded="true" signature="10227:10320" ph="UPDATE Product... " />
+            <marker date="1526215882921" expanded="true" signature="10407:10581" ph="UPDATE Product... " />
+            <marker date="1526215882921" expanded="true" signature="10663:10681" ph="SET @freezeI... " />
+            <marker date="1526215882921" expanded="true" signature="10703:10776" ph="DELETE FROM List_freezer... " />
+            <marker date="1526215882921" expanded="true" signature="10798:10878" ph="DELETE FROM Description_freezer... " />
           </folding>
         </state>
       </provider>
@@ -619,16 +607,16 @@
         <state relative-caret-position="1674">
           <caret line="96" column="65" lean-forward="false" selection-start-line="96" selection-start-column="65" selection-end-line="96" selection-end-column="65" />
           <folding>
-            <marker date="1525876918030" expanded="true" signature="476:592" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
-            <marker date="1525876918030" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
-            <marker date="1525876918030" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
-            <marker date="1525876918030" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
+            <marker date="1526235492013" expanded="true" signature="476:592" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
+            <marker date="1526235492013" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
+            <marker date="1526235492013" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
+            <marker date="1526235492013" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
           </folding>
         </state>
       </provider>
@@ -637,7 +625,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="17" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -660,7 +647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -677,16 +663,16 @@
         <state relative-caret-position="1674">
           <caret line="96" column="65" lean-forward="false" selection-start-line="96" selection-start-column="65" selection-end-line="96" selection-end-column="65" />
           <folding>
-            <marker date="1525876918030" expanded="true" signature="476:592" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
-            <marker date="1525876918030" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
-            <marker date="1525876918030" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
-            <marker date="1525876918030" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
+            <marker date="1526235492013" expanded="true" signature="476:592" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
+            <marker date="1526235492013" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
+            <marker date="1526235492013" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
+            <marker date="1526235492013" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
           </folding>
         </state>
       </provider>
@@ -730,7 +716,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -747,16 +732,16 @@
         <state relative-caret-position="1674">
           <caret line="96" column="65" lean-forward="false" selection-start-line="96" selection-start-column="65" selection-end-line="96" selection-end-column="65" />
           <folding>
-            <marker date="1525876918030" expanded="true" signature="476:592" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
-            <marker date="1525876918030" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
-            <marker date="1525876918030" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
-            <marker date="1525876918030" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
+            <marker date="1526235492013" expanded="true" signature="476:592" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
+            <marker date="1526235492013" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
+            <marker date="1526235492013" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
+            <marker date="1526235492013" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
           </folding>
         </state>
       </provider>
@@ -780,7 +765,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="1" column="10" lean-forward="false" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -789,16 +773,16 @@
         <state relative-caret-position="1332">
           <caret line="77" column="8" lean-forward="false" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="42" />
           <folding>
-            <marker date="1525876918030" expanded="true" signature="476:592" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
-            <marker date="1525876918030" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
-            <marker date="1525876918030" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
-            <marker date="1525876918030" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
+            <marker date="1526235492013" expanded="true" signature="476:592" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
+            <marker date="1526235492013" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
+            <marker date="1526235492013" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
+            <marker date="1526235492013" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
           </folding>
         </state>
       </provider>
@@ -832,7 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="1" column="10" lean-forward="false" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -841,16 +824,16 @@
         <state relative-caret-position="1332">
           <caret line="77" column="8" lean-forward="true" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="42" />
           <folding>
-            <marker date="1525876918030" expanded="true" signature="476:592" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
-            <marker date="1525876918030" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
-            <marker date="1525876918030" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
-            <marker date="1525876918030" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
+            <marker date="1526235492013" expanded="true" signature="476:592" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
+            <marker date="1526235492013" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
+            <marker date="1526235492013" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
+            <marker date="1526235492013" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
           </folding>
         </state>
       </provider>
@@ -886,7 +869,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -942,16 +924,15 @@
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6c48ec17-cdaf-4c0f-9b2e-3b007b3677d7/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
+        <state relative-caret-position="864">
           <caret line="48" column="26" lean-forward="false" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/queryDB.py">
+    <entry file="file://$PROJECT_DIR$/tests/responseMessage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="41" column="22" lean-forward="false" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+        <state relative-caret-position="396">
+          <caret line="22" column="100" lean-forward="false" selection-start-line="22" selection-start-column="100" selection-end-line="22" selection-end-column="100" />
           <folding />
         </state>
       </provider>
@@ -966,93 +947,92 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mysqlRequests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="87" column="36" lean-forward="true" selection-start-line="87" selection-start-column="36" selection-end-line="87" selection-end-column="36" />
+        <state relative-caret-position="2574">
+          <caret line="143" column="60" lean-forward="false" selection-start-line="143" selection-start-column="60" selection-end-line="143" selection-end-column="60" />
           <folding>
-            <marker date="1525867554153" expanded="true" signature="367:412" ph="SELECT * FRO... Description_type" />
-            <marker date="1525867554153" expanded="true" signature="511:607" ph="SELECT * FRO... Product" />
-            <marker date="1525867554153" expanded="true" signature="511:642" ph="SELECT * FRO... Product" />
-            <marker date="1525867554153" expanded="true" signature="511:645" ph="SELECT * FRO... Product" />
-            <marker date="1525867554153" expanded="true" signature="748:900" ph="SELECT * FRO... Product" />
-            <marker date="1525867554153" expanded="true" signature="1007:1179" ph="SELECT * FRO... Product" />
-            <marker date="1525867554153" expanded="true" signature="1264:1450" ph="SELECT freez... Description_freezer" />
-            <marker date="1525867554153" expanded="true" signature="1264:1452" ph="SELECT freez... Description_freezer" />
-            <marker date="1525867554153" expanded="true" signature="1541:1860" ph="SELECT Descr... Description_freezer" />
-            <marker date="1525867554153" expanded="true" signature="1966:2158" ph="SELECT prod_... Product" />
-            <marker date="1525867554153" expanded="true" signature="2297:2699" ph="SELECT Produ... Product_to_type" />
-            <marker date="1525867554153" expanded="true" signature="3050:3320" ph="SELECT type_... Product" />
-            <marker date="1525867554153" expanded="true" signature="3050:3383" ph="SELECT type_... Product" />
-            <marker date="1525867554153" expanded="true" signature="3445:3623" ph="SELECT DISTI... Product" />
-            <marker date="1525867554153" expanded="true" signature="3445:3640" ph="SELECT DISTI... Product" />
-            <marker date="1525867554153" expanded="true" signature="7456:7531" ph="INSERT INTO Description_freezer... " />
-            <marker date="1525867554153" expanded="true" signature="7553:7625" ph="INSERT INTO List_freezer... " />
-            <marker date="1525867554153" expanded="true" signature="7706:7781" ph="INSERT INTO Description_product... " />
-            <marker date="1525867554153" expanded="true" signature="7803:7881" ph="INSERT INTO Product_to_type... " />
-            <marker date="1525867554153" expanded="true" signature="7903:8076" ph="INSERT INTO Product... " />
-            <marker date="1525867554153" expanded="true" signature="8169:8285" ph="UPDATE Description_product... " />
-            <marker date="1525867554153" expanded="true" signature="8377:8487" ph="UPDATE Description_product... " />
-            <marker date="1525867554153" expanded="true" signature="8602:8796" ph="UPDATE Description_freezer... " />
-            <marker date="1525867554153" expanded="true" signature="8899:8996" ph="UPDATE Product... " />
-            <marker date="1525867554153" expanded="true" signature="9080:9097" ph="set @newtype... " />
-            <marker date="1525867554153" expanded="true" signature="9119:9214" ph="UPDATE Product... " />
-            <marker date="1525867554153" expanded="true" signature="9236:9341" ph="UPDATE Product_to_type... " />
-            <marker date="1525867554153" expanded="true" signature="9422:9514" ph="UPDATE Product... " />
-            <marker date="1525867554153" expanded="true" signature="9597:9692" ph="UPDATE Product... " />
-            <marker date="1525867554153" expanded="true" signature="9776:9792" ph="SET @mydate " />
-            <marker date="1525867554153" expanded="true" signature="9815:10039" ph="UPDATE Product... " />
-            <marker date="1525867554153" expanded="true" signature="10119:10206" ph="UPDATE Product... " />
-            <marker date="1525867554153" expanded="true" signature="10288:10381" ph="UPDATE Product... " />
-            <marker date="1525867554153" expanded="true" signature="10468:10642" ph="UPDATE Product... " />
-            <marker date="1525867554153" expanded="true" signature="10724:10742" ph="SET @freezeI... " />
-            <marker date="1525867554153" expanded="true" signature="10764:10837" ph="DELETE FROM List_freezer... " />
-            <marker date="1525867554153" expanded="true" signature="10859:10939" ph="DELETE FROM Description_freezer... " />
+            <marker date="1526215882921" expanded="true" signature="367:412" ph="SELECT * FRO... Description_type" />
+            <marker date="1526215882921" expanded="true" signature="511:607" ph="SELECT * FRO... Product" />
+            <marker date="1526215882921" expanded="true" signature="511:642" ph="SELECT * FRO... Product" />
+            <marker date="1526215882921" expanded="true" signature="511:645" ph="SELECT * FRO... Product" />
+            <marker date="1526215882921" expanded="true" signature="748:900" ph="SELECT * FRO... Product" />
+            <marker date="1526215882921" expanded="true" signature="1007:1179" ph="SELECT * FRO... Product" />
+            <marker date="1526215882921" expanded="true" signature="1264:1450" ph="SELECT freez... Description_freezer" />
+            <marker date="1526215882921" expanded="true" signature="1264:1452" ph="SELECT freez... Description_freezer" />
+            <marker date="1526215882921" expanded="true" signature="1541:1860" ph="SELECT Descr... Description_freezer" />
+            <marker date="1526215882921" expanded="true" signature="1966:2158" ph="SELECT prod_... Product" />
+            <marker date="1526215882921" expanded="true" signature="2297:2699" ph="SELECT Produ... Product_to_type" />
+            <marker date="1526215882921" expanded="true" signature="3050:3320" ph="SELECT type_... Product" />
+            <marker date="1526215882921" expanded="true" signature="3050:3383" ph="SELECT type_... Product" />
+            <marker date="1526215882921" expanded="true" signature="3445:3623" ph="SELECT DISTI... Product" />
+            <marker date="1526215882921" expanded="true" signature="7395:7470" ph="INSERT INTO Description_freezer... " />
+            <marker date="1526215882921" expanded="true" signature="7492:7564" ph="INSERT INTO List_freezer... " />
+            <marker date="1526215882921" expanded="true" signature="7645:7720" ph="INSERT INTO Description_product... " />
+            <marker date="1526215882921" expanded="true" signature="7742:7820" ph="INSERT INTO Product_to_type... " />
+            <marker date="1526215882921" expanded="true" signature="7842:8015" ph="INSERT INTO Product... " />
+            <marker date="1526215882921" expanded="true" signature="8108:8224" ph="UPDATE Description_product... " />
+            <marker date="1526215882921" expanded="true" signature="8316:8426" ph="UPDATE Description_product... " />
+            <marker date="1526215882921" expanded="true" signature="8541:8735" ph="UPDATE Description_freezer... " />
+            <marker date="1526215882921" expanded="true" signature="8838:8935" ph="UPDATE Product... " />
+            <marker date="1526215882921" expanded="true" signature="9019:9036" ph="set @newtype... " />
+            <marker date="1526215882921" expanded="true" signature="9058:9153" ph="UPDATE Product... " />
+            <marker date="1526215882921" expanded="true" signature="9175:9280" ph="UPDATE Product_to_type... " />
+            <marker date="1526215882921" expanded="true" signature="9361:9453" ph="UPDATE Product... " />
+            <marker date="1526215882921" expanded="true" signature="9536:9631" ph="UPDATE Product... " />
+            <marker date="1526215882921" expanded="true" signature="9715:9731" ph="SET @mydate " />
+            <marker date="1526215882921" expanded="true" signature="9754:9978" ph="UPDATE Product... " />
+            <marker date="1526215882921" expanded="true" signature="10058:10145" ph="UPDATE Product... " />
+            <marker date="1526215882921" expanded="true" signature="10227:10320" ph="UPDATE Product... " />
+            <marker date="1526215882921" expanded="true" signature="10407:10581" ph="UPDATE Product... " />
+            <marker date="1526215882921" expanded="true" signature="10663:10681" ph="SET @freezeI... " />
+            <marker date="1526215882921" expanded="true" signature="10703:10776" ph="DELETE FROM List_freezer... " />
+            <marker date="1526215882921" expanded="true" signature="10798:10878" ph="DELETE FROM Description_freezer... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/validatorDB.py">
+    <entry file="file://$PROJECT_DIR$/queryDB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="626">
-          <caret line="67" column="23" lean-forward="true" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
-          <folding>
-            <marker date="1525876918030" expanded="true" signature="476:592" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
-            <marker date="1525876918030" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
-            <marker date="1525876918030" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
-            <marker date="1525876918030" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
-            <marker date="1525876918030" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
-            <marker date="1525876918030" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2538">
-          <caret line="313" column="52" lean-forward="false" selection-start-line="313" selection-start-column="52" selection-end-line="313" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/responseMessage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="100" lean-forward="true" selection-start-line="22" selection-start-column="100" selection-end-line="22" selection-end-column="100" />
+        <state relative-caret-position="738">
+          <caret line="41" column="22" lean-forward="false" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
-          <caret line="240" column="43" lean-forward="false" selection-start-line="240" selection-start-column="43" selection-end-line="240" selection-end-column="43" />
+        <state relative-caret-position="5094">
+          <caret line="288" column="26" lean-forward="false" selection-start-line="288" selection-start-column="26" selection-end-line="288" selection-end-column="26" />
           <folding>
             <element signature="e#56#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3798">
+          <caret line="32" column="16" lean-forward="false" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/validatorDB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="178" column="0" lean-forward="true" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
+          <folding>
+            <marker date="1526235492013" expanded="true" signature="476:592" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="512:591" ph="SELECT * FRO... User" />
+            <marker date="1526235492013" expanded="true" signature="1051:1181" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="1087:1180" ph="SELECT * FRO... Description_type" />
+            <marker date="1526235492013" expanded="true" signature="1767:1911" ph="SELECT EXIST... " />
+            <marker date="1526235492013" expanded="true" signature="1803:1910" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3523:3622" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3523:3624" ph="SELECT * FRO... List_freezer" />
+            <marker date="1526235492013" expanded="true" signature="3852:3990" ph="SELECT prod_... Product" />
+            <marker date="1526235492013" expanded="true" signature="3852:4011" ph="SELECT prod_... Product" />
           </folding>
         </state>
       </provider>

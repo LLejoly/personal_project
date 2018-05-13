@@ -67,7 +67,6 @@ function removeFreezer(elementId) {
         updateFreezerTable);
 }
 
-
 function updateFreezerTable(val) {
     ajaxRequest({
         type: "GET",

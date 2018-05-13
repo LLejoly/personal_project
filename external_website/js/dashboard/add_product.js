@@ -1,3 +1,29 @@
+// This file is used to manage the ad_product form
+
+function notifyAdd() {
+    console.log("element added");
+}
+
+function addProduct() {
+    var length = document.forms["add_product"].length;
+    var data = document.forms["add_product"].elements;
+    var newProduct = {};
+    for (i = 0; i < length; i++) {
+        if (data[i].name != 'submit') {
+            newProduct[data[i].name] = data[i].value;
+        }
+    }
+    console.log(newProduct);
+    //Send newProduct to ajaxRequest
+    product = {
+        type: "POST",
+        url: domainUrl + "add_product/" + token,
+        toSend: newProduct
+    }
+    console.log(product);
+    ajaxRequest(product, notifyAdd);
+}
+
 // Set the freezer select menu in the 
 // add product form. This function is called by the 
 // an ajaxRequest and the content given is the result of 

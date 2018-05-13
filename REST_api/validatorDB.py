@@ -145,7 +145,6 @@ class ValidatorDB:
                                                   product['freezer_id'],
                                                   product['box_num'],
                                                   product['prod_num']):
-                print("coucou")
                 return False, {'error_type': responseMessage.BAD_PRODUCT_EMPLACEMENT}
 
             product_formatted['freezer_id'] = int(product['freezer_id'])
@@ -166,24 +165,24 @@ class ValidatorDB:
                     product_formatted[header[idx]] = datetime.strptime(product[header[idx]], '%Y-%m-%d')
                     continue
 
-                if value == 'period' and not utils.is_valid_number(product[header[3]]):
+                if value == 'period' and not utils.is_valid_number(product[header[idx]]):
                     return False, {'error_type': responseMessage.BAD_PRODUCT_PERIOD}
                 elif value == 'period':
                     product_formatted[header[idx]] = int(product[header[idx]])
                     continue
 
-                if value == 'quantity' and not utils.is_valid_number(product[header[6]]):
+                if value == 'quantity' and not utils.is_valid_number(product[header[idx]]):
                     return False, {'error_type': responseMessage.BAD_PRODUCT_QUANTITY}
                 elif value == 'quantity':
                     product_formatted[header[idx]] = int(product[header[idx]])
                     continue
 
                 if value == 'product_name':
-                    product_formatted[header[idx]] = MySQLdb.escape_string(product[header[idx]]).decode('utf-8') #To have the characters in utf8 and not in unicode format
+                    product_formatted[header[idx]] = MySQLdb.escape_string(product[header[idx]]).decode('utf-8') #To have the characters in utf8 and not in unicode format in the database
                     continue
 
                 if value == 'text_descr':
-                    product_formatted[header[idx]] = MySQLdb.escape_string(product[header[idx]]).decode('utf-8') #To have the  character in utf8 and not in unicode format
+                    product_formatted[header[idx]] = MySQLdb.escape_string(product[header[idx]]).decode('utf-8') #To have the characters in utf8 and not in unicode format in the database
                     continue
 
             return True, product_formatted
@@ -197,7 +196,6 @@ class ValidatorDB:
     # POST
     # http: // localhost: 5000 / update_product / 1 / 5
     # b68dab9a6c606171473091280898d1c9e581159173d6ba267f3418a6573ae92
-    # TODO need to do more tests
     def check_update_product(self, product, update, token):
         can_be_updated = ['product_name',
                           'text_descr',

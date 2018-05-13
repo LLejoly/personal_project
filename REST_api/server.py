@@ -3,6 +3,8 @@ from flask import jsonify
 from flask import request
 from flask import Response
 from flask import json
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
 from flask_cors import CORS
 
@@ -14,7 +16,18 @@ from queryDB import QueryDB
 from validatorDB import ValidatorDB
 
 # TODO put flask limiter to limit the number of requests
+
+
+# TODO lire parametr pour shwitch db test et prod
 app = Flask(__name__)
+
+# set up limiter on the number of requests that can be done for a user
+limiter = Limiter(
+    app,
+    key_func=get_remote_address,
+    default_limits=["24000 per day", "100 per minute"]
+)
+
 # One of the simplest configurations. Exposes all resources matching /* to
 # CORS and allows the Content-Type header, which is necessary to POST JSON
 # cross origin. All resources with this matching automatically has CORS headers set.
@@ -221,7 +234,18 @@ def freezer_next_id(freezer_id, token):
 @app.route("/add_product/<string:token>", methods=['POST'])
 def add_product(token):
     """
-    Allow to add a new product to the database
+    Allow to add a new product to the database the JSON sent must be of type:
+    {
+      "product_name": "name",
+      "text_descr": "description",
+      "freezer_id": number,
+      "type_id": number,
+      "date_in" datetime YYY-MM-DD,
+      "period":" number,
+      "box_num": number,
+      "prod_num": number,
+      "quantity": number
+    }
     :param token: a user token to have access to the database
     :return: a status code possible with a custom response
     """
@@ -326,7 +350,7 @@ def update_product(freezer_id, box_num, prod_num, inside, token):
      "prod_num":"",
      "quantity":""
      }
-       Where the fields to update need to be non empty. To remove the date out simply put null
+    Where the fields to update need to be non empty. To remove the date out simply put null
     :param inside:
     :param prod_num:
     :param box_num:
@@ -357,7 +381,6 @@ def update_product(freezer_id, box_num, prod_num, inside, token):
     if not curr_product:
         return custom_response(400, responseMessage.BAD_PARAMETER)
 
-    print(curr_product)
     updt_product = request.get_json()
     # data sent is not 'application/json' type
     if updt_product is None:
@@ -366,11 +389,9 @@ def update_product(freezer_id, box_num, prod_num, inside, token):
     validity, update_prod = validator_db.check_update_product(curr_product,
                                                               updt_product,
                                                               token)
-
     if not validity:
         return custom_response(400, responseMessage.BAD_REQUEST)
 
-    print(update_prod)
     # UPDATE SEQUENTIALLY
     if update_prod['freezer_id']:
         query_db.insert_query_db(mysqlRequests.UPDATE_QUANTITY,
@@ -395,7 +416,7 @@ def update_product(freezer_id, box_num, prod_num, inside, token):
         query_db.insert_query_db(mysqlRequests.UPDATE_DATE_IN,
                                  (update_prod['date_in'], curr_product['prod_id'],))
     if update_prod['date_out']:
-        if update_prod['remove']:
+        if update_prod['date_remove']:
             query_db.insert_query_db(mysqlRequests.REMOVE_DATE_OUT,
                                      (curr_product['prod_id'],))
         else:
@@ -410,7 +431,6 @@ def update_product(freezer_id, box_num, prod_num, inside, token):
     return Response(status=200)
 
 
-# TODO TAKE product is just a modification of update product
 # get_product("5b68dab9a6c606171473091280898d1c9e581159173d6ba267f3418a6573ae92", 2, 3)
 
 @app.route("/get_general_tendency/<string:token>", methods=['GET'])
