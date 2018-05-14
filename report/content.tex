@@ -168,13 +168,21 @@ When the identifier and the password given are correct. You will be redirected t
 \end{figure}
 
 \section{API REST}
+A REST API is built on a server that establishes a communication between the database and the the client. REST API is useful for several reasons. The first reason is that it is a client-server that means the server evolves independently of the client. Moreover, with a REST API you can develop applications without worrying about changes in queries since they are the same on any terminal. Finally, new functionalities can be added easily since the REST API is based on URI. We Just need to specify a new URI and specify what the request need to achieve.\\
+
+The REST API server implemented in the project scope cannot be really called a RESTful server because all specifications asked to be certified as REST are not fulfilled. A layered system and cacheability are not implemented because it was too complex to set up and I would have spent a lot of time to set up these parts.\\
+
+Since the REST API needs to work with bowers which specify in request headers the field \textit{Origin} for some type of requests \textit{POST}, the REST API needs to use cross-origin resource sharing (CORS). The CORS allows the REST API server to accept the ajax requests which are forbidden due to the same-origin security policy.\\
+
  mentioner cORS pour prendre en compte les different domaines
  Pas de problemes pour ajouter de nouvelles fonctionnalitées ou de changer les existantes
  
  Pourquoi une API REST
  
  Mentioner l'essai du preférence learning ce qui a été fait et pas fait les probleme rencontrés etc
+\subsection{Folder architecture}
 \subsection{Sever}
+
 %tourne sur la version 0.12.2 sortie en May 2017. La version stable est sortie le 26 AVRIL 2018 avec pas mal de changements
 %dire que pour interagir avec la base de données j'ai utlisé le module MysqlDB. Ce module permet d'écrire les requetes en pure sql. J'ai choisi ce module plutot qu'un Object Relational Mapper (ORM) comme flask.sqlachemy pour deux raison la première étant que Mysqldb permet d'écrire les requêtes en pure SQL ce que sqlachemy ne fait pas vu qu'il permet d'abstraire cette partie ce qui peut etre une bonne chose (en terme d'optimization de gestion de curseur,etc) mais aussi une mauvaise chose car on ne comprends pas necessairement ce qui se passe derrière. La deuxième raison est que la mise en place du ORM n'est pas aussi simple que cela. Cela se comprend puisque on abstrait bcp de choses. J'ai donc fait le choix du module MysqlDb plutot que le choix d'un orm. Cependant pour une mise en production il est recommandé d'utiliser un ORM plutot que d'utiliser un module où il faut écrire toutes les requetes SQL car un ORM permet de passer d'un type de base de donnée à l'autre, il permet également d'être maintenu par des personnes ne maitrisant pas nécessairement le language SQL et de manière générale est plus facile à maintenir.
 \subsection{functionalities implemented}
@@ -310,7 +318,7 @@ Explanation of the  JSON object:
 \item \textit{freezer\_id}: An `integer` that represents the id of an existing freezer to delete.
 \end{enumerate}
 
-\subsection{freezer\_next\_id}
+\subsubsection{freezer\_next\_id}
 This request implements a single method which is \textit{GET} method. It gives the possibility to obtain the next available identifiers of all boxes of a specific freezer. These available identifiers represent the number that will be attributed for a new product of the concerned freezer box. If the request is correctly done a JSON object containing the next available box identifiers for a specific freezer and the status code of the response is 200. Otherwise the status code 400 is returned with the two fields \textit{details and status} described earlier.\\
 
 The prototype of this request is the following:
@@ -335,7 +343,7 @@ The architecture of the JSON file returned is the following:
 \end{lstlisting}
 Where for instance, "1" represents the box number and 8 the next available id for the product in the box 1.
 
-\subsection{get\_product}
+\subsubsection{get\_product}
 This request implements a single method which is \textit{GET}. It give the possibility to retrieve products of a specific user by specifying some parameters to the request. As for other get requests If the request is correctly done a JSON object containing information and the status code of the response is 200 are returned. Otherwise the status code 400 is returned with the two fields \textit{details and status} described earlier.\\
 
 The prototype of this request is the following:
@@ -404,7 +412,7 @@ Explanation of the different elements
 \item \textit{type\_id}: The type identifier of the product.
 \end{enumerate}
 
-\subsection{add\_product}
+\subsubsection{add\_product}
 This request implements a single method which is \textit{POST}. It give the possibility to add a new product into a existing freezer for a specific user. A JSON object must be sent with a specific architecture. This method follows the same behaviours as the preceding \textit{POST} methods previously described.\\
 
 The prototype of the request is:
@@ -444,7 +452,7 @@ Explanation of the  JSON object:
 \item \textit{quantity}: An `integer` that represents the quantity in terms of people for which the product can be consumed.
 \end{enumerate}
 
-\subsection{update\_product}
+\subsubsection{update\_product}
 This request implements a single method which is \textit{POST}. It give the possibility to update an existing product into a existing freezer for a specific user. A JSON object must be sent with a specific architecture. This method follows the same behaviours as the preceding \textit{POST} methods previously described.\\
 
 The prototype of the request is:
@@ -475,6 +483,85 @@ The architecture of the JSON object is the same as the add\_product request expe
 }
 \end{lstlisting}
 
+\subsubsection{general\_tendency}
+This request implements a single method which is \textit{GET}. It gives the possibility to obtain a global view on the products stored and consumed by all people using the API. IT allows to list the occurrence of each product type in the database following a descending order manner. This requests follows the same pattern as the others \textit{GET} methods explained above. If the token is correct a status code 200 is retuned with a JSON. Otherwise a status code 400 is returned with a JSON explaining the reason of that error.
+
+The prototype of the request is:
+$$<domainUrl>/global\_tendency/<token>$$
+
+Parameter:
+\begin{enumerate}
+\item <token>: A user's token that corresponds to an existing account.
+\end{enumerate}
+
+Example of the JSON object returned:
+\begin{lstlisting}
+{
+    [
+        {
+        "freq": 12,
+        "type_id": 1,
+        "type_name_en": "soup"
+        },
+        {
+        "freq": 6,
+        "type_id": 24,
+        "type_name_en": "ice-cream"
+        },
+        ...
+    ]
+}
+\end{lstlisting}
+
+Explanation of the  JSON object:
+\begin{enumerate}
+\item \textit{freq}: An integer that represents the number of time the product type appears in the database.
+\item \textit{type\_id}: An integer that represents the identifier of an existing product type. TO know the different product types you can refer to the request \textit{types}.
+\item \textit{type\_name\_en}: The name of the product type in English
+\end{enumerate}
+
+\subsubsection{custom\_tendency}
+This request implements a single method which is \textit{GET}. It gives the possibility to obtain a personalized tendency of a specific based on his previous consumptions and the products that are in his freezers. The results are sorted following the latest date the product type remove from a user's freezer and the Descending order on the frequency. This requests follows the same pattern as the others \textit{GET} methods explained above. If the token is correct a status code 200 is retuned with a JSON. Otherwise a status code 400 is returned with a JSON explaining the reason of that error.
+
+The prototype of the request is:
+$$<domainUrl>/custom\_tendency/<token>$$
+
+Parameter:
+\begin{enumerate}
+\item <token>: A user's token that corresponds to an existing account.
+\end{enumerate}
+
+Example of the JSON object returned:
+\begin{lstlisting}
+{
+    [
+  		{
+    		"freq": 12, 
+    		"latest": "2018-02-05", 
+    		"type_id": 1, 
+    		"type_name_en": "soup", 
+    		"type_name_fr": "soupe"
+  		}, 
+  		{
+    		"freq": 6, 
+    		"latest": "2017-05-02", 
+    		"type_id": 24, 
+    		"type_name_en": "ice-cream", 
+    		"type_name_fr": "glace"
+  		}
+        ...
+    ]
+}
+\end{lstlisting}
+
+Explanation of the  JSON object:
+\begin{enumerate}
+\item \textit{freq}: An integer that represents the number of time the product type appears in the database.
+\item \textit{latest}: The date of the last product of that type that left the user's freezers.
+\item \textit{type\_id}: An integer that represents the identifier of an existing product type. To know the different product types you can refer to the request \textit{types}.
+\item \textit{type\_name\_en}: The name of the product type in English
+\end{enumerate}
+
 \subsection{Documentation}
 To understand how to use the REST API a website with a documentation has been made. The tool used to built this documentation is \textit{MkDocs}. This tool is commonly used to build documentation and are used for instance by \textit{Keras}. Markdown is used to write the documentation and the tools translates it into static html page. It is really easy to use if you know the Markdown language. \\
 
@@ -501,6 +588,8 @@ Faire passer l'API sur un support ORM comme sqlalchemy qui permettra à l'API d'
 
 faire passer l'application sur la version stable 1.0
 tester l'API sur des terminaux comme les smartphones et autres.
+
+URI template des requetes pourrait être uniformisé pour respecter au mieux les requetes.
 
 mettre en place le logger system qui permet de garder une trace de tout ce qui a été fait sur le serveur. En cas d'attaque du serveur par exemple ou si une personne mal intentionnée et ayant dérober un token on peut avoir une trace d'ou a été emis la requete
 mettre en place le systeme sur un serveur hors du localhost

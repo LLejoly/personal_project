@@ -63,6 +63,7 @@ frequency in the descending order
 """
 GET_GLOBAL_TENDENCY = """SELECT Product_to_type.type_id,
                                 Description_type.type_name_en,
+                                Description_type.type_name_fr,
                                 COUNT(*) AS freq
                          FROM (Product_to_type
                          INNER JOIN Description_type ON  Product_to_type.type_id = Description_type.type_id)
@@ -74,11 +75,14 @@ Return a personalized list of products present in the freezer of a user.
 These products are sorted by frequency, by type, and by the latest product of that type taken from the freezers.
 If all products of a certain type have never been taken then the result of the last type of product taken will be null.
 """
-GET_PERSONALIZED_TENDENCY = """SELECT type_id,
-                                      DATE_FORMAT(max(date_out), '%%Y-%%m-%%d') AS latest,
-                                      COUNT(*) AS freq FROM Product
-                               WHERE token = %s
-                               GROUP BY type_id
+GET_PERSONALIZED_TENDENCY = """SELECT Product.type_id,
+                                      Description_type.type_name_en,
+                                      Description_type.type_name_fr,
+                                      DATE_FORMAT(max(Product.date_out), '%%Y-%%m-%%d') AS latest,
+                                      COUNT(*) AS freq 
+                               FROM (Product INNER JOIN Description_type ON Product.type_id = Description_type.type_id)
+                               WHERE Product.token = %s
+                               GROUP BY Product.type_id
                                ORDER BY latest DESC, freq DESC;"""
 """
 GET the types used by a user

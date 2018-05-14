@@ -178,11 +178,13 @@ class ValidatorDB:
                     continue
 
                 if value == 'product_name':
-                    product_formatted[header[idx]] = MySQLdb.escape_string(product[header[idx]]).decode('utf-8') #To have the characters in utf8 and not in unicode format in the database
+                    # To have the characters in utf8 and not in unicode format in the database
+                    product_formatted[header[idx]] = MySQLdb.escape_string(product[header[idx]]).decode('utf-8')
                     continue
 
                 if value == 'text_descr':
-                    product_formatted[header[idx]] = MySQLdb.escape_string(product[header[idx]]).decode('utf-8') #To have the characters in utf8 and not in unicode format in the database
+                    # To have the characters in utf8 and not in unicode format in the database
+                    product_formatted[header[idx]] = MySQLdb.escape_string(product[header[idx]]).decode('utf-8')
                     continue
 
             return True, product_formatted
@@ -190,13 +192,14 @@ class ValidatorDB:
         else:
             return False, {'error_type': responseMessage.BAD_FORMAT}
 
-    # curl - d
-    # '{"product_name":"Glace au citron","text_descr":"", "freezer_id":"","type_id":"","date_in":"", "date_out": "", "period":"","box_num":"","prod_num":"","quantity":""}' - H
-    # "Content-Type: application/json" - X
-    # POST
-    # http: // localhost: 5000 / update_product / 1 / 5
-    # b68dab9a6c606171473091280898d1c9e581159173d6ba267f3418a6573ae92
-    def check_update_product(self, product, update, token):
+    def check_update_product(self, token, product, update):
+        """
+        Check if the product follows the rules to be inserted in the database
+        :param token: a user token to have access to the database
+        :param update: A list of that represents the keys that the json object need to have
+        :param product: A json object that represent the product to check
+        :return: a Tuple True with the formatted object or False with the {'error_type': 'explanation...'}
+        """
         can_be_updated = ['product_name',
                           'text_descr',
                           'freezer_id',

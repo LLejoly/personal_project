@@ -14,19 +14,21 @@
 \contentsline {subsection}{\numberline {4.1}Sever}{9}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}functionalities implemented}{9}{subsection.4.2}
 \contentsline {subsubsection}{\numberline {4.2.1}check\_token}{9}{subsubsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2}types}{9}{subsubsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.2}types}{10}{subsubsection.4.2.2}
 \contentsline {subsubsection}{\numberline {4.2.3}Freezer}{10}{subsubsection.4.2.3}
-\contentsline {paragraph}{GET method:}{10}{section*.10}
+\contentsline {paragraph}{GET method:}{11}{section*.10}
 \contentsline {paragraph}{POST method:}{11}{section*.11}
 \contentsline {paragraph}{PUT method:}{11}{section*.12}
-\contentsline {paragraph}{DELETE method:}{11}{section*.13}
-\contentsline {subsection}{\numberline {4.3}freezer\_next\_id}{12}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}get\_product}{12}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}add\_product}{13}{subsection.4.5}
-\contentsline {subsection}{\numberline {4.6}update\_product}{14}{subsection.4.6}
-\contentsline {subsection}{\numberline {4.7}Documentation}{15}{subsection.4.7}
-\contentsline {section}{\numberline {5}External website}{15}{section.5}
-\contentsline {section}{\numberline {6}unit tests}{15}{section.6}
-\contentsline {section}{\numberline {7}problemes rencontr\IeC {\'e}s}{15}{section.7}
-\contentsline {section}{\numberline {8}future work}{15}{section.8}
-\contentsline {section}{\numberline {9}Conclusion}{16}{section.9}
+\contentsline {paragraph}{DELETE method:}{12}{section*.13}
+\contentsline {subsubsection}{\numberline {4.2.4}freezer\_next\_id}{12}{subsubsection.4.2.4}
+\contentsline {subsubsection}{\numberline {4.2.5}get\_product}{12}{subsubsection.4.2.5}
+\contentsline {subsubsection}{\numberline {4.2.6}add\_product}{14}{subsubsection.4.2.6}
+\contentsline {subsubsection}{\numberline {4.2.7}update\_product}{14}{subsubsection.4.2.7}
+\contentsline {subsubsection}{\numberline {4.2.8}general\_tendency}{15}{subsubsection.4.2.8}
+\contentsline {subsubsection}{\numberline {4.2.9}custom\_tendency}{16}{subsubsection.4.2.9}
+\contentsline {subsection}{\numberline {4.3}Documentation}{16}{subsection.4.3}
+\contentsline {section}{\numberline {5}External website}{17}{section.5}
+\contentsline {section}{\numberline {6}unit tests}{17}{section.6}
+\contentsline {section}{\numberline {7}problemes rencontr\IeC {\'e}s}{17}{section.7}
+\contentsline {section}{\numberline {8}future work}{17}{section.8}
+\contentsline {section}{\numberline {9}Conclusion}{17}{section.9}

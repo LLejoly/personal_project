@@ -52,7 +52,7 @@ class QueryDB:
             else:
                 rv.append(row)
 
-        self.connection.commit()  ## to be sure to have the last value stored in the database and not a local variable
+        self.connection.commit()  # to be sure to have the last value stored in the database and not a local variable
         cursor.close()
         return rv
 

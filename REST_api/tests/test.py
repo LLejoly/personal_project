@@ -290,6 +290,7 @@ class TestFunctions(unittest.TestCase):
         self.assertEqual(content['details'], responseMessage.BAD_FORMAT)
 
     # add a correct product can be essentially done with the external website
+    # That is why test test are not done here
 
     # UPDATE A PRODUCT
     def test_33_update_product_methods_not_implemented(self):
