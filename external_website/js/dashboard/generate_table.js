@@ -17,9 +17,11 @@ var beautifulHeader = {
 
 }
 
+// apply the tablesorter script on the tables generated
 $.myjQuery = function(id) {
     $(id).tablesorter();
  };
+
 //check the period in months between the current date and a date given
 // and a integer that represent the number of months. Return flase if the 
 // number is outdated.
@@ -108,9 +110,10 @@ function createRadioButton(group, val, text, checked) {
     
 }
 
-function setProductsTable(productsObject) {
+function setProductsTable() {
     var option1 = document.forms["product_selection"]["group1"].value;
     var option2 = document.forms["product_selection"]["group2"].value;
+    console.log("passed");
     productsObject = { type: "GET", url: domainUrl + "get_product/" + option1 + "/" + option2 + "/" + token, elementId: "products_table" };
     ajaxRequest(productsObject, generateTableFromJson);
 }
@@ -121,7 +124,7 @@ function generateProductSelection(objectIdentifier) {
     f.setAttribute('method', 'POST');
     f.setAttribute('name', 'product_selection');
     f.setAttribute('action', 'javascript:void(0);');
-    f.setAttribute("onsubmit", "setProductsTable(freezersObject)");
+    f.setAttribute("onsubmit", "setProductsTable()");
 
     var params = ['all', 'inside', 'outside'];
     var grp1 = "";

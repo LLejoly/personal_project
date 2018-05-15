@@ -5,7 +5,7 @@ import sys
 import json
 import unittest
 import requests
-
+sys.path.append('..')
 import responseMessage
 
 

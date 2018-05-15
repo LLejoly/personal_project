@@ -224,7 +224,7 @@ UPDATE_TYPE_ID = """BEGIN;
 
 UPDATE_DATE_IN = """BEGIN;
                     UPDATE Product
-                    SET date_in = NULL
+                    SET date_in = %s
                     WHERE prod_id = %s;
                     COMMIT;"""
 

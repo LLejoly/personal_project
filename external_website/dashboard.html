@@ -4,23 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/formcss.css">
+    <link rel="stylesheet" href="./css/footer.css">
     <!-- Font that comes from https://fontawesome.com/ -->
     <link href="./css/font/css/fontawesome-all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!--https://codepen.io/mican/pen/dRWxZe-->
     <!-- jQuery: required (tablesorter works with jQuery 1.2.3+) -->
     <script src="./js/tablesorter/docs/js/jquery-1.2.6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <!-- Pick a theme, load the plugin & initialize plugin -->
     <link href="./js/tablesorter/dist/css/theme.bootstrap_4.min.css" rel="stylesheet">
     <script src="./js/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
     <script src="./js/tablesorter/dist/js/jquery.tablesorter.widgets.min.js"></script>
 
     <script src="./js/dashboard/request.js"></script>
+    <script src="./js/dashboard/utils.js"></script>
     <script src="./js/dashboard/generate_table.js"></script>
     <script src="./js/dashboard/generate_freezers.js"></script>
     <script src="./js/dashboard/add_product.js"></script>
     <script src="./js/dashboard/update_product.js"></script>
+    <!-- Script used to manage trends and to plot the results -->
     <script src="./js/dashboard/tendency.js"></script>
+
 
     <title>Dashboard</title>
     <style>
@@ -58,6 +63,7 @@
         .title h1 {
             margin: 0 auto;
             padding: 20px;
+            font-size: 3.5em;
         }
 
         .queryBtn {
@@ -96,6 +102,43 @@
             padding: 20px;
             margin: 10px;
             text-align: center;
+            height: 100%;
+        }
+
+        .menuTile p {
+            font-size: 2em;
+            height: 40%;
+        }
+
+        .menuPanel {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .menuPanel>[class*='col-'] {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chartContainer {
+            margin-top: 100px;
+            height: 400px;
+        }
+
+        .footer {
+            position: relative;
+            margin-top: -150px;
+            height: 150px;
+            clear: both;
+            padding-top: 20px;
+        }
+
+        .warpper {
+            overflow: auto;
+            min-height: 100%;
+            padding-bottom: 250px;
         }
     </style>
 </head>
@@ -105,41 +148,43 @@
         <h1>Application to manage your freezers</h1>
     </header>
 
-    <div class="container">
+    <div class="container warpper">
         <div class="row">
             <p>Please enter your token to have access to the application:</p>
             <form method="POST" name="get_token" action="javascript:void(0);" onsubmit="getToken()">
                 <input type="text" name="token" class="form-control" placeholder="insert your token" required>
                 <button type="submit" name="submit" class="btn btn-primary queryBtn">Submit</button>
             </form>
-            <p id="token_error"></p>
+            <p id="token_error" style="color: #ea0000;font-size: 2em"></p>
         </div>
 
-        <div class="row">
+        <div class="row menuPanel" id="menu_panel" style="display: none">
             <div class="col-md-3">
                 <div class="menuTile">
                     <p>Available types of products</p>
                     <i class="fas fa-align-center fa-5x setIcon"></i>
-                    <button class="menuBtn" onclick="setVisibility('types_section')">Click me</button>
+                    <button class="menuBtn" onclick="setVisibility('types_section')">Display</button>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="menuTile">
-                    <p>freezer section</p>
+                    <p>Freezer section</p>
                     <i class="fas fa-archive fa-5x setIcon"></i>
-                    <button class="menuBtn" onclick="setVisibility('freezer_section')">Click me</button>
+                    <button class="menuBtn" onclick="setVisibility('freezer_section')">Display</button>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="menuTile">
-                    <p>product section</p>
+                    <p>Product section</p>
                     <i class="fas fa-utensils fa-5x setIcon"></i>
-                    <button class="menuBtn" onclick="setVisibility('product_section')">Click me</button>
+                    <button class="menuBtn" onclick="setVisibility('product_section')">Display</button>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="menuTile">
-                    <p>coucou</p>
+                    <p>Trends</p>
+                    <i class="fas fa-chart-line fa-5x setIcon"></i>
+                    <button class="menuBtn" onclick="setVisibility('tendency')">Display</button>
                 </div>
             </div>
         </div>
@@ -260,6 +305,7 @@
 
                 <input class="button" type="submit" name="submit">
             </form>
+            <p id="add_message"></p>
             <h3>Update a product</h3>
             <form method="POST" name="update_product" class="form" action="javascript:void(0);" onsubmit="updateProduct()">
                 <div class="row" style="margin-bottom: 40px">
@@ -320,13 +366,29 @@
 
                 <input class="button" type="submit" name="submit">
             </form>
+            <p id="update_message"></p>
         </div>
-        <div id="tendency">
-            <button onclick="globalTendency('global_tendency')"></button>
-            <div id="global_tendency"></div>
+        <div id="tendency" style="display: none;">
+            <h2>Tendencies</h2>
+            <p>It can be interesting to have some knowlegde about the tendencies of the differents user. For a user, it is also
+                interesting to have information about his tendencies. This page is dedicated to that purpose. The colored
+                bars are the types of products for which you may have an interest.</p>
+            <button onclick="chartDisplay('glob_container', 'general_tendency','glob_tendency')">Display general tendency</button>
+            <button onclick="chartDisplay('pers_container', 'custom_tendency','pers_tendency')">Display personalized tendency</button>
+            <div id="glob_container" class="chartContainer" style="display: none;">
+                <h2>General tendency</h2>
+                <canvas id="glob_tendency"></canvas>
+            </div>
+            <div id="pers_container" class="chartContainer" style="display: none;">
+                <h2>Personalized tendency</h2>
+                <canvas id="pers_tendency"></canvas>
+            </div>
         </div>
     </div>
-
+    <footer class="footer-basic-centered footer">
+        <p> Website built by: Loïc Lejoly </p>
+        <p> University of Liège </p>
+    </footer>
 </body>
 <script>
     var token = "";
@@ -358,6 +420,17 @@
             document.getElementById(elementId).style.display = 'none';
         }
     }
+    // This function is used to display and hide charts builts
+    // with tendencies requests.
+    // container: It is the  div id of that will contains the chart
+    // request: It is the name of the request achieved
+    // objectIdentifier: It is the name of the canva where the chart will be drawn.
+    function chartDisplay(container, request, objectIdentifier) {
+        setVisibility(container);
+        //clear the container object before the generation of the chart
+        document.getElementById(objectIdentifier).innerHTML = "";
+        tendency(request, objectIdentifier);
+    }
 
     function clear_dashboard() {
         document.getElementById("token_error").innerHTML = "";
@@ -365,30 +438,6 @@
         document.getElementById("freezers_table").innerHTML = "";
         document.getElementById("products_listing").innerHTML = "";
         document.getElementById("products_table").innerHTML = "";
-    }
-
-    function setSelectOption(objectIdentifier, obj, val, txt) {
-        var select, i, option;
-        select = document.getElementById(objectIdentifier);
-        //Clean up the the html node
-        var selectParentNode = select.parentNode;
-        var newSelectObj = select.cloneNode(false); // Make a shallow copy
-        selectParentNode.replaceChild(newSelectObj, select);
-        select = newSelectObj;
-        // Set the default choice
-        option = document.createElement('option');
-        option.setAttribute('disabled', 'disabled');
-        option.setAttribute('selected', true);
-        option.setAttribute('value', '');
-        option.text = ' -- select an option -- ';
-        select.add(option);
-        //set the different options
-        for (var i = 0; i < obj.content.length; i++) {
-            option = document.createElement('option');
-            option.value = obj.content[i][val];
-            option.text = obj.content[i][txt];
-            select.add(option);
-        }
     }
 
     function check_token() {
@@ -401,9 +450,12 @@
             } else if (this.readyState == 4 && this.status == 200) {
                 clear_dashboard();
                 setDashboard();
+                // Set the panel visible for the user if the token given was correct
+                document.getElementById('menu_panel').classList.add('menuPanel');
+                document.getElementById('menu_panel').style.display = null;
             } else if (this.readyState == 4) {
                 clear_dashboard();
-                document.getElementById("token_error").innerHTML = "the token given is not valid";
+                document.getElementById("token_error").innerHTML = "The token given is not valid";
             }
         };
         xmlhttp.open("GET", "http://localhost:5000/check_token/" + token, true);
@@ -413,9 +465,7 @@
     function generateProductStuffs() {
         generateProductSelection('products_listing');
         setSelectOption('freezer_id_add_form', freezersObject, 'freezer_id', 'freezer_name');
-        //setFreezersChoices('freezer_id_form');
         setSelectOption('type_id_add_form', typesObject, 'type_id', 'type_name_en');
-        //setTypesChoices('type_id_form');
         generateUpdateProd();
     }
 
@@ -444,65 +494,6 @@
         ajaxRequest(typesObject, generateTableFromJson);
         ajaxRequest(freezersObject, generateTableFromJson);
         console.log(freezersObject);
-    }
-
-    function notifyAdd() {
-        console.log("element added");
-    }
-
-/*     function addProduct() {
-        var length = document.forms["add_product"].length;
-        var data = document.forms["add_product"].elements;
-        var newProduct = {};
-        for (i = 0; i < length; i++) {
-            if (data[i].name != 'submit') {
-                newProduct[data[i].name] = data[i].value;
-            }
-        }
-        console.log(newProduct);
-        //Send newProduct to ajaxRequest
-        product = {
-            type: "POST",
-            url: domainUrl + "add_product/" + token,
-            toSend: newProduct
-        }
-        console.log(product);
-        ajaxRequest(product, notifyAdd);
-    } */
-
-    function updateProduct() {
-        var length = document.forms["update_product"].length;
-        var data = document.forms["update_product"].elements;
-        var updtProduct = {};
-        var freezer_id;
-        var box_num;
-        var prod_num;
-        var prod_loc;
-        for (i = 0; i < length; i++) {
-            console.log(data[i].name);
-            if (data[i].name == 'freezer_id_main') {
-                freezer_id = data[i].value;
-            } else if (data[i].name == 'box_num_id') {
-                box_num = data[i].value;
-            } else if (data[i].name == 'prod_num_id') {
-                prod_num = data[i].value;
-            } else if (data[i].name == 'prod_loc') {
-                prod_loc = data[i].value;
-            } else if (data[i].name != 'submit') {
-                updtProduct[data[i].name] = data[i].value;
-            }
-        }
-        console.log(domainUrl + "update_product/" + freezer_id + "/" + box_num + "/" + prod_num + "/" + prod_loc + "/" +
-            token);
-        //Send newProduct to ajaxRequest
-        product = {
-            type: "POST",
-            url: domainUrl + "update_product/" + freezer_id + "/" + box_num + "/" + prod_num + "/" + prod_loc + "/" +
-                token,
-            toSend: updtProduct
-        }
-        console.log(product);
-        ajaxRequest(product, notifyAdd);
     }
 </script>
 

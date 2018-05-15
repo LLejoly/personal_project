@@ -1,10 +1,14 @@
 // This file is used to manage the ad_product form
 
 function notifyAdd() {
-    console.log("element added");
+    // update the porducts table after the modifications made
+    setProductsTable();
+    document.getElementById("add_message").innerHTML = "The product is added";
 }
 
 function addProduct() {
+    // clean the element that  notify the update is a success
+    document.getElementById("update_message").innerHTML = "";
     var length = document.forms["add_product"].length;
     var data = document.forms["add_product"].elements;
     var newProduct = {};

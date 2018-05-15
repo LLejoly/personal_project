@@ -11,24 +11,25 @@
 \contentsline {subsection}{\numberline {3.2}User panel}{7}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Admin panel}{8}{subsection.3.3}
 \contentsline {section}{\numberline {4}API REST}{9}{section.4}
-\contentsline {subsection}{\numberline {4.1}Sever}{9}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}functionalities implemented}{9}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}check\_token}{9}{subsubsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2}types}{10}{subsubsection.4.2.2}
-\contentsline {subsubsection}{\numberline {4.2.3}Freezer}{10}{subsubsection.4.2.3}
-\contentsline {paragraph}{GET method:}{11}{section*.10}
-\contentsline {paragraph}{POST method:}{11}{section*.11}
-\contentsline {paragraph}{PUT method:}{11}{section*.12}
-\contentsline {paragraph}{DELETE method:}{12}{section*.13}
-\contentsline {subsubsection}{\numberline {4.2.4}freezer\_next\_id}{12}{subsubsection.4.2.4}
-\contentsline {subsubsection}{\numberline {4.2.5}get\_product}{12}{subsubsection.4.2.5}
-\contentsline {subsubsection}{\numberline {4.2.6}add\_product}{14}{subsubsection.4.2.6}
-\contentsline {subsubsection}{\numberline {4.2.7}update\_product}{14}{subsubsection.4.2.7}
-\contentsline {subsubsection}{\numberline {4.2.8}general\_tendency}{15}{subsubsection.4.2.8}
-\contentsline {subsubsection}{\numberline {4.2.9}custom\_tendency}{16}{subsubsection.4.2.9}
-\contentsline {subsection}{\numberline {4.3}Documentation}{16}{subsection.4.3}
-\contentsline {section}{\numberline {5}External website}{17}{section.5}
-\contentsline {section}{\numberline {6}unit tests}{17}{section.6}
-\contentsline {section}{\numberline {7}problemes rencontr\IeC {\'e}s}{17}{section.7}
-\contentsline {section}{\numberline {8}future work}{17}{section.8}
-\contentsline {section}{\numberline {9}Conclusion}{17}{section.9}
+\contentsline {subsection}{\numberline {4.1}Folder architecture}{9}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Sever}{10}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}functionalities implemented}{10}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}check\_token}{10}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}types}{11}{subsubsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.3}Freezer}{11}{subsubsection.4.3.3}
+\contentsline {paragraph}{GET method:}{12}{section*.10}
+\contentsline {paragraph}{POST method:}{12}{section*.11}
+\contentsline {paragraph}{PUT method:}{12}{section*.12}
+\contentsline {paragraph}{DELETE method:}{13}{section*.13}
+\contentsline {subsubsection}{\numberline {4.3.4}freezer\_next\_id}{13}{subsubsection.4.3.4}
+\contentsline {subsubsection}{\numberline {4.3.5}get\_product}{13}{subsubsection.4.3.5}
+\contentsline {subsubsection}{\numberline {4.3.6}add\_product}{15}{subsubsection.4.3.6}
+\contentsline {subsubsection}{\numberline {4.3.7}update\_product}{15}{subsubsection.4.3.7}
+\contentsline {subsubsection}{\numberline {4.3.8}general\_tendency}{16}{subsubsection.4.3.8}
+\contentsline {subsubsection}{\numberline {4.3.9}custom\_tendency}{17}{subsubsection.4.3.9}
+\contentsline {subsection}{\numberline {4.4}Documentation}{17}{subsection.4.4}
+\contentsline {section}{\numberline {5}External website}{18}{section.5}
+\contentsline {section}{\numberline {6}unit tests}{18}{section.6}
+\contentsline {section}{\numberline {7}problemes rencontr\IeC {\'e}s}{18}{section.7}
+\contentsline {section}{\numberline {8}future work}{18}{section.8}
+\contentsline {section}{\numberline {9}Conclusion}{18}{section.9}

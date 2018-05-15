@@ -103,7 +103,7 @@ class ValidatorDB:
         :return: A boolean (true if it is correct)
         """
         if not utils.is_valid_number(freezer_id) \
-                and utils.is_valid_number(box_num)\
+                and utils.is_valid_number(box_num) \
                 and utils.is_valid_number(prod_num):
             return False
 
@@ -217,34 +217,40 @@ class ValidatorDB:
 
         # set keys with None value
         format_prod = dict.fromkeys(can_be_updated)
-
+        print(update)
         if update['box_num'] or update['freezer_id'] or update['prod_num']:
 
             if not update['freezer_id']:
                 format_prod['freezer_id'] = product['freezer_id']
             elif utils.is_valid_number(update['freezer_id']):
-                format_prod['freezer_id'] = update['freezer_id']
+                format_prod['freezer_id'] = int(update['freezer_id'])
             else:
                 return False, {'error_type': responseMessage.BAD_FORMAT}
 
             if not update['box_num']:
                 format_prod['box_num'] = product['box_num']
             elif utils.is_valid_number(update['box_num']):
-                format_prod['box_num'] = update['box_num']
+                format_prod['box_num'] = int(update['box_num'])
             else:
                 return False, {'error_type': responseMessage.BAD_FORMAT}
 
             if not update['prod_num']:
                 format_prod['prod_num'] = product['prod_num']
             elif utils.is_valid_number(update['prod_num']):
-                format_prod['prod_num'] = update['prod_num']
+                format_prod['prod_num'] = int(update['prod_num'])
             else:
                 return False, {'error_type': responseMessage.BAD_FORMAT}
 
-            if not self.check_product_emplacement(token,
-                                                  format_prod['freezer_id'],
-                                                  format_prod['box_num'],
-                                                  format_prod['prod_num']):
+            # to detect if the parameters given are the same or not
+            # If it is the case there is no change done
+            if format_prod['freezer_id'] == product['freezer_id'] and \
+                    format_prod['box_num'] == product['box_num'] and \
+                    format_prod['prod_num'] == product['prod_num']:
+                pass
+            elif not self.check_product_emplacement(token,
+                                                    format_prod['freezer_id'],
+                                                    format_prod['box_num'],
+                                                    format_prod['prod_num']):
                 return False, {'error_type': responseMessage.BAD_PRODUCT_EMPLACEMENT}
 
         if update['type_id']:
@@ -258,6 +264,7 @@ class ValidatorDB:
                 return False, {'error_type': responseMessage.BAD_PRODUCT_DATE}
 
             format_prod['date_in'] = update['date_in']
+            print(format_prod['date_in'])
 
         if update['date_out']:
             format_prod['date_remove'] = False

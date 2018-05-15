@@ -1,5 +1,19 @@
+/* 
+========================================================================================
+This file depends on others Javascript files.
+To work with this file several files must be loaded before:
+- request.js
+- utils.js
+- generate_table.js
+
+
+This file is used to manage the update form of a product.
+It allows to set correct 
+========================================================================================
+ */
+
 // Set the freezer select menu in the 
-// add product form. This function is called by the 
+// update product form. This function is called by the 
 // an ajaxRequest and the content given is the result of 
 // this request.
 function updtSetFreezersIndexes(content) {
@@ -35,4 +49,48 @@ function updtSetNumber(objIdentifier, val) {
             break;
         }
     }
+}
+
+function notifyUpdate() {
+    // update the porducts table after the modifications made
+    setProductsTable();
+    document.getElementById("update_message").innerHTML = "The product is updated";
+}
+
+function updateProduct() {
+    // clean the element that  notify the update is a success
+    document.getElementById("update_message").innerHTML = "";
+
+    var length = document.forms["update_product"].length;
+    var data = document.forms["update_product"].elements;
+    var updtProduct = {};
+    var freezer_id;
+    var box_num;
+    var prod_num;
+    var prod_loc;
+    for (i = 0; i < length; i++) {
+        console.log(data[i].name);
+        if (data[i].name == 'freezer_id_main') {
+            freezer_id = data[i].value;
+        } else if (data[i].name == 'box_num_id') {
+            box_num = data[i].value;
+        } else if (data[i].name == 'prod_num_id') {
+            prod_num = data[i].value;
+        } else if (data[i].name == 'prod_loc') {
+            prod_loc = data[i].value;
+        } else if (data[i].name != 'submit') {
+            updtProduct[data[i].name] = data[i].value;
+        }
+    }
+    console.log(domainUrl + "update_product/" + freezer_id + "/" + box_num + "/" + prod_num + "/" + prod_loc + "/" +
+        token);
+    //Send newProduct to ajaxRequest
+    product = {
+        type: "POST",
+        url: domainUrl + "update_product/" + freezer_id + "/" + box_num + "/" + prod_num + "/" + prod_loc + "/" +
+            token,
+        toSend: updtProduct
+    }
+    console.log(product);
+    ajaxRequest(product, notifyUpdate);
 }

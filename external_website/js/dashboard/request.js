@@ -24,10 +24,7 @@ function ajaxRequest(objContent, callback) {
             if (this.responseText.length > 0) {
                 objContent['content'] = JSON.parse(this.responseText);
                 if (objContent['cascadeCallback'] == true) {
-                    //console.log(objContent['callback']);
-                    //console.log(objContent['callbackParams']);
                     objContent['callback'].call(this, objContent['callbackParams']);
-                    //callback(objContent['callback']);
                 }
             } else {
                 objContent['content'] = '';
@@ -38,9 +35,8 @@ function ajaxRequest(objContent, callback) {
         } else if (this.readyState == 4 && this.status == 404) {
             alert('The route of the request does not exist.');
         } else if (this.readyState == 4 && this.status == 400) {
-            console.log(this.responseText);
+            alert(this.responseText);
         }
-        // console.log(this.responseText);
     };
     xmlhttp.open(objContent['type'], objContent['url'], true);
     if (type == "POST" || type == "DELETE" || type == "PUT") {

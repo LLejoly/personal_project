@@ -15,8 +15,15 @@ import utils
 from queryDB import QueryDB
 from validatorDB import ValidatorDB
 
-
 # TODO lire parametr pour shwitch db test et prod
+import os
+import sys
+
+if os.environ.get("DB_NAME"):
+    db_identifier = os.environ.get("DB_NAME")
+else:
+    sys.exit("The environment DB_NAME is not set")
+
 app = Flask(__name__)
 
 # set up limiter on the number of requests that can be done for a user
@@ -34,7 +41,7 @@ CORS(app, resources=r'/*')
 connection = MySQLdb.connect(host="127.0.0.1",
                              user="root",
                              passwd="",
-                             db="freezer.test")
+                             db=db_identifier)
 
 query_db = QueryDB(connection)
 validator_db = ValidatorDB(query_db)
@@ -428,7 +435,7 @@ def update_product(freezer_id, box_num, prod_num, inside, token):
                                                               curr_product,
                                                               updt_product)
     if not validity:
-        return custom_response(400, responseMessage.BAD_REQUEST)
+        return custom_response(400, update_prod['error_type'])
 
     # UPDATE sequentially each element
     if update_prod['freezer_id']:
