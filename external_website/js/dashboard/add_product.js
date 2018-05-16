@@ -1,11 +1,25 @@
-// This file is used to manage the ad_product form
+/* 
+========================================================================================
+This file depends on others Javascript files.
+To work with this file several files must be loaded before:
+- request.js
+- utils.js
+- generate_table.js
 
+
+This file is used to manage the adding form of a product.
+It allows to retrieve the values sent with this form and do the appropriate thing with these.
+========================================================================================
+ */
+// Notify that the add has been done correctly
 function notifyAdd() {
     // update the porducts table after the modifications made
     setProductsTable();
     document.getElementById("add_message").innerHTML = "The product is added";
 }
 
+// Retrieves information of the add form and achieves the request
+// to add the new element to the database
 function addProduct() {
     // clean the element that  notify the update is a success
     document.getElementById("update_message").innerHTML = "";
@@ -17,14 +31,12 @@ function addProduct() {
             newProduct[data[i].name] = data[i].value;
         }
     }
-    console.log(newProduct);
     //Send newProduct to ajaxRequest
     product = {
         type: "POST",
         url: domainUrl + "add_product/" + token,
         toSend: newProduct
     }
-    console.log(product);
     ajaxRequest(product, notifyAdd);
 }
 

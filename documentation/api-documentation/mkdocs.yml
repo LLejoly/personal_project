@@ -8,5 +8,7 @@ pages:
   - types: requests/types.md
   - freezer: requests/freezers.md
   - freezer_next_id: requests/freezer_next_id.md
+  - add_product: requests/add_product.md
+  - update_product: requests/update_product.md
 theme:
   name: 'material'

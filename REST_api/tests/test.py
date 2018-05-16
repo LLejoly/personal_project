@@ -5,6 +5,8 @@ import sys
 import json
 import unittest
 import requests
+import time
+
 sys.path.append('..')
 import responseMessage
 
@@ -35,79 +37,64 @@ class TestFunctions(unittest.TestCase):
         url = self.domain + "/" + request + "/" + self.token + "u"
         r = requests.get(url)
         self.assertEqual(r.status_code, 400)
+        content = r.json()
+        self.assertEqual(content['details'], responseMessage.BAD_TOKEN)
+        self.assertEqual(content['status'], 400)
 
-    def test_01_check_token_methods(self):
-        self.methods_not_implemented("check_token", ['PUT', 'POST', 'DELETE'])
+    def test_01_check_bad_route(self):
+        url = self.domain + "/type/" + self.token
+        r = requests.get(url)
+        self.assertEqual(r.status_code, 404)
 
-    ## test types requests
+    # CHECK_TOKEN
     def test_02_check_token(self):
         url = self.domain + "/check_token/" + self.token
         r = requests.get(url)
         self.assertEqual(r.status_code, 200)
 
-    def test_03_check_token_bad(self):
+    def test_03_check_token_bad_token(self):
         self.check_result_with_bad_token("check_token")
 
-    def test_04_check_token_details(self):
-        url = self.domain + "/check_token/" + self.token + "u"
+    def test_04_check_token_empty_token(self):
+        url = self.domain + "/check_token/"
         r = requests.get(url)
-        content = r.json()
-        self.assertEqual(content['details'], responseMessage.BAD_TOKEN)
+        self.assertEqual(r.status_code, 404)
 
-    def test_05_check_token_status(self):
-        url = self.domain + "/check_token/" + self.token + "u"
-        r = requests.get(url)
-        content = r.json()
-        self.assertEqual(content['status'], 400)
+    def test_05_check_token_methods_not_implemented(self):
+        self.methods_not_implemented("check_token", ['PUT', 'POST', 'DELETE'])
 
+    # TYPES
     def test_06_types(self):
         url = self.domain + "/types/" + self.token
         r = requests.get(url)
         self.assertEqual(r.status_code, 200)
 
-    def test_07_types_404(self):
-        url = self.domain + "/type/" + self.token
-        r = requests.get(url)
-        self.assertEqual(r.status_code, 404)
+    def test_07_types_bad_token(self):
+        self.check_result_with_bad_token("types")
 
     def test_08_types_empty_token(self):
         url = self.domain + "/types/"
         r = requests.get(url)
         self.assertEqual(r.status_code, 404)
 
-    def test_09_types_bad_token(self):
-        url = self.domain + "/types/" + self.token + "u"
-        r = requests.get(url)
-        self.assertEqual(r.status_code, 400)
-
-    def test_10_types_bad_token_details(self):
-        url = self.domain + "/types/" + self.token + "u"
-        r = requests.get(url)
-        content = r.json()
-        self.assertEqual(content['details'], responseMessage.BAD_TOKEN)
-
-    def test_11_types_bad_token_status(self):
-        url = self.domain + "/types/" + self.token + "u"
-        r = requests.get(url)
-        content = r.json()
-        self.assertEqual(content['status'], 400)
-
-    def test_12_types_methods(self):
+    def test_09_types_methods_not_implemented(self):
         self.methods_not_implemented("types", ['PUT', 'POST', 'DELETE'])
 
     # FREEZER
-    def test_13_freezer_get(self):
+    def test_10_freezers(self):
         url = self.domain + "/freezers/" + self.token
         r = requests.get(url)
         self.assertEqual(r.status_code, 200)
 
-    def test_14_freezer_bad_token_status(self):
-        url = self.domain + "/freezers/" + self.token + "u"
-        r = requests.get(url)
-        content = r.json()
-        self.assertEqual(content['status'], 400)
+    def test_11_freezers_bad_token(self):
+        self.check_result_with_bad_token("freezers")
 
-    def test_15_freezer_post(self):
+    def test_12_freezers_empty_token(self):
+        url = self.domain + "/freezers/"
+        r = requests.get(url)
+        self.assertEqual(r.status_code, 404)
+
+    def test_13_freezer_post(self):
         url = self.domain + "/freezers/" + self.token
         headers = {
             'Content-Type': 'application/json',
@@ -118,14 +105,14 @@ class TestFunctions(unittest.TestCase):
                           headers=headers)
         self.assertEqual(r.status_code, 200)
 
-    def test_16_freezer_post_bad_content_type(self):
+    def test_14_freezer_post_bad_content_type(self):
         url = self.domain + "/freezers/" + self.token
         r = requests.post(url,
                           data=json.dumps(dict(num_boxes=4,
                                                name='test')))
         self.assertEqual(r.status_code, 415)
 
-    def test_17_freezer_post_bad_data(self):
+    def test_15_freezer_post_bad_data(self):
         url = self.domain + "/freezers/" + self.token
         headers = {
             'Content-Type': 'application/json',
@@ -139,7 +126,7 @@ class TestFunctions(unittest.TestCase):
         content = r.json()
         self.assertEqual(content['details'], responseMessage.BAD_FORMAT)
 
-    def test_18_freezer_update(self):
+    def test_16_freezer_update(self):
         url = self.domain + "/freezers/" + self.token
         headers = {
             'Content-Type': 'application/json',
@@ -151,7 +138,7 @@ class TestFunctions(unittest.TestCase):
                          headers=headers)
         self.assertEqual(r.status_code, 200)
 
-    def test_19_freezer_update_bad_content_type(self):
+    def test_17_freezer_update_bad_content_type(self):
         url = self.domain + "/freezers/" + self.token
         r = requests.put(url,
                          data=json.dumps(dict(freezer_id=3,
@@ -159,7 +146,7 @@ class TestFunctions(unittest.TestCase):
                                               name='updated')))
         self.assertEqual(r.status_code, 415)
 
-    def test_20_freezer_update_bad_data(self):
+    def test_18_freezer_update_bad_data(self):
         url = self.domain + "/freezers/" + self.token
         headers = {
             'Content-Type': 'application/json',
@@ -174,7 +161,7 @@ class TestFunctions(unittest.TestCase):
         content = r.json()
         self.assertEqual(content['details'], responseMessage.BAD_FORMAT)
 
-    def test_21_freezer_delete(self):
+    def test_19_freezer_delete(self):
         url = self.domain + "/freezers/" + self.token
         r = requests.get(url)
         content = r.json()
@@ -189,7 +176,7 @@ class TestFunctions(unittest.TestCase):
                             headers=headers)
         self.assertEqual(r.status_code, 200)
 
-    def test_22_freezer_delete_bad_content_type(self):
+    def test_20_freezer_delete_bad_content_type(self):
         url = self.domain + "/freezers/" + self.token
         r = requests.get(url)
         content = r.json()
@@ -201,7 +188,7 @@ class TestFunctions(unittest.TestCase):
                             data=json.dumps(dict(freezer_id=latest_freezer_id)))
         self.assertEqual(r.status_code, 415)
 
-    def test_23_freezer_delete_bad_data(self):
+    def test_21_freezer_delete_bad_data(self):
         url = self.domain + "/freezers/" + self.token
         headers = {
             'Content-Type': 'application/json',
@@ -214,7 +201,7 @@ class TestFunctions(unittest.TestCase):
         content = r.json()
         self.assertEqual(content['details'], responseMessage.BAD_FORMAT)
 
-    def test_24_freezer_delete_non_empty(self):
+    def test_22_freezer_delete_non_empty(self):
         url = self.domain + "/freezers/" + self.token
         headers = {
             'Content-Type': 'application/json',
@@ -228,34 +215,33 @@ class TestFunctions(unittest.TestCase):
         self.assertEqual(content['details'], responseMessage.DELETE_FREEZER)
 
     # GET NEXT FREEZER
-    def test_25_get_next_freezer_id(self):
+    def test_23_get_next_freezer_id(self):
         url = self.domain + "/freezer_next_id/1/" + self.token
         r = requests.get(url)
         self.assertEqual(r.status_code, 200)
 
-    def test_26_get_next_freezer_id_bad_id(self):
+    def test_24_get_next_freezer_id_bad_id(self):
         url = self.domain + "/freezer_next_id/15/" + self.token
         r = requests.get(url)
         self.assertEqual(r.status_code, 400)
 
-    def test_27_get_next_freezer_id_bad_id_type(self):
+    def test_25_get_next_freezer_id_bad_id_type(self):
         url = self.domain + "/freezer_next_id/15d/" + self.token
         r = requests.get(url)
         self.assertEqual(r.status_code, 404)
 
-    def test_28_get_next_freezer_id_bad_route(self):
+    def test_26_get_next_freezer_id_bad_route(self):
         url = self.domain + "/freezer_next_id/" + self.token
         r = requests.get(url)
         self.assertEqual(r.status_code, 404)
 
-    def test_29_get_next_freezer_id_not_implemented(self):
+    def test_27_get_next_freezer_id_methods_not_implemented(self):
         self.methods_not_implemented("freezer_next_id/1", ['PUT', 'POST', 'DELETE'])
 
     # ADD A PRODUCT
-    def test_30_add_product_not_implemented_methods(self):
-        self.methods_not_implemented("add_product", ['GET', 'PUT', 'DELETE'])
-
-    def test_31_add_product_bad_content_type(self):
+    # add a correct product can be essentially done with the external website
+    # That is why test test are not done here
+    def test_28_add_product_bad_content_type(self):
         url = self.domain + "/add_product/" + self.token
         r = requests.post(url,
                           data=json.dumps(dict(product_name="name",
@@ -269,7 +255,7 @@ class TestFunctions(unittest.TestCase):
                                                quantity=2)))
         self.assertEqual(r.status_code, 415)
 
-    def test_32_add_product_bad_data(self):
+    def test_29_add_product_bad_data(self):
         url = self.domain + "/freezers/" + self.token
         headers = {
             'Content-Type': 'application/json',
@@ -289,14 +275,30 @@ class TestFunctions(unittest.TestCase):
         content = r.json()
         self.assertEqual(content['details'], responseMessage.BAD_FORMAT)
 
-    # add a correct product can be essentially done with the external website
-    # That is why test test are not done here
+    def test_30_add_product_methods_not_implemented_methods(self):
+        self.methods_not_implemented("add_product", ['GET', 'PUT', 'DELETE'])
 
     # UPDATE A PRODUCT
-    def test_33_update_product_methods_not_implemented(self):
-        self.methods_not_implemented("update_product/1/1/1/1", ['GET', 'PUT', 'DELETE'])
+    def test_31_update_product(self):
+        url = self.domain + "/update_product/1/1/1/1/" + self.token
+        headers = {
+            'Content-Type': 'application/json',
+        }
+        r = requests.post(url,
+                          data=json.dumps(dict(product_name="new name",
+                                               text_descr="new description",
+                                               freezer_id='',
+                                               type_id='',
+                                               date_in='',
+                                               date_out='',
+                                               period='',
+                                               box_num='',
+                                               prod_num='',
+                                               quantity='')),
+                          headers=headers)
+        self.assertEqual(r.status_code, 200)
 
-    def test_34_update_product_bad_content_type(self):
+    def test_32_update_product_bad_content_type(self):
         url = self.domain + "/update_product/1/1/1/1/" + self.token
         r = requests.post(url,
                           data=json.dumps(dict(product_name="name",
@@ -311,6 +313,73 @@ class TestFunctions(unittest.TestCase):
                                                quantity=2)))
         self.assertEqual(r.status_code, 415)
 
+    def test_33_update_product_bad_data(self):
+        url = self.domain + "/update_product/1/1/1/1/" + self.token
+        headers = {
+            'Content-Type': 'application/json',
+        }
+        r = requests.post(url,
+                          data=json.dumps(dict(product_name="new name",
+                                               text_descr="new description",
+                                               freezer_id=1,
+                                               type_id='',
+                                               date_in='',
+                                               date_out='',
+                                               period='',
+                                               box_num=1,
+                                               prod_num=2,
+                                               quantity='')),
+                          headers=headers)
+        self.assertEqual(r.status_code, 400)
+        content = r.json()
+        self.assertEqual(content['details'], responseMessage.BAD_PRODUCT_EMPLACEMENT)
+
+    def test_34_update_product_methods_not_implemented(self):
+        self.methods_not_implemented("update_product/1/1/1/1", ['GET', 'PUT', 'DELETE'])
+
+    # TENDENCIES
+    def test_35_general_tendency(self):
+        url = self.domain + "/general_tendency/" + self.token
+        r = requests.get(url)
+        self.assertEqual(r.status_code, 200)
+
+    def test_36_general_tendency_bad_token(self):
+        url = self.domain + "/general_tendency/" + self.token + "u"
+        r = requests.get(url)
+        self.assertEqual(r.status_code, 400)
+        content = r.json()
+        self.assertEqual(content['details'], responseMessage.BAD_TOKEN)
+        self.assertEqual(content['status'], 400)
+
+    def test_37_general_tendency_methods_not_implemented(self):
+        self.methods_not_implemented("general_tendency", ['PUT', 'POST', 'DELETE'])
+
+    def test_38_custom_tendency(self):
+        url = self.domain + "/custom_tendency/" + self.token
+        r = requests.get(url)
+        self.assertEqual(r.status_code, 200)
+
+    def test_39_custom_tendency_bad_token(self):
+        url = self.domain + "/custom_tendency/" + self.token + "u"
+        r = requests.get(url)
+        self.assertEqual(r.status_code, 400)
+        content = r.json()
+        self.assertEqual(content['details'], responseMessage.BAD_TOKEN)
+        self.assertEqual(content['status'], 400)
+
+    def test_40_custom_tendency_methods_not_implemented(self):
+        self.methods_not_implemented("custom_tendency", ['PUT', 'POST', 'DELETE'])
+
+    def test_check_limit(self):
+        url = self.domain + "/"
+        for i in range(0, 200):
+            r = requests.get(url)
+            if r.status_code == 429:
+                self.assertEqual(i, 100)
+                # Wait for 60 seconds
+                time.sleep(60)
+            else:
+                self.assertEqual(r.status_code, 200)
 
 
 if __name__ == '__main__':

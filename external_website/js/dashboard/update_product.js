@@ -8,7 +8,7 @@ To work with this file several files must be loaded before:
 
 
 This file is used to manage the update form of a product.
-It allows to set correct 
+It allows to retrieve the values sent with this form and do the appropriate thing with these.
 ========================================================================================
  */
 
@@ -38,7 +38,6 @@ function updtSetFreezerOptions(val) {
     };
     ajaxRequest(updtObject, updtSetFreezersIndexes);
 }
-
 // Set the number linked to a freezer in the add product form
 // use the addObject reference initialized in the file dashboard.html
 function updtSetNumber(objIdentifier, val) {
@@ -50,13 +49,14 @@ function updtSetNumber(objIdentifier, val) {
         }
     }
 }
-
+// Notify that the update has been done correctly
 function notifyUpdate() {
     // update the porducts table after the modifications made
     setProductsTable();
     document.getElementById("update_message").innerHTML = "The product is updated";
 }
-
+// Retrieves information of the update form and achieves the request
+// to update an exisiting element and send the information to the database
 function updateProduct() {
     // clean the element that  notify the update is a success
     document.getElementById("update_message").innerHTML = "";
@@ -69,7 +69,6 @@ function updateProduct() {
     var prod_num;
     var prod_loc;
     for (i = 0; i < length; i++) {
-        console.log(data[i].name);
         if (data[i].name == 'freezer_id_main') {
             freezer_id = data[i].value;
         } else if (data[i].name == 'box_num_id') {
@@ -82,8 +81,6 @@ function updateProduct() {
             updtProduct[data[i].name] = data[i].value;
         }
     }
-    console.log(domainUrl + "update_product/" + freezer_id + "/" + box_num + "/" + prod_num + "/" + prod_loc + "/" +
-        token);
     //Send newProduct to ajaxRequest
     product = {
         type: "POST",
@@ -91,6 +88,5 @@ function updateProduct() {
             token,
         toSend: updtProduct
     }
-    console.log(product);
     ajaxRequest(product, notifyUpdate);
 }

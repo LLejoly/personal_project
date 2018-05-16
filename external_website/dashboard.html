@@ -8,15 +8,14 @@
     <!-- Font that comes from https://fontawesome.com/ -->
     <link href="./css/font/css/fontawesome-all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!--https://codepen.io/mican/pen/dRWxZe-->
     <!-- jQuery: required (tablesorter works with jQuery 1.2.3+) -->
-    <script src="./js/tablesorter/docs/js/jquery-1.2.6.min.js"></script>
+    <!-- <script src="./js/tablesorter/docs/js/jquery-1.2.6.min.js"></script> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <!-- Pick a theme, load the plugin & initialize plugin -->
     <link href="./js/tablesorter/dist/css/theme.bootstrap_4.min.css" rel="stylesheet">
     <script src="./js/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
-    <script src="./js/tablesorter/dist/js/jquery.tablesorter.widgets.min.js"></script>
-
     <script src="./js/dashboard/request.js"></script>
     <script src="./js/dashboard/utils.js"></script>
     <script src="./js/dashboard/generate_table.js"></script>
@@ -26,16 +25,24 @@
     <!-- Script used to manage trends and to plot the results -->
     <script src="./js/dashboard/tendency.js"></script>
 
-
     <title>Dashboard</title>
     <style>
-        th {
-            padding: 20px;
+        tbody {
+            display: block;
+            max-height: 500px;
+            overflow: auto;
+        }
+
+        thead,
+        tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
         }
 
         td {
-            padding-left: 20px;
-            padding-right: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
         }
 
         h2,
@@ -135,7 +142,7 @@
             padding-top: 20px;
         }
 
-        .warpper {
+        .wrapper {
             overflow: auto;
             min-height: 100%;
             padding-bottom: 250px;
@@ -148,7 +155,7 @@
         <h1>Application to manage your freezers</h1>
     </header>
 
-    <div class="container warpper">
+    <div class="container wrapper">
         <div class="row">
             <p>Please enter your token to have access to the application:</p>
             <form method="POST" name="get_token" action="javascript:void(0);" onsubmit="getToken()">
@@ -259,7 +266,7 @@
             <!-- Display a menu to select products -->
             <div id="products_listing" class="custom-control custom-radio"></div>
             <!-- Display the products following the restritions asked -->
-            <div id="products_table"></div>
+            <div id="products_table" style="margin-top: 20px; overflow: auto;"></div>
 
             <h3>Add a product</h3>
             <form method="POST" name="add_product" class="form" action="javascript:void(0);" onsubmit="addProduct()">
@@ -490,10 +497,8 @@
             callback: generateProductStuffs,
             callbackParams: ""
         };
-
         ajaxRequest(typesObject, generateTableFromJson);
         ajaxRequest(freezersObject, generateTableFromJson);
-        console.log(freezersObject);
     }
 </script>
 

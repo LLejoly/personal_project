@@ -1,3 +1,14 @@
+/* 
+========================================================================================
+This file depends on others Javascript files.
+To work with this file several files must be loaded before:
+- request.js
+- utils.js
+
+This file is used to build html tables with JSON object given.
+========================================================================================
+ */
+
 var beautifulHeader = {
     "box_num": "box number",
     "type_id": "type identification",
@@ -18,14 +29,14 @@ var beautifulHeader = {
 }
 
 // apply the tablesorter script on the tables generated
-$.myjQuery = function(id) {
+$.myjQuery = function (id) {
     $(id).tablesorter();
- };
+};
 
 //check the period in months between the current date and a date given
 // and a integer that represent the number of months. Return flase if the 
 // number is outdated.
-function checkPeriod(date_in, period){
+function checkPeriod(date_in, period) {
     var date1 = new Date(date_in);
     var date2 = new Date();
     var timeDiff = Math.abs(date2.getTime() - date1.getTime());
@@ -35,11 +46,10 @@ function checkPeriod(date_in, period){
     }
     return true;
 }
-
+// This function is used to generate 
 function generateTableFromJson(content) {
     var contentData = content['content'];
-    // EXTRACT VALUE FOR HTML HEADER. 
-    // ('Book ID', 'Book Name', 'Category' and 'Price')
+    // Extracts value form the html header
     var col = [];
     for (var i = 0; i < contentData.length; i++) {
         for (var key in contentData[i]) {
@@ -49,17 +59,19 @@ function generateTableFromJson(content) {
         }
     }
 
-    // CREATE DYNAMIC TABLE.
+    // Creation of a dynamic table
     var table = document.createElement("table");
     table.setAttribute("id", content['elementId'] + "_table");
-    table.setAttribute("class","tablesorter-bootstrap table-responsive table-hover table-responsive-md");
+    table.setAttribute("class", "tablesorter tablesorter-bootstrap table-responsive table-hover table-responsive-md");
 
-    // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+    // Html header row based on information collected above
     var header = table.createTHead();
-    var tr = header.insertRow(-1);                   // TABLE ROW.
+    // Table row
+    var tr = header.insertRow(-1);
 
     for (var i = 0; i < col.length; i++) {
-        var th = document.createElement("th");      // TABLE HEADER.
+        // Table header
+        var th = document.createElement("th");
         th.setAttribute("class", "text-center")
         if (beautifulHeader.hasOwnProperty(col[i]))
             th.innerHTML = beautifulHeader[col[i]];
@@ -77,11 +89,11 @@ function generateTableFromJson(content) {
         for (var j = 0; j < col.length; j++) {
             var tabCell = tr.insertCell(-1);
             tabCell.innerHTML = contentData[i][col[j]];
-            // allow to check the period with the input date and the period
+            // allows to check the period with the input date and the period
             // only applied when date_formatted_in, period and daet_formatted_out are present.
-            if(contentData[i]['date_formatted_in'] && contentData[i]['period'] && contentData[i]['date_formatted_out'] == null){
-                if(!checkPeriod(contentData[i]['date_formatted_in'],contentData[i]['period'])){
-                    tr.style.backgroundColor= "red";
+            if (contentData[i]['date_formatted_in'] && contentData[i]['period'] && contentData[i]['date_formatted_out'] == null) {
+                if (!checkPeriod(contentData[i]['date_formatted_in'], contentData[i]['period'])) {
+                    tr.style.backgroundColor = "orange";
                 }
             }
         }
@@ -92,8 +104,8 @@ function generateTableFromJson(content) {
     divContainer.innerHTML = "";
     divContainer.appendChild(table);
 
-    //Call jquery function
-    $.myjQuery("#" + content['elementId'] + "_table"); 
+    // Call jquery function
+    $.myjQuery("#" + content['elementId'] + "_table");
 }
 
 // Create a radio button
@@ -107,19 +119,21 @@ function createRadioButton(group, val, text, checked) {
     } else {
         return '<input type="radio" name="' + group + '" value="' + val + '">' + text + '<br>';
     }
-    
-}
 
+}
+// Generate the product tables based on the parameters given from the product_selection form.
 function setProductsTable() {
     var option1 = document.forms["product_selection"]["group1"].value;
     var option2 = document.forms["product_selection"]["group2"].value;
-    console.log("passed");
-    productsObject = { type: "GET", url: domainUrl + "get_product/" + option1 + "/" + option2 + "/" + token, elementId: "products_table" };
+    productsObject = {
+        type: "GET",
+        url: domainUrl + "get_product/" + option1 + "/" + option2 + "/" + token,
+        elementId: "products_table"
+    };
     ajaxRequest(productsObject, generateTableFromJson);
 }
-
+// Generate the product_selection form
 function generateProductSelection(objectIdentifier) {
-    console.log(objectIdentifier);
     var f = document.createElement("form");
     f.setAttribute('method', 'POST');
     f.setAttribute('name', 'product_selection');

@@ -1,3 +1,9 @@
+/* 
+========================================================================================
+This file is used to achieve Ajax requests
+========================================================================================
+ */
+
 // This functions allows to achieved  Ajax request
 // We have:
 // - callback: the callback function name that will be called after

@@ -27,7 +27,6 @@ function tendency(request, objectIdentifier) {
 function generatePlot(val) {
     var chartData = [];
     var chartLabel = [];
-    console.log("enter function");
     val.content.forEach(function (element) {
         chartData.push(element['freq']);
         if (element['latest'] != null) {

@@ -15,7 +15,6 @@ import utils
 from queryDB import QueryDB
 from validatorDB import ValidatorDB
 
-# TODO lire parametr pour shwitch db test et prod
 import os
 import sys
 
@@ -37,11 +36,14 @@ limiter = Limiter(
 # CORS and allows the Content-Type header, which is necessary to POST JSON
 # cross origin. All resources with this matching automatically has CORS headers set.
 CORS(app, resources=r'/*')
-
-connection = MySQLdb.connect(host="127.0.0.1",
-                             user="root",
-                             passwd="",
-                             db=db_identifier)
+# Try to connect to the database
+try:
+    connection = MySQLdb.connect(host="127.0.0.1",
+                                 user="root",
+                                 passwd="",
+                                 db=db_identifier)
+except MySQLdb.OperationalError as e:
+    sys.exit(e)
 
 query_db = QueryDB(connection)
 validator_db = ValidatorDB(query_db)

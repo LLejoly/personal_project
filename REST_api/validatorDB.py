@@ -217,7 +217,6 @@ class ValidatorDB:
 
         # set keys with None value
         format_prod = dict.fromkeys(can_be_updated)
-        print(update)
         if update['box_num'] or update['freezer_id'] or update['prod_num']:
 
             if not update['freezer_id']:
@@ -264,7 +263,6 @@ class ValidatorDB:
                 return False, {'error_type': responseMessage.BAD_PRODUCT_DATE}
 
             format_prod['date_in'] = update['date_in']
-            print(format_prod['date_in'])
 
         if update['date_out']:
             format_prod['date_remove'] = False

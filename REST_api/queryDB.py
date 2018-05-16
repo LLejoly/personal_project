@@ -2,10 +2,8 @@ import MySQLdb
 
 
 class QueryDB:
-    def __init__(self, connection: MySQLdb.connection, encode='latin-1', decode='utf-8'):
+    def __init__(self, connection: MySQLdb.connection):
         self.connection = connection
-        self.encode = encode
-        self.decode = decode
 
     def get_query_db(self, query, args=(), one=False, header=False):
         """
@@ -38,15 +36,9 @@ class QueryDB:
         data = cursor.fetchall()
 
         rv = []
+        # format the output of the data collected
         for row in data:
-            # tmp = []
-            # for idx, value in enumerate(row):
-            #     # latin to utf-8
-            #     if type(value) is str:
-            #         #tmp.append(value.encode(self.encode).decode(self.decode))
-            #     else:
-            #         tmp.append(value)
-
+            # add the header with the data
             if header:
                 rv.append(dict(zip(head, row)))
             else:

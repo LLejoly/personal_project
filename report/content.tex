@@ -173,6 +173,10 @@ A REST API is built on a server that establishes a communication between the dat
 The REST API server implemented in the project scope cannot be really called a RESTful server because all specifications asked to be certified as REST are not fulfilled. A layered system and cacheability are not implemented because it was too complex to set up and I would have spent a lot of time to set up these parts.\\
 
 Since the REST API needs to work with bowers which specify in request headers the field \textit{Origin} for some type of requests \textit{POST}, the REST API needs to use cross-origin resource sharing (CORS). The CORS allows the REST API server to accept the ajax requests which are forbidden due to the same-origin security policy.\\
+
+%% parler de l'intauration d'un limiter par IP pour éviter des requetes pérpétuelle d'un utilisateur
+%% le serveru flask tourne en single thread pour la version 0.12.2
+%%unicorn pour prod
 \subsection{Folder architecture}
 The REST API follows the folder architecture given below. The folder \textit{tests} is used to implement the different unit tests done on the server. The others files defined at the root of the REST\_api folders are used to build the server itself.
 
@@ -480,13 +484,14 @@ Explanation of the  JSON object:
 This request implements a single method which is \textit{POST}. It give the possibility to update an existing product into a existing freezer for a specific user. A JSON object must be sent with a specific architecture. This method follows the same behaviours as the preceding \textit{POST} methods previously described.\\
 
 The prototype of the request is:
-$$<domainUrl>/update\_product/<freezer\_i>/<box\_num>/<inside>/<token>$$
+$$<domainUrl>/update\_product/<freezer\_id>/<box\_num>/<prod\_num>/<inside>/<token>$$
 
 Parameters:
 \begin{enumerate}
 \item <domailUrl>: The url of the server API. In the case of the project the server is run on the \textit{localhost:5000}
 \item <freezer\_id>: An integer that represents the id of an existing freezer that belongs to the user with the token given. If we want to select all freezers that belongs to a user the id 0 must be specified.
 \item <box\_num>: An integer that identifies the box where the product is stored.
+\item <prod\_num>: An integer that identifies the product inside the box previously referred.
 \item <inside>: An integer that specifies if the product is still in the freezer or not. If the integer given is strictly higher than 0 than it means it is inside otherwise it is outside.
 \item <token>: A user's token that corresponds to an existing account.
 \end{enumerate}
@@ -625,21 +630,19 @@ tablesorter utilisé pour table interactive
 permet d'afficher en rouge dans les produits ceux qui ont dépassé la date limite
 
 \section{unit tests}
+To test the different functionalities implemented with the REST API, some unit tests have been done. The list of tests done is not exhaustive and can be extended. The units tests essentially cover the routes of the requests, the status code returned depending of the request done, the JSON objects sent, the content-type sent, and the methods implemented.\\
 
-\section{problemes rencontrés}
-l'architecture n'est pas la plus adéquate pour faire les unit test. de plus on peut lire que l'intauration d'une API est assez compliquée a mettre en place car il n'existe pas de template specifique cela depend du probleme que l'on à traité. sur le site flask une autre approche d'architecutre est proposée 
+The tests done are defined in the test folder \textit{REST\_api/tests/tests.py}. They are based on the \textit{unittest} python module.
+\section{problems faced}
+I did not encounter big problems for this project. The most challenging parts are probably to constructs the different architectures. The database architecture takes sometime to finally reach the one used in the project. I also thank Mr. Hiard for the advice he gave me concerning my database architecture. Concerning the architecture of the REST API built with flask, it is not an easy work to find the proper architecture since there is no a unique template for building it, it will depend of the problem to solve. With flask you can build an API with different manners. The direction that I took seems to be coherent but for a largest application I think working with \textit{blueprints} decorators provided by flask can help because you can encompass routes that share the same pattern.\\
+
+Concerning the external website the most challenging part is probably to work with javascript and the asynchronous behaviour brought by the AJAX requests. Moreover working with pure javascript can help to understand how it is working but you need to write extra code to achieve the same job as a framework.
 \section{future work}
-Faire passer l'API sur un support ORM comme sqlalchemy qui permettra à l'API d'être maintenue plus facilement etc. Le fait de ne pas directement avoir choisi cette méthod m'a permis d'utiliser le Langage SQL est c'était un but que je recherchais.
+The future of this freezer manager system is probably to use an ORM to do the requests instead of using MysqlDB to allow an easier maintenance that could be done by people how do not know sql language. The reason for not having chosen this method directly is jusitified by the fact that mysqldb module gives me the possibility to use SQL language and it was a goal that I was looking for.\\
 
-faire passer l'application sur la version stable 1.0
-tester l'API sur des terminaux comme les smartphones et autres.
+Another point is to migrate the system on the stable version of flask and mix it with gunicorn or uwsgi. It is also interesting to leave the localhost area and test the system on a real environment.\\
 
-URI template des requetes pourrait être uniformisé pour respecter au mieux les requetes.
-
-mettre en place le logger system qui permet de garder une trace de tout ce qui a été fait sur le serveur. En cas d'attaque du serveur par exemple ou si une personne mal intentionnée et ayant dérober un token on peut avoir une trace d'ou a été emis la requete
-mettre en place le systeme sur un serveur hors du localhost
-
-Mettre en place l'application pour qu'elle puisse toruner en multithreads
+Another interesting point to develop in the future is to set a logger system that saves everything done on the server. In case of a Ddos attack or if a malicious people Who stole a user token and tries to destroy the data that the victim saved on its account. With the logger we can see where the requests come from.\\
 
 
 Peut etre fort optimiste mais lancer l'api en production ou premièrement la rendre accessible aux autres et avoir leur feedbacks.
