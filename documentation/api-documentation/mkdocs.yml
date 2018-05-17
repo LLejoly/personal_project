@@ -1,14 +1,18 @@
 site_name: freezer manager
 pages:
 - Home: index.md
-- About: about.md
 - API: api.md
 - Requests:
   - check_token: requests/check_token.md
   - types: requests/types.md
   - freezer: requests/freezers.md
   - freezer_next_id: requests/freezer_next_id.md
+  - get_product: requests/get_product.md
   - add_product: requests/add_product.md
   - update_product: requests/update_product.md
+  - general_tendency: requests/general_tendency.md
+  - custom_tendency: requests/custom_tendency.md
 theme:
   name: 'material'
+
+use_directory_urls: false

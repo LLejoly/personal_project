@@ -1,0 +1,120 @@
+tbody {
+    display: block;
+    max-height: 500px;
+    overflow: auto;
+}
+
+thead,
+tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+td {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+h2,
+h3 {
+    text-align: center;
+    margin: 40px;
+}
+
+body {
+    color: #797979;
+    background: #f2f2f2;
+    font-family: 'Ruda', sans-serif;
+    padding: 0px !important;
+    margin: 0px !important;
+    font-size: 13px;
+}
+
+.title {
+    background: #ffd777;
+    color: #797979;
+    border-bottom: 2px solid #c9aa5f;
+    margin-bottom: 20px;
+}
+
+.title h1 {
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 3.5em;
+}
+
+.queryBtn {
+    margin: 10px;
+}
+
+.menuBtn {
+    display: block;
+    margin: 0 auto;
+    border: 2px solid #C9AE34;
+    color: #705D07;
+    border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    font-family: Verdana;
+    width: auto;
+    height: auto;
+    font-size: 16px;
+    padding: 8px 33px
+}
+
+.menuBtn.active {
+    background: #ea0000;
+    color: #fff;
+}
+
+.setIcon {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.menuTile {
+    border: solid;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    height: 100%;
+}
+
+.menuTile p {
+    font-size: 2em;
+    height: 40%;
+}
+
+.menuPanel {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.menuPanel>[class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+.chartContainer {
+    margin-top: 100px;
+    height: 400px;
+}
+
+.footer {
+    position: relative;
+    margin-top: -150px;
+    height: 150px;
+    clear: both;
+    padding-top: 20px;
+}
+
+.wrapper {
+    overflow: auto;
+    min-height: 100%;
+    padding-bottom: 250px;
+}

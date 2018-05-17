@@ -1,16 +1,3 @@
-html {
-  -webkit-font-smoothing: antialiased;
-}
-
-body {
-  background-color: #CFF09E;
-  font-family: "Titillium Web", sans-serif;
-}
-@media screen and (min-width: 40em) {
-  body {
-    font-size: 1.25em;
-  }
-}
 
 .form .label, .form .checkbox-input + label, .form .option-input + label, .form .text-input, .form .textarea, .form .select, .customSelect, .form .message, .form .button {
   padding: 0.75em 1em;
@@ -36,6 +23,7 @@ body {
   position: relative;
   z-index: 100;
 }
+
 .required .form .label:after, .form .required .label:after {
   content: " *";
   color: #E8474C;

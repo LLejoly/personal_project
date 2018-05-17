@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.11.7)  16 MAY 2018 19:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.11.7)  17 MAY 2018 10:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -831,6 +831,9 @@ Style option: `fancybox' v1.4 <2010/05/15> (tvz)
 
 LaTeX Warning: Label `fig:login' multiply defined.
 
+
+LaTeX Warning: Label `fig:adminPanel' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
@@ -1100,12 +1103,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 77--78
 
  []
 
-<./images/reldb.png, id=220, 805.0075pt x 820.06375pt>
+<./images/reldb.png, id=220, 805.0075pt x 828.09375pt>
 File: ./images/reldb.png Graphic file (type png)
 <use ./images/reldb.png>
 Package pdftex.def Info: ./images/reldb.png  used on input line 81. on input li
 ne 81.
-Package pdftex.def Info: Requested size: 402.50278pt x 410.03087pt on input lin
+Package pdftex.def Info: Requested size: 402.50278pt x 414.04587pt on input lin
 e 81.
 [4]
 Overfull \hbox (10.23402pt too wide) in paragraph at lines 95--96
@@ -1288,47 +1291,54 @@ Overfull \hbox (0.33002pt too wide) detected at line 487
  []
 
 [15] [16]
-Underfull \hbox (badness 10000) in paragraph at lines 553--554
+Underfull \hbox (badness 10000) in paragraph at lines 555--556
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 595--596
+Underfull \hbox (badness 10000) in paragraph at lines 597--598
 
  []
 
+<./images/documentation.png, id=504, 1430.34375pt x 880.28876pt>
+File: ./images/documentation.png Graphic file (type png)
+<use ./images/documentation.png>
+Package pdftex.def Info: ./images/documentation.png  used on input line 604. on
+ input line 604.
+Package pdftex.def Info: Requested size: 357.58507pt x 220.07164pt on input lin
+e 604.
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 614--616
+Underfull \hbox (badness 10000) in paragraph at lines 623--625
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 617--618
+Underfull \hbox (badness 10000) in paragraph at lines 626--627
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 633--634
+Underfull \hbox (badness 10000) in paragraph at lines 642--643
+
+ []
+
+[18 <./images/documentation.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 646--647
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 637--638
+Underfull \hbox (badness 10000) in paragraph at lines 650--651
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 641--642
+Underfull \hbox (badness 10000) in paragraph at lines 652--653
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 643--644
-
- []
-
-[18]
-Underfull \hbox (badness 10000) in paragraph at lines 645--646
+Underfull \hbox (badness 10000) in paragraph at lines 654--655
 
  []
 
@@ -1348,10 +1358,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 96.
  ) 
 Here is how much of TeX's memory you used:
- 12003 strings out of 494813
- 168024 string characters out of 6178109
- 281966 words of memory out of 5000000
- 14781 multiletter control sequences out of 15000+600000
+ 12011 strings out of 494813
+ 168213 string characters out of 6178109
+ 281973 words of memory out of 5000000
+ 14785 multiletter control sequences out of 15000+600000
  42151 words of font info for 88 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
  44i,14n,43p,1222b,998s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1367,10 +1377,10 @@ sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 ti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on main.pdf (20 pages, 595024 bytes).
+Output written on main.pdf (20 pages, 656353 bytes).
 PDF statistics:
- 649 PDF objects out of 1000 (max. 8388607)
- 591 compressed objects within 6 object streams
- 295 named destinations out of 1000 (max. 500000)
- 323 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 654 PDF objects out of 1000 (max. 8388607)
+ 594 compressed objects within 6 object streams
+ 298 named destinations out of 1000 (max. 500000)
+ 328 words of extra memory for PDF output out of 10000 (max. 10000000)
 

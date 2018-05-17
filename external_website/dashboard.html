@@ -3,151 +3,36 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./css/formcss.css">
-    <link rel="stylesheet" href="./css/footer.css">
-    <!-- Font that comes from https://fontawesome.com/ -->
     <link href="./css/font/css/fontawesome-all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- jQuery: required (tablesorter works with jQuery 1.2.3+) -->
-    <!-- <script src="./js/tablesorter/docs/js/jquery-1.2.6.min.js"></script> -->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <!-- Pick a theme, load the plugin & initialize plugin -->
     <link href="./js/tablesorter/dist/css/theme.bootstrap_4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/formcss.css">
+    <link rel="stylesheet" href="./css/footer.css">
+
+    <!-- Font that comes from https://fontawesome.com/ -->
+    <!-- jQuery: required (tablesorter works with jQuery 1.2.3+) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Load Chart.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <script src="./js/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
-    <script src="./js/dashboard/request.js"></script>
+    <!-- Script used to provide some functions used by others scripts -->
     <script src="./js/dashboard/utils.js"></script>
+    <!-- Script used to achieve AJAX requests -->
+    <script src="./js/dashboard/request.js"></script>
+    <!-- Script used to generate_tables -->
     <script src="./js/dashboard/generate_table.js"></script>
+    <!-- Script used to manage the freezers -->
     <script src="./js/dashboard/generate_freezers.js"></script>
+    <!-- Script used to manage the add of a product -->
     <script src="./js/dashboard/add_product.js"></script>
+    <!-- Script used to manage the product update -->
     <script src="./js/dashboard/update_product.js"></script>
     <!-- Script used to manage trends and to plot the results -->
     <script src="./js/dashboard/tendency.js"></script>
 
     <title>Dashboard</title>
-    <style>
-        tbody {
-            display: block;
-            max-height: 500px;
-            overflow: auto;
-        }
-
-        thead,
-        tbody tr {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-        }
-
-        td {
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-
-        h2,
-        h3 {
-            text-align: center;
-            margin: 40px;
-        }
-
-        body {
-            color: #797979;
-            background: #f2f2f2;
-            font-family: 'Ruda', sans-serif;
-            padding: 0px !important;
-            margin: 0px !important;
-            font-size: 13px;
-        }
-
-        .title {
-            background: #ffd777;
-            color: #797979;
-            border-bottom: 2px solid #c9aa5f;
-            margin-bottom: 20px;
-        }
-
-        .title h1 {
-            margin: 0 auto;
-            padding: 20px;
-            font-size: 3.5em;
-        }
-
-        .queryBtn {
-            margin: 10px;
-        }
-
-        .menuBtn {
-            display: block;
-            margin: 0 auto;
-            border: 2px solid #C9AE34;
-            color: #705D07;
-            border-radius: 3px 3px 3px 3px;
-            -webkit-border-radius: 3px 3px 3px 3px;
-            -moz-border-radius: 3px 3px 3px 3px;
-            font-family: Verdana;
-            width: auto;
-            height: auto;
-            font-size: 16px;
-            padding: 8px 33px
-        }
-
-        .menuBtn.active {
-            background: #ea0000;
-            color: #fff;
-        }
-
-        .setIcon {
-            display: block;
-            text-align: center;
-            margin-bottom: 20px;
-            margin-top: 10px;
-        }
-
-        .menuTile {
-            border: solid;
-            padding: 20px;
-            margin: 10px;
-            text-align: center;
-            height: 100%;
-        }
-
-        .menuTile p {
-            font-size: 2em;
-            height: 40%;
-        }
-
-        .menuPanel {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-        }
-
-        .menuPanel>[class*='col-'] {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .chartContainer {
-            margin-top: 100px;
-            height: 400px;
-        }
-
-        .footer {
-            position: relative;
-            margin-top: -150px;
-            height: 150px;
-            clear: both;
-            padding-top: 20px;
-        }
-
-        .wrapper {
-            overflow: auto;
-            min-height: 100%;
-            padding-bottom: 250px;
-        }
-    </style>
 </head>
 
 <body>
@@ -248,8 +133,7 @@
                 <input class="btn btn-primary queryBtn" type="submit" name="submit">
             </form>
             <h3>Remove a freezer</h3>
-            <p> To remove a freezer. It is mandatory that this freezer does not have an history. Thus it shoudl be empty contains
-                anything.
+            <p> To remove a freezer. It is mandatory that this freezer does not have an history. Thus it should be empty.
             </p>
             <form method="POST" name="remove_freezer" action="javascript:void(0);" onsubmit="removeFreezer('remove_freezer')">
                 <div class="row">
@@ -322,7 +206,7 @@
                     <input type="number" name="box_num_id" class="form-control" placeholder="box number" required>
                     <label>The identifiaction of this product inside the box: </label>
                     <input type="number" name="prod_num_id" class="form-control" placeholder="box number" required>
-                    <label>Specify the if the product is already in the freezer: </label>
+                    <label>Specify if the product is already in the freezer: </label>
                     <select type="select" name="prod_loc" class="form-control">
                         <option value="1">Inside the freezer</option>
                         <option value="0">Outside the freezer</option>
@@ -377,7 +261,7 @@
         </div>
         <div id="tendency" style="display: none;">
             <h2>Tendencies</h2>
-            <p>It can be interesting to have some knowlegde about the tendencies of the differents user. For a user, it is also
+            <p>It can be interesting to have some knowlegde about the tendencies of the different users. For a user, it is also
                 interesting to have information about his tendencies. This page is dedicated to that purpose. The colored
                 bars are the types of products for which you may have an interest.</p>
             <button onclick="chartDisplay('glob_container', 'general_tendency','glob_tendency')">Display general tendency</button>

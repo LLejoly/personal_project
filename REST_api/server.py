@@ -489,12 +489,14 @@ def general_tendency(token):
         {
         "freq": 12,
         "type_id": 1,
-        "type_name_en": "soup"
+        "type_name_en": "soup",
+        "type_name_fr": "soupe"
         },
         {
         "freq": 6,
         "type_id": 24,
-        "type_name_en": "ice-cream"
+        "type_name_en": "ice-cream",
+        "type_name_fr": "glace"
         },
         ...
     ]
@@ -521,12 +523,16 @@ def custom_tendency(token):
         {
         "freq": 12,
         "latest": "2018-02-05",
-        "type_id": 1
+        "type_id": 1,
+        "type_name_en": "soup",
+        "type_name_fr": "soupe"
         },
         {
         "freq": 6,
         "latest": "2017-05-02",
-        "type_id": 24
+        "type_id": 24,
+        "type_name_en": "ice-cream",
+        "type_name_fr": "glace"
         },
         ...
     ]

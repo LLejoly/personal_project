@@ -530,12 +530,14 @@ Example of the JSON object returned:
         {
         "freq": 12,
         "type_id": 1,
-        "type_name_en": "soup"
+        "type_name_en": "soup",
+        "type_name_fr": "soupe"
         },
         {
         "freq": 6,
         "type_id": 24,
-        "type_name_en": "ice-cream"
+        "type_name_en": "ice-cream",
+        "type_name_fr": "glace"
         },
         ...
     ]
@@ -597,6 +599,14 @@ To understand how to use the REST API a website with a documentation has been ma
 This documentation explain what are the available requests that can be done, how to achieve a correct request and what are the results sent back.
 For each request an example using the \textit{client URL request library (cURL)} is given. The choice of this tool has been made because  it is cross-platform and not difficult to use. But it can be used with any other tool that can achieve http requests.
 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.25]{./images/documentation.png}
+\caption{Documentation website}
+\label{fig:adminPanel}
+\end{figure}
+
+The documentation site can be found \textit{documentation/api-documentation/site/index.html}
 \section{External website}
 To demonstrate that the API can used by thirds applications. I developed a external application that only communicate with the REST API. The aim of this application is to provide to a user a user-friendly dashboard. To have access to the dashboard a user token is required and must be submit here.
 
@@ -644,6 +654,5 @@ Another point is to migrate the system on the stable version of flask and mix it
 
 Another interesting point to develop in the future is to set a logger system that saves everything done on the server. In case of a Ddos attack or if a malicious people Who stole a user token and tries to destroy the data that the victim saved on its account. With the logger we can see where the requests come from.\\
 
-
-Peut etre fort optimiste mais lancer l'api en production ou premièrement la rendre accessible aux autres et avoir leur feedbacks.
+An interesting thing, perhaps too optimistic, would be to put the project available for everyone and put the project as an open project where every one can contribute to the project and also to have feedback from others people.
 \section{Conclusion}
