@@ -1,35 +1,37 @@
 \section{Introduction}
-In the context of the personal project course given at ULiège. I decided to develop a smart freezer. This idea emerges due do a personal experience. Every year my family and I reorganize the home's freezers. I was a bit shocked when I saw the quantity of products that were in the freezers and for which I was not aware. This is a problem that anyone can potentially face one day. \\
+As part of the personal project course given at ULiège, I decided to develop a system to manage your freezers. This idea emerged to me because of a personal experience.Every two years, my family and I reorganize the home's freezers. I was a bit shocked when I saw the quantity of products that were in the freezers and for which we have completely forgotten that they were there. This is a problem that anyone who has freezers can potentially face someday. \\
 
-The main problem of forgotten products is they cannot stay indefinitely to a freezer due to they physical properties. For instance after some time a meat staying for a long time into a freezer will not have a good taste. As results, some products were thrown to the rubbish. We could avoid to throw to the rubbish products if we are aware of the existence of that products. The solution of that problem would be an application or a tool that gives the possibility to manage the content of your freezers and more. It is the direction that I took for my personal project.
+The main problem of forgotten products is they cannot stay indefinitely in a freezer because to they physical properties. For example, meat that has been in a freezer for a long time does not taste good. As results, some products are thrown to the rubbish. We could avoid to throw to the rubbish products if we were aware of the existence of them. The solution of that problem would be an application or a tool that gives the possibility to a user to manage the content of his freezers and more. At the moment, it seems that no free applications, except for smartphones, exist. Since it does not exist cross-platform applications, I decide to develop a cross-platform system that implements a freezer manager as subject of my personal project.
 
 \subsection{Explanation of the project itself}
-The aim of the project is to provide a freezer system manager that gives to a user using this system some information about his products. This system also keep an history of a user's products. Moreover, the main purpose of that system manger is to give the possibility for a third person to develop its own application and use the freezer system manager inside of it. It is personal choice and I took this option because I appreciate open-source applications and I would like to bring my personal contribution to the open-world. \\
+The aim of the project is to provide a cross-platform freezer manager that gives to a user using this system some information about his products. This system also keep an history of a user's products. Moreover, the main purpose of that manager is to give the possibility for a third parts to develop their own applications and to use the freezer manager developed inside of them. It is personal choice and I took this option because I appreciate open-source applications and I would like to bring my personal contribution to the open-source-world. \\
 
-The information that the system manager need to take into account are:
+The information that the system must take into account are:
 \begin{enumerate}
 \item The user that uses the system manager.
 \item A unique token linked to this user. This token is necessary to interact with the system.
-\item A password and an identifier (email address) linked to that user. These two information are essential to obtain the token.
-\item The language that the user uses. This information is not used in the scope of the project but it is a useful information to store if we want to extend the project later.
+\item A password and an identifier (email address) linked to that user. These two information are essential to obtain the token. The way to obtain a token will be explained later in the next sections.
+\item The language that the user uses. This information is not used in the scope of the project but it is a useful information to store if we want to extend the project later and potentially acquires some knowledge about the user.
 \item The freezers linked to this user. This information is fundamental because we need to locate a product.
 \item The products linked to a user. A product is defined by several features: 
 \begin{enumerate}
 \item A product name.
 \item A description of the product given by the user.
 \item A quantity in terms of people (e.g: a meal for 2 people).
-\item A product type (e.g; vegetable, soup,...).
-\item A date of input and output
+\item A product type (e.g; vegetable, soup,...). These types are predefined in the system and only the administrator of the system has the possibility to extend and/or reduces the product types list.
+\item A date of input and a date of output.
 \item A period during which a product may remain inside a freezer.
-\item An identification inside a freezer (e.g: the product number 2 in box 3 of the freezer number 1).
+\item An identifier that links the product to one of the user's freezers.
+\item A box number that allows to locate the box inside the freezer where the  product is stored.
+\item An identifier inside the box where the product is stored to allows to retrieve the product asked. This identifier is unique inside the box. An example of a complete identification of a user product: the \textit{product number 2} in \textit{box number 3} of the \textit{freezer number 1} for the user that has the token \textit{x}.
 \end{enumerate}
 \end{enumerate}
 
 These information must to be stored in a database with some other data. The architecture of this database and data stored are explained in details in the section made for that purpose.\\
 
-As explained above, the aim of the system manager is to give the possibility for a user using the system to find what he wants, where a product is located,... The freezer system manager cannot be used directly because we want to give access to the freezer system manager for third applications but we do not want that these third applications have the possibility to modify or destroy the system manager architecture.\\
+As explained above, the aim of the system manager is to give the possibility for a user using the system to find what he wants, where a product is located,... The system manager cannot be used directly because we want to give access to the freezer system manager for third applications but we do not want that these third applications have the possibility to modify or destroy the system manager architecture.\\
 
-To get around this problem the interaction with the freezer system manager is done through a REST API. REST API is commonly used by companies who want to give access to their data or a piece of their data to third applications without giving direct access to their databases. The main advantages of a REST API is that it is a client-server which means that the server evolves independently of the client and it is stateless. Moreover, A REST API allows to develop an application on any terminal. It is possible to develop an application for raspberry Pi or for a smartphone. Since REST API is stateless and we want to identify a user We need a method to go around this problem. It is the aim of the token. The token allows to detect uniquely a user if it is correctly generated. A schema given \autoref{fig:archi} shows where the REST API is set. \\
+To get around this problem the interaction with the system manager is done through a REST API. REST API is commonly used by companies who want to give access to their data or a piece of their data to third applications without giving direct access to their databases. The main advantages of a REST API is that it is a client-server which means that the server evolves independently of the client and it is stateless. Moreover, A REST API allows to develop an application on any terminal. It is possible to develop an application for raspberry Pi or for a smartphone. Since REST API is stateless and we want to identify a user, we need a method to go around this problem. It is the aim of the token. The token allows to detect uniquely a user if it is correctly generated. A schema given \autoref{fig:archi} shows how the REST API is set. \\
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{./images/archi.png}
@@ -37,13 +39,32 @@ To get around this problem the interaction with the freezer system manager is do
 \label{fig:archi}
 \end{figure}
 
-The token generated is static but in general a token has an expiration date. I do not go into that direction because it becomes complex to manage such token with an API.\\
+As you can see, an application that uses the API has no direct access to the database. With this methodology it is also easier to apply some internal modifications on how data is processed. Moreover, it allows to abstract the way data are stored. It can be a good starting point for web semantics since API is based on URI.\\
+
+%% peut etre metre cette explication ailleurs
+Token generated for this project are static but in general a token has an expiration date. I did not go into that direction because it becomes complex to manage such token with an API.\\
 
 With a user token and the REST API, a user has the possibility to find what he wants. He can add new products, he can edit existing products, he can see what are the products he has in a specific freezer. He also has the possibility to see the historic of a freezer. Moreover, the API can make suggestions for the user according to his previous consumptions and depending on what his freezers contain.\\
 
 To give the possibility to third people to understand how the API works. I made a documentation for that purpose with examples that show how it works and what are the results obtained. \\
 
 Finally, to demonstrate the utilization of a third application with the REST API. I built a website that only uses the API to manage the freezers of a specific user.\\
+
+The report is divided into several sections. The first section discusses the way data are stored and choices made concerning the architecture. The second section discusses about the creation of an internal website that allows to manage a user account. The aim of this website is not to manage user's freezers but more for managing account information. In this section an admin panel is also discussed to manage the freezer manager system. The API REST section explains how the REST API has been built, the different available functionalities,... The external website section explains the external website built in order to use the REST API built. The section project challenges discusses the problems faced during the project and the improvement/future work that can be achieved on it. The last section discusses what the project brings me and the culmination of it.\\
+
+The code related to this project follows this directory architecture:
+\dirtree{%
+.1 freezer\_manager.
+.2 database.
+.2 documentation.
+.2 external\_website.
+.2 website.
+.2 rest\_api.
+.2 flask\_run.sh.
+.2 run\_server.sh.
+.2 README.md.
+}
+\textit{database} directory contains a sample of the database created with the schema linked to it. \textit{documentation} directory contains files related to the API documentation and the website built for that effect. external\_website directory contains files used to built the external\_website. REST\_api directory contains files used to build the REST API server and communicate with the database.
 
 %expliquer brièvment les différentes sections qui vont etre abordée dans ce qui suit et l'architecture du code
 
@@ -607,6 +628,12 @@ For each request an example using the \textit{client URL request library (cURL)}
 \end{figure}
 
 The documentation site can be found \textit{documentation/api-documentation/site/index.html}
+
+\subsection{unit tests}
+To test the different functionalities implemented with the REST API, some unit tests have been done. The list of tests done is not exhaustive and can be extended. The units tests essentially cover the routes of the requests, the status code returned depending of the request done, the JSON objects sent, the content-type sent, and the methods implemented.\\
+
+The tests done are defined in the test folder \textit{REST\_api/tests/tests.py}. They are based on the \textit{unittest} python module.
+
 \section{External website}
 To demonstrate that the API can used by thirds applications. I developed a external application that only communicate with the REST API. The aim of this application is to provide to a user a user-friendly dashboard. To have access to the dashboard a user token is required and must be submit here.
 
@@ -638,16 +665,12 @@ essayé de le rendre convivial et intuitif
 tablesorter utilisé pour table interactive 
 4 panel different qui peuvent être caché ou afiché
 permet d'afficher en rouge dans les produits ceux qui ont dépassé la date limite
-
-\section{unit tests}
-To test the different functionalities implemented with the REST API, some unit tests have been done. The list of tests done is not exhaustive and can be extended. The units tests essentially cover the routes of the requests, the status code returned depending of the request done, the JSON objects sent, the content-type sent, and the methods implemented.\\
-
-The tests done are defined in the test folder \textit{REST\_api/tests/tests.py}. They are based on the \textit{unittest} python module.
-\section{problems faced}
+\section{Project challenges}
+\subsection{problems faced}
 I did not encounter big problems for this project. The most challenging parts are probably to constructs the different architectures. The database architecture takes sometime to finally reach the one used in the project. I also thank Mr. Hiard for the advice he gave me concerning my database architecture. Concerning the architecture of the REST API built with flask, it is not an easy work to find the proper architecture since there is no a unique template for building it, it will depend of the problem to solve. With flask you can build an API with different manners. The direction that I took seems to be coherent but for a largest application I think working with \textit{blueprints} decorators provided by flask can help because you can encompass routes that share the same pattern.\\
 
 Concerning the external website the most challenging part is probably to work with javascript and the asynchronous behaviour brought by the AJAX requests. Moreover working with pure javascript can help to understand how it is working but you need to write extra code to achieve the same job as a framework.
-\section{future work}
+\subsection{future work}
 The future of this freezer manager system is probably to use an ORM to do the requests instead of using MysqlDB to allow an easier maintenance that could be done by people how do not know sql language. The reason for not having chosen this method directly is jusitified by the fact that mysqldb module gives me the possibility to use SQL language and it was a goal that I was looking for.\\
 
 Another point is to migrate the system on the stable version of flask and mix it with gunicorn or uwsgi. It is also interesting to leave the localhost area and test the system on a real environment.\\
