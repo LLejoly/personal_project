@@ -8,29 +8,34 @@
 \contentsline {subsection}{\numberline {2.4}Relational model}{5}{subsection.2.4}
 \contentsline {section}{\numberline {3}Internal website}{6}{section.3}
 \contentsline {subsection}{\numberline {3.1}Account creation}{7}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}User panel}{7}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.2}User panel}{8}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Admin panel}{8}{subsection.3.3}
 \contentsline {section}{\numberline {4}API REST}{9}{section.4}
-\contentsline {subsection}{\numberline {4.1}Folder architecture}{9}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.1}Folder architecture}{10}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Sever}{10}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}functionalities implemented}{10}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.3}functionalities implemented}{11}{subsection.4.3}
 \contentsline {subsubsection}{\numberline {4.3.1}check\_token}{11}{subsubsection.4.3.1}
 \contentsline {subsubsection}{\numberline {4.3.2}types}{11}{subsubsection.4.3.2}
 \contentsline {subsubsection}{\numberline {4.3.3}Freezer}{12}{subsubsection.4.3.3}
 \contentsline {paragraph}{GET method:}{12}{section*.10}
 \contentsline {paragraph}{POST method:}{12}{section*.11}
-\contentsline {paragraph}{PUT method:}{12}{section*.12}
+\contentsline {paragraph}{PUT method:}{13}{section*.12}
 \contentsline {paragraph}{DELETE method:}{13}{section*.13}
 \contentsline {subsubsection}{\numberline {4.3.4}freezer\_next\_id}{13}{subsubsection.4.3.4}
 \contentsline {subsubsection}{\numberline {4.3.5}get\_product}{14}{subsubsection.4.3.5}
 \contentsline {subsubsection}{\numberline {4.3.6}add\_product}{15}{subsubsection.4.3.6}
 \contentsline {subsubsection}{\numberline {4.3.7}update\_product}{16}{subsubsection.4.3.7}
-\contentsline {subsubsection}{\numberline {4.3.8}general\_tendency}{16}{subsubsection.4.3.8}
+\contentsline {subsubsection}{\numberline {4.3.8}general\_tendency}{17}{subsubsection.4.3.8}
 \contentsline {subsubsection}{\numberline {4.3.9}custom\_tendency}{17}{subsubsection.4.3.9}
 \contentsline {subsection}{\numberline {4.4}Documentation}{18}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}unit tests}{18}{subsection.4.5}
-\contentsline {section}{\numberline {5}External website}{18}{section.5}
-\contentsline {section}{\numberline {6}Project challenges}{19}{section.6}
-\contentsline {subsection}{\numberline {6.1}problems faced}{19}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}future work}{19}{subsection.6.2}
-\contentsline {section}{\numberline {7}Conclusion}{19}{section.7}
+\contentsline {subsection}{\numberline {4.5}unit tests}{19}{subsection.4.5}
+\contentsline {section}{\numberline {5}External website}{19}{section.5}
+\contentsline {subsection}{\numberline {5.1}Types tile}{19}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Freezer tile}{20}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Product tile}{21}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Trends tile}{22}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}website development}{23}{subsection.5.5}
+\contentsline {section}{\numberline {6}Project challenges}{23}{section.6}
+\contentsline {subsection}{\numberline {6.1}problems faced}{23}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}future work}{24}{subsection.6.2}
+\contentsline {section}{\numberline {7}Conclusion}{24}{section.7}

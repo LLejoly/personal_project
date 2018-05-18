@@ -309,10 +309,6 @@ def get_product(params, freezer_id, token):
     return custom_response(400, responseMessage.BAD_PARAMETER)
 
 
-# curl -H "Content-Type: application/json" -X POST -d '{"product_name":"Soupe de Noël","text_descr":"Soupe à base
-# de tomate, poivrons et petits pois", "freezer_id":"1","type_id":"1","date_in":"2017-12-26","period":"6",
-# "box_num":"1","prod_num":"3","quantity":"4"}'
-# http://localhost:5000/add_product/5b68dab9a6c606171473091280898d1c9e581159173d6ba267f3418a6573ae92
 @app.route("/add_product/<string:token>", methods=['POST'])
 def add_product(token):
     """
