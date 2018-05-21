@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.11.7)  18 MAY 2018 18:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2017.11.7)  21 MAY 2018 10:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -141,6 +141,12 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip43
 )
+Package hyperref Info: Option `colorlinks' set `true' on input line 12.
+
+
+Package hyperref Warning: Option `bookmarks' has already been used,
+(hyperref)                setting the option has no effect on input line 12.
+
 (/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
@@ -201,8 +207,8 @@ File: listings.cfg 2015/06/04 1.6 listings configuration
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
 
-Package subfig Warning: The subfigure type is already defined. on input line 6.
-
+Package subfig Warning: The subfigure type is already defined. on input line 16
+.
 
 (/usr/share/texlive/texmf-dist/tex/generic/dirtree/dirtree.sty
 Package: dirtree 2012/12/11 v0.32 package wrapper for dirtree
@@ -829,30 +835,27 @@ Style option: `fancybox' v1.4 <2010/05/15> (tvz)
 \Verbatim@Infile=\read1
 ) (./main.aux
 
-LaTeX Warning: Label `fig:login' multiply defined.
-
-
 LaTeX Warning: Label `fig:adminPanel' multiply defined.
 
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 94.
+LaTeX Font Info:    ... okay on input line 94.
 \AtBeginShipoutBox=\box38
-Package hyperref Info: Link coloring OFF on input line 51.
+Package hyperref Info: Link coloring ON on input line 94.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -861,9 +864,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count144
 )
-LaTeX Info: Redefining \ref on input line 51.
-LaTeX Info: Redefining \pageref on input line 51.
-LaTeX Info: Redefining \nameref on input line 51.
+LaTeX Info: Redefining \ref on input line 94.
+LaTeX Info: Redefining \pageref on input line 94.
+LaTeX Info: Redefining \nameref on input line 94.
 
 (./main.out) (./main.out)
 \@outlinefile=\write4
@@ -945,22 +948,22 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \celsius on input line 51.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 51.
+LaTeX Info: Redefining \celsius on input line 94.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 94.
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 51.
-Package gensymb Info: Using \Omega for \ohm on input line 51.
+LaTeX Info: Redefining \ohm on input line 94.
+Package gensymb Info: Using \Omega for \ohm on input line 94.
 
 Package gensymb Warning: Not defining \micro.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 57.
+LaTeX Font Info:    Try loading font information for U+msa on input line 100.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 57.
+LaTeX Font Info:    Try loading font information for U+msb on input line 100.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -968,24 +971,24 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <logo_ulg.png, id=164, 351.3125pt x 170.6375pt>
 File: logo_ulg.png Graphic file (type png)
 <use logo_ulg.png>
-Package pdftex.def Info: logo_ulg.png  used on input line 58. on input line 58.
-
+Package pdftex.def Info: logo_ulg.png  used on input line 101. on input line 10
+1.
 Package pdftex.def Info: Requested size: 140.5225pt x 68.25378pt on input line 
-58.
+101.
 <Logo_FSAnew.png, id=165, 80.3pt x 94.3525pt>
 File: Logo_FSAnew.png Graphic file (type png)
 <use Logo_FSAnew.png>
-Package pdftex.def Info: Logo_FSAnew.png  used on input line 58. on input line 
-58.
+Package pdftex.def Info: Logo_FSAnew.png  used on input line 101. on input line
+ 101.
 Package pdftex.def Info: Requested size: 48.18036pt x 56.61192pt on input line 
-58.
+101.
 
-Overfull \hbox (95.90547pt too wide) in paragraph at lines 57--60
+Overfull \hbox (95.90547pt too wide) in paragraph at lines 100--103
 [][] 
  []
 
 
-Overfull \hbox (223.16925pt too wide) in paragraph at lines 82--86
+Overfull \hbox (223.16925pt too wide) in paragraph at lines 125--129
  [][] 
  []
 
@@ -1000,8 +1003,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.94 \newpage
-              [1] (./content.tex
+l.137 \newpage
+               [1] (./content.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
@@ -1178,7 +1181,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 149--150
 
  []
 
-<./images/login.png, id=282, 587.19376pt x 482.80376pt>
+<./images/login.png, id=283, 587.19376pt x 482.80376pt>
 File: ./images/login.png Graphic file (type png)
 <use ./images/login.png>
 Package pdftex.def Info: ./images/login.png  used on input line 155. on input l
@@ -1186,7 +1189,7 @@ ine 155.
 Package pdftex.def Info: Requested size: 234.87334pt x 193.11807pt on input lin
 e 155.
 [7 <./images/register.png>]
-<./images/userPanel.png, id=290, 1916.15875pt x 929.4725pt>
+<./images/userPanel.png, id=291, 1916.15875pt x 929.4725pt>
 File: ./images/userPanel.png Graphic file (type png)
 <use ./images/userPanel.png>
 Package pdftex.def Info: ./images/userPanel.png  used on input line 164. on inp
@@ -1198,7 +1201,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
  []
 
-<./images/adminLogin.png, id=292, 697.60625pt x 139.52126pt>
+<./images/adminLogin.png, id=293, 697.60625pt x 139.52126pt>
 File: ./images/adminLogin.png Graphic file (type png)
 <use ./images/adminLogin.png>
 Package pdftex.def Info: ./images/adminLogin.png  used on input line 174. on in
@@ -1206,7 +1209,7 @@ put line 174.
 Package pdftex.def Info: Requested size: 279.03755pt x 55.8075pt on input line 
 174.
 [8 <./images/login.png> <./images/userPanel.png>]
-<./images/adminPanel.png, id=302, 1913.1475pt x 1078.0275pt>
+<./images/adminPanel.png, id=303, 1913.1475pt x 1078.0275pt>
 File: ./images/adminPanel.png Graphic file (type png)
 <use ./images/adminPanel.png>
 Package pdftex.def Info: ./images/adminPanel.png  used on input line 182. on in
@@ -1314,7 +1317,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 614--615
 
  []
 
-<./images/documentation.png, id=549, 1430.34375pt x 880.28876pt>
+<./images/documentation.png, id=548, 1430.34375pt x 880.28876pt>
 File: ./images/documentation.png Graphic file (type png)
 <use ./images/documentation.png>
 Package pdftex.def Info: ./images/documentation.png  used on input line 621. on
@@ -1362,15 +1365,15 @@ File: ./images/dashboard_products1.png Graphic file (type png)
 <use ./images/dashboard_products1.png>
 Package pdftex.def Info: ./images/dashboard_products1.png  used on input line 6
 80. on input line 680.
-Package pdftex.def Info: Requested size: 328.13078pt x 376.26132pt on input lin
+Package pdftex.def Info: Requested size: 374.99435pt x 429.99889pt on input lin
 e 680.
 <./images/dashboard_products2.png, id=603, 539.01375pt x 838.13126pt>
 File: ./images/dashboard_products2.png Graphic file (type png)
 <use ./images/dashboard_products2.png>
 Package pdftex.def Info: ./images/dashboard_products2.png  used on input line 6
 89. on input line 689.
-Package pdftex.def Info: Requested size: 188.65762pt x 293.35033pt on input lin
-e 689.
+Package pdftex.def Info: Requested size: 269.50621pt x 419.0646pt on input line
+ 689.
  [21 <./images/dashboard_products1.png>]
 <./images/dashboard_trends.png, id=612, 1079.03125pt x 1083.04625pt>
 File: ./images/dashboard_trends.png Graphic file (type png)
@@ -1409,29 +1412,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 719--720
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 724--725
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 726--727
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 728--729
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 730--731
+
+ []
+
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 96.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 139.
  [24]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 96.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 139.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 96.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 96.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 139.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 139.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: A8A4AA1321773EB6C9C95A75EC869978;2611.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 96.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 139.
  ) 
 Here is how much of TeX's memory you used:
- 12079 strings out of 494813
- 169790 string characters out of 6178109
- 281368 words of memory out of 5000000
- 14826 multiletter control sequences out of 15000+600000
+ 12106 strings out of 494813
+ 170044 string characters out of 6178109
+ 338164 words of memory out of 5000000
+ 14853 multiletter control sequences out of 15000+600000
  42151 words of font info for 88 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 44i,14n,43p,1276b,1766s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,14n,43p,1276b,1882s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -1440,14 +1463,14 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on main.pdf (25 pages, 930405 bytes).
+sfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+tt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pf
+b>
+Output written on main.pdf (25 pages, 928279 bytes).
 PDF statistics:
- 740 PDF objects out of 1000 (max. 8388607)
- 660 compressed objects within 7 object streams
+ 737 PDF objects out of 1000 (max. 8388607)
+ 658 compressed objects within 7 object streams
  318 named destinations out of 1000 (max. 500000)
  411 words of extra memory for PDF output out of 10000 (max. 10000000)
 
