@@ -16,6 +16,11 @@ class TestFunctions(unittest.TestCase):
         self.domain = "http://localhost:5000"
         self.token = "5b68dab9a6c606171473091280898d1c9e581159173d6ba267f3418a6573ae92"
         self.headers = {'Content-Type': 'application/json', }
+        self._started_at = time.time()
+
+    def tearDown(self):
+        elapsed = time.time() - self._started_at
+        print('({}s)'.format(round(elapsed, 4)))
 
     def methods_not_implemented(self, request, methods):
         url = self.domain + "/" + request + "/" + self.token
