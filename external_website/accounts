@@ -1,3 +1,7 @@
-id:test2
-password:azerty
-token: 1f149b786e59fefd32e1cdda6692bf83ea34307771938e06753f22b57205aea6 
+id:       test@gmail.com
+password: azerty1230
+token:    5b68dab9a6c606171473091280898d1c9e581159173d6ba267f3418a6573ae92
+
+id:       test2
+password: azerty
+token:    1f149b786e59fefd32e1cdda6692bf83ea34307771938e06753f22b57205aea6 

@@ -69,8 +69,7 @@ def custom_response(status, details):
 
 @app.route("/", methods=['GET'])
 def root():
-    # TODO return the documentation or a link to have access to it
-    print("return the documentation")
+    print("The documentation can be accessed in /documentation/api-documentation/site/index.html")
     return Response(status=200)
 
 

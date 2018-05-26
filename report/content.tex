@@ -1,15 +1,15 @@
 \section{Introduction}
-As part of the personal project course given at ULiège, I decided to develop a system to manage domestic freezers. This idea emerged to me because of a personal experience. Every two years, my family and I reorganize the home's freezers. I was a bit shocked when I saw the quantity of products that were in the freezers and for which we have completely forgotten that they were there. This is a problem that anyone who has freezers can potentially face someday. \\
+As part of the personal project course given at ULiège, I decided to develop a system to manage domestic freezers. This idea emerged to me because of a personal experience. Every two years, my family and I reorganize the home's freezers. I was a bit shocked when I saw the quantity of products that was in the freezers and for which we have completely forgotten that they were there. This is a problem that anyone who has freezers can potentially face someday. \\
 
-The main problem of forgotten products is they cannot stay indefinitely in a freezer because of they physical properties. For example, meat that has been in a freezer for a long time does not taste good. As results, some products are thrown to the rubbish. We could avoid to throw to the rubbish products if we were aware of the existence of them. The solution of that problem would be an application or a tool that gives the possibility to a user to manage the content of his freezers and more. At the moment, it seems that no free applications, except for smartphones, exist. Since it does not exist cross-platform applications, I decide to develop a cross-platform system that implements a freezer manager as subject of my personal project.
+The main problem of forgotten products is they cannot stay indefinitely in a freezer because of they physical properties. For example, meat that has been in a freezer for a long time does not taste good. As results, some products are thrown to the rubbish. We could avoid throwing to the rubbish products if we were aware of the existence of them. The solution of that problem would be an application or a tool that gives the possibility to a user to manage the content of his freezers and more. At the moment, it seems that no free applications, except for smartphones, exist. Since it does not exist cross-platform applications, I decide to develop a cross-platform system that implements a freezer manager as subject of my personal project.
 
 \subsection{Project direction}
-The aim of the project is to provide a cross-platform freezer manager that gives to a user using this system some information about his products. This system also keep a history of a user's products. By cross-platform, I mean a system that does not depend on the operating system and which can be used on any system. Moreover, the main purpose of that manager is to give the possibility for a third parts to develop their own applications and to use the freezer manager developed inside of them. It is personal choice and I took this option because I appreciate open-source applications and I would like to bring my personal contribution to the open-source-world. \\
+The aim of the project is to provide a cross-platform freezer manager that gives to a user using this system some information about his products. This system also keeps a history of a user's products. By cross-platform, I mean a system that does not depend on the operating system and that can be used on any system. Moreover, the main purpose of that manager is to give the possibility for third parts to develop their own applications and to use the freezer manager developed inside of them. It is personal choice and I took this option because I appreciate open-source applications and I would like to bring my personal contribution to the open-source-world. \\
 
 \subsection{Problems to face}
 To build a freezer manager. It is mandatory to identify the different aspects of the problem to solve. This first problem is to identify the different information to store in the freezer manager. These information must be stored in a database with some other data. The architecture of this database and data stored are explained in details in the section made for that purpose.\\
 
-Since, the aim of the system manager is to give the possibility for a user using the system to find what he wants, where a product is located,... The system manager cannot be used directly because we want to give access to the freezer system manager for third applications, but we do not want that these third applications have the possibility to modify or destroy the system manager architecture. Moreover, to demonstrate the functionalities of the system, it is recommanded to demonstrate the usage of the system on an external application.\\
+Since, the aim of the system manager is to give the possibility for a user using the system to find what he wants, where a product is located,... The system manager cannot be used directly because we want to give access to the freezer system manager for third applications. But we do not want that these third applications have the possibility to modify or destroy the system manager architecture. Moreover, to demonstrate the functionalities of the system, it is recommanded to demonstrate the usage of the system on an external application.\\
 
 \subsection{Choices made to solve these problems}
 \subsubsection{Useful information to collect}
@@ -35,7 +35,7 @@ The information that the system must take into account are:
 \end{enumerate}
 
 \subsubsection{Technical aspects}
-Since we wont to give access to third application, the system cannot be used directly. To work around this problem, interaction with the system manager is done through a REST API. REST API is commonly used by companies who want to give access to their data or a piece of their data to third applications without giving direct access to their databases. The main advantages of a REST API is that it is a client-server which means that the server evolves independently of the client and it is stateless. Moreover, A REST API allows to develop an application on any terminal. It is possible to develop an application for raspberry Pi or for a smartphone. Since REST API is stateless, and we want to identify a user, we need a method to go around this problem. It is the aim of the token. The token allows detecting uniquely a user if it is correctly generated. A schema given \autoref{fig:archi} shows how the REST API is set. \\
+Since we want to give access to third applications, the system cannot be used directly. To work around this problem, interaction with the system manager is done through a REST API. REST API is commonly used by companies who want to give access to their data or a piece of their data to third applications without giving direct access to their databases. The main advantages of a REST API are multiple. First of all, it is a client-server which means that the server evolves independently of the client and it is stateless. Moreover, a REST API allows to develop an application on any terminal. It is possible to develop an application for raspberry Pi, for a smartphone or any other connected object. Since a REST API is stateless, and we want to identify a user, we need a method to go around this problem. It is the aim of the token. The token allows detecting uniquely a user if it is correctly generated. A schema given \autoref{fig:archi} shows how the REST API is set. \\
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{./images/archi.png}
@@ -43,7 +43,7 @@ Since we wont to give access to third application, the system cannot be used dir
 \label{fig:archi}
 \end{figure}
 
-As you can see, an application that uses the API has no direct access to the database. With this methodology it is also easier to apply some internal modifications on how data is processed. Moreover, it allows to abstract the way data are stored. It can be a good starting point for web semantics since API is based on URI.\\
+As you can see, an application that uses the API has no direct access to the database. With this methodology it is also easier to apply some internal modifications on how data is processed. Moreover, it allows to abstract the way data is stored. It can be a good starting point for web semantics since API is based on URI.\\
 
 With a user token and the REST API, a user has the possibility to find what he wants. He can add new products, he can edit existing products, he can see what are the products he has in a specific freezer. He also has the possibility to see the history of a freezer. Moreover, the API can make suggestions for the user according to his previous consumptions and depending on what his freezers contain.\\
 
@@ -52,7 +52,7 @@ To give the possibility to third people to understand how the API works. I made 
 Finally, to demonstrate the utilization of a third application with the REST API. I built a website that only uses the API to manage the freezers of a specific user.\\
 
 \subsection{Overview}
-This report is divided into several sections. The first section discusses the way data are stored and choices made concerning the architecture. The second section discusses the creation of an internal website that allows to manage a user account. The aim of this website is not to manage user's freezers but more for managing account information. In this section an admin panel is also discussed to explain how to manage the freezer manager system. The API REST section explains how the REST API has been built, the different available functionalities,... The external website section explains the external website built in order to use the REST API built. The section project challenges discusses the problems faced during the project and the improvement/future work that can be achieved on it. The last section discusses what the project brings me and the culmination of it.\\
+This report is divided into several sections. The first section discusses the way data is stored and choices made concerning the architecture. The second section discusses the creation of an internal website that allows to manage a user account. The aim of this website is not to manage user's freezers but more for managing account information. In this section an admin panel is also discussed to explain how to manage the freezer manager system. The API REST section explains how the REST API has been built, the different features available,... The external website section explains the external website built in order to use the REST API built. The section project challenges discusses the problems faced during the project and the improvements/future work that can be achieved on it. The last section discusses what the project brings me and the culmination of it.\\
 
 The code related to this project follows this directory architecture:
 \dirtree{%
@@ -290,10 +290,10 @@ Explanation of the  JSON object:
 
 Note that it is not possible for a user to add a product type. It is the desired behaviour since we do not want a user with the possibility to add random product types or define several times the same product type. This functionality only given to the admin of the system. This functionality is implemented for the admin website.
 
-\subsubsection{Freezer}
+\subsubsection{Freezers}
 This request implements a four methods which are \textit{GET},\textit{POST}, \textit{PUT}, and \textit{DELETE}. These methods are used to manage the user's freezers and they share a common prototype:
 
-$$<domainUrl>/freezer/<token>$$
+$$<domainUrl>/freezers/<token>$$
 
 Parameters:
 \begin{enumerate}
@@ -538,7 +538,7 @@ The architecture of the JSON object is the same as the add\_product request exce
 This request implements a single method which is \textit{GET}. It gives the possibility to obtain a global view on the products stored and consumed by all people using the API. It allows to list the occurrence of each product type in the database following a descending order manner. This request follows the same pattern as the others \textit{GET} methods explained above. If the token is correct a status code 200 is retuned with a JSON. Otherwise, a status code 400 is returned with a JSON explaining the reason of that error.
 
 The prototype of the request is:
-$$<domainUrl>/global\_tendency/<token>$$
+$$<domainUrl>/general\_tendency/<token>$$
 
 Parameter:
 \begin{enumerate}
@@ -703,7 +703,7 @@ The \autoref{fig:dashboard_products2} depicts the other available possibilities 
 \end{figure}
 
 \subsection{Trends tile}
-The trends tile is dedicated to display tendencies of users. The \autoref{fig:dashboard_trends} depicts the output to the user when he clicks on the trends tile. The general tendency simply reflects the global frequency of each product type. The personalized tendency reflects the personalized tendency of the user based on his previous consumptions and the products that he has on his freezers. As you can see on this figure there are some changes between the general tendency an the personalized one. It is because of several users are encoded then the general tendency is different.
+The trends tile is dedicated to display tendencies of users. The \autoref{fig:dashboard_trends} depicts the output to the user when he clicks on the trends tile. The general tendency simply reflects the global frequency of each product type. The personalized tendency reflects the personalized tendency of the user based on his previous consumptions and the products that he has on his freezers. As you can see on this figure there are some changes between the general tendency and the personalized one. It is because of several users are encoded then the general tendency is different.
 
 \begin{figure}[H]
 \centering
@@ -713,15 +713,15 @@ The trends tile is dedicated to display tendencies of users. The \autoref{fig:da
 \end{figure}
 
 \subsection{Website development}
-The external website is developed with several languages \textit{CSS, HTML, JavaScript}. Moreover, some frameworks et tools are used. To have a responsive website, the containers of the bootstrap framework are used. Bootstrap is very well known in the website world. It is one of the famous framework used to built the skeleton of a website. Ta have dynamic tables I used a plug-in called \textit{tablesorter} developed with \textit{JQuery} and finally for the plot generation I use \textit{chart.js} \\
+The external website is developed with several languages \textit{CSS, HTML, JavaScript}. Moreover, some frameworks et tools are used. To have a responsive website, the containers of the bootstrap framework are used. Bootstrap is very well-known in the world of web development. It is one of the famous framework used to build the skeleton of a website. To have dynamic tables, I used a plug-in called \textit{tablesorter} developed with \textit{JQuery} and finally for the plot generation I used \textit{chart.js} \\
 
 The rest of the website is developed from scratch with pure \textit{JavaScript} (no framework used). I used the pure \textit{JavaScript} instead of framework like \textit{JQuery} because I did not see the real benefits of a specific framework. Moreover, there are a plethora of \textit{JavaScript} frameworks and most of them require some practice before using it.\\
 
 \section{Project challenges}
 \subsection{Problems faced}
-I did not encounter big problems for this project. The most challenging parts were probably to constructs the different architectures. The database architecture took sometime to finally reach the one used in the project. I also thank Mr. Hiard for the advices he gave me concerning my database architecture. Concerning the architecture of the REST API built with flask, it is not an easy work to find the proper architecture since there is no a unique template for building it, it will depend of the problem to solve. With flask you can build an API with different manners. The direction that I took seems to be coherent but for a largest application I think working with \textit{blueprints} decorators provided by flask can help because you can encompass routes that share the same pattern.\\
+I did not encounter big problems for this project. The most challenging parts were probably to constructs the different architectures. The database architecture took sometime to finally reach the one used in the project. I also thank Mr. Hiard for the advices he gave me concerning my database architecture. Concerning the architecture of the REST API built with flask, it is not an easy work to find the proper architecture since there is no a unique template for building it, it will depend on the problem to solve. With flask you can build an API with different manners. The direction that I took seems to be coherent but for a largest application I think working with \textit{blueprints} decorators provided by flask can help because you can encompass routes that share the same pattern.\\
 
-Concerning the external website the most challenging part is probably to work with \textit{JavaScript} and the asynchronous behaviour brought by the AJAX requests. Moreover working with pure \textit{JavaScript} can help to understand how it is working but you need to write extra code to achieve the same job as a framework.
+Concerning the external website the most challenging part is probably to work with \textit{JavaScript} and the asynchronous behaviour brought by the AJAX requests. Moreover, working with pure \textit{JavaScript} can help to understand how it is working but you need to write extra code to achieve the same job as a framework.
 
 \subsection{Work done}
 Concerning the work achieved for this project about 50 files have been written by myself and represent about 4000 lines of code (the third part libraries excluded). I spent lot of time to elaborate the database architecture since it is one of the most important part of the system developed.\\
@@ -745,7 +745,7 @@ An interesting thing, perhaps too optimistic, would be to put the project availa
 \section{Conclusion}
 This personal project is a good personal experience and it should be strongly advised to students because it allows to learn a number of things. First of all, it forces you to establish your own road map and to establish yourself a formulation of your project, the direction that will be explored and how you will get there.\\
 
-As far as I am concerned, this personal project gives me the possibility to think about the different aspects of a project in general. The bounds to establish to avoid to leave the scope of the project and focuses all your time on a specific aspect of your project which is essential for a production project but does not really matter in the scope of a personal project.\\
+As far as I am concerned, this personal project gives me the possibility to think about the different aspects of a project in general. The bounds to establish to avoid leaving the scope of the project and focuses all your time on a specific aspect of your project which is essential for a production project but does not really matter in the scope of a personal project.\\
 
 In my case, I decided to not explore some technical aspects such as establishing an accurate data security (expiration on the token, reliable encryption of password, configuration of the different servers to be secure,...). The aim was not to neglect these technical aspects but to provide a functional project. The time allowed for the personal project course is limited, thus you need to make some choices concerning the aspects to develop.\\
 
