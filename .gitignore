@@ -1,2 +1,6 @@
 
 documentation/api-documentation/site/
+
+rest_api/\.idea/
+
+rest_api/__pycache__/

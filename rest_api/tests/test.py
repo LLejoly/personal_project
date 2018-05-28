@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 """Tests for Basic Functions"""
 import sys
 import json
