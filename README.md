@@ -1,4 +1,4 @@
-# freezer manager
+# Freezer manager
 
 The code related to this project follows this directory architecture:
 ```
@@ -18,7 +18,7 @@ personal_project
 - `REST_api`: directory contains files used to build the REST API server and communicate with the database.
 - `flask_run.sh` and `run_server.sh` are scripts used to run severs(note that the settings used in these scripts are dependent of the system installation. If you want to use these scripts please refer to the following section.
 
-#pre-installation required (Xampp server)
+# Pre-installation required (Xampp server)
 
 To use the API you need to install XAMPP [click here](https://www.apachefriends.org/fr/index.html)
 The version used is PHP Version 7.0.27
@@ -35,7 +35,7 @@ ln -s /path/of/the/website/directory/ freezer_manager
 ```
 - When it is done you should have access to the website `http://localhost/freezer_manager/` note that xampp server must be running.
 
-#pre-installation required (python)
+# Pre-installation required (python)
 
 Python version used is python 3.6
 
