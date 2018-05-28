@@ -1,10 +1,10 @@
 \section{Introduction}
 As part of the personal project course given at ULiège, I decided to develop a system to manage domestic freezers. This idea emerged to me because of a personal experience. Every two years, my family and I reorganize the home's freezers. I was a bit shocked when I saw the quantity of products that was in the freezers and for which we have completely forgotten that they were there. This is a problem that anyone who has freezers can potentially face someday. \\
 
-The main problem of forgotten products is they cannot stay indefinitely in a freezer because of they physical properties. For example, meat that has been in a freezer for a long time does not taste good. As results, some products are thrown to the rubbish. We could avoid throwing to the rubbish products if we were aware of the existence of them. The solution of that problem would be an application or a tool that gives the possibility to a user to manage the content of his freezers and more. At the moment, it seems that no free applications, except for smartphones, exist. Since it does not exist cross-platform applications, I decide to develop a cross-platform system that implements a freezer manager as subject of my personal project.
+The main problem of forgotten products is they cannot stay indefinitely in a freezer because of their physical properties. For example, meat kept in a freezer for a long time does not taste good. As results, some products are thrown to the rubbish. We could avoid throwing to the rubbish products if we were aware of the existence of them. The solution of that problem would be an application or a tool that gives the possibility to a user to manage the content of his freezers and more. At the moment, it seems that no free applications, except for smartphones, exist. Since it does not exist cross-platform applications, I decide to develop a cross-platform system that implements a freezer manager as subject of my personal project.
 
 \subsection{Project direction}
-The aim of the project is to provide a cross-platform freezer manager that gives to a user using this system some information about his products. This system also keeps a history of a user's products. By cross-platform, I mean a system that does not depend on the operating system and that can be used on any system. Moreover, the main purpose of that manager is to give the possibility for third parts to develop their own applications and to use the freezer manager developed inside of them. It is personal choice and I took this option because I appreciate open-source applications and I would like to bring my personal contribution to the open-source-world. \\
+The aim of the project is to provide a cross-platform freezer manager that gives to a user using this system some information about his products. This system also keeps a history of user's products. By cross-platform, I mean a system that does not depend on the operating system and that can be used on any system. Moreover, the main purpose of that manager is to give the possibility for third parts to develop their own applications and to use the freezer manager developed inside of them. It is personal choice and I took this option because I appreciate open-source applications and I would like to bring my personal contribution to the open-source-world. \\
 
 \subsection{Problems to face}
 To build a freezer manager. It is mandatory to identify the different aspects of the problem to solve. This first problem is to identify the different information to store in the freezer manager. These information must be stored in a database with some other data. The architecture of this database and data stored are explained in details in the section made for that purpose.\\
@@ -18,7 +18,7 @@ The information that the system must take into account are:
 \item The user that uses the system manager.
 \item A unique token linked to this user. This token is necessary to interact with the system.
 \item A password and an identifier (email address) linked to that user. These two information are essential to obtain the token. The way to obtain a token will be explained later in the next sections.
-\item The language that the user uses. This information is not used in the scope of the project but it is a useful information to store if we want to extend the project later and potentially acquires some knowledge about the user.
+\item The language that the user uses. This information is not used in the scope of the project but it is a useful information to store if we want to extend the project later and potentially acquire some knowledge about the user.
 \item The freezers linked to this user. This information is fundamental because we need to locate a product.
 \item The products linked to a user. A product is defined by several features: 
 \begin{enumerate}
@@ -35,7 +35,7 @@ The information that the system must take into account are:
 \end{enumerate}
 
 \subsubsection{Technical aspects}
-Since we want to give access to third applications, the system cannot be used directly. To work around this problem, interaction with the system manager is done through a REST API. REST API is commonly used by companies who want to give access to their data or a piece of their data to third applications without giving direct access to their databases. The main advantages of a REST API are multiple. First of all, it is a client-server which means that the server evolves independently of the client and it is stateless. Moreover, a REST API allows to develop an application on any terminal. It is possible to develop an application for raspberry Pi, for a smartphone or any other connected object. Since a REST API is stateless, and we want to identify a user, we need a method to go around this problem. It is the aim of the token. The token allows detecting uniquely a user if it is correctly generated. A schema given \autoref{fig:archi} shows how the REST API is set. \\
+Since we want to give access to third applications, the system cannot be used directly. To work around this problem, interaction with the system manager is done through a REST API. REST API is commonly used by companies who want to give access to their data or a piece of their data to third applications without giving direct access to their databases. The main advantages of a REST API are multiple. First of all, it is a client-server that means the server evolves independently of the client and it is stateless. Moreover, a REST API allows to develop an application on any terminal. It is possible to develop an application for raspberry Pi, for a smartphone or any other connected object. Since a REST API is stateless, and we want to identify a user, we need a method to go around this problem. It is the aim of the token. The token allows detecting uniquely a user if it is correctly generated. A schema given \autoref{fig:archi} shows how the REST API is set. \\
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{./images/archi.png}
@@ -43,7 +43,7 @@ Since we want to give access to third applications, the system cannot be used di
 \label{fig:archi}
 \end{figure}
 
-As you can see, an application that uses the API has no direct access to the database. With this methodology it is also easier to apply some internal modifications on how data is processed. Moreover, it allows to abstract the way data is stored. It can be a good starting point for web semantics since API is based on URI.\\
+As you can see, an application that uses the API has no direct access to the database. With this methodology it is also easier to apply some internal modifications on how data is processed. Moreover, it allows to abstract the way data is stored. It can be a good starting point for web semantics since the API is based on URI.\\
 
 With a user token and the REST API, a user has the possibility to find what he wants. He can add new products, he can edit existing products, he can see what are the products he has in a specific freezer. He also has the possibility to see the history of a freezer. Moreover, the API can make suggestions for the user according to his previous consumptions and depending on what his freezers contain.\\
 
@@ -52,7 +52,7 @@ To give the possibility to third people to understand how the API works. I made 
 Finally, to demonstrate the utilization of a third application with the REST API. I built a website that only uses the API to manage the freezers of a specific user.\\
 
 \subsection{Overview}
-This report is divided into several sections. The first section discusses the way data is stored and choices made concerning the architecture. The second section discusses the creation of an internal website that allows to manage a user account. The aim of this website is not to manage user's freezers but more for managing account information. In this section an admin panel is also discussed to explain how to manage the freezer manager system. The API REST section explains how the REST API has been built, the different features available,... The external website section explains the external website built in order to use the REST API built. The section project challenges discusses the problems faced during the project and the improvements/future work that can be achieved on it. The last section discusses what the project brings me and the culmination of it.\\
+This report is divided into several sections. The first section discusses the way data is stored and choices made concerning the architecture. The second section discusses the creation of an internal website that allows to manage a user account. The aim of this website is not to manage user's freezers but more for managing account information. In this section an admin panel is also discussed to explain how to manage the freezer manager system. The \textit{REST API} section explains how the REST API has been built, the different features available,... The \textit{external website} section explains the external website built in order to use the REST API built. The \textit{project challenges} section discusses the problems faced during the project and the improvements/future work that can be achieved on it. The last section discusses what the project brings me and the culmination of it.\\
 
 The code related to this project follows this directory architecture:
 \dirtree{%
@@ -66,7 +66,7 @@ The code related to this project follows this directory architecture:
 .2 run\_server.sh.
 .2 README.md.
 }
-\textit{database} directory contains a sample of the database created with the schema linked to it. \textit{documentation} directory contains files related to the API documentation and the website built for that effect. \textit{external\_website} directory contains files used to build the external website. \textit{rest\_api} directory contains files used to build the REST API server and communicate with the database. \textit{flask\_run.sh} and \textit{run\_server.sh} are scripts used to run severs(note that the settings used in these scripts are dependent of the system installation. If you want to use these scripts please refer to the \textit{README.md} file. \textit{README.md} explains the architecture in more details.
+\textit{database} directory contains a sample of the database created with the schema linked to it. \textit{documentation} directory contains files related to the API documentation and the website built for that purpose. \textit{external\_website} directory contains files used to build the external website. \textit{rest\_api} directory contains files used to build the REST API server and communicate with the database. \textit{flask\_run.sh} and \textit{run\_server.sh} are scripts used to run severs(note that the settings used in these scripts are dependent of the system installation. If you want to use these scripts please refer to the \textit{README.md} file. \textit{README.md} explains the folder architecture in more details and how to install third programs. The project can be freely downloaded on gitlab \url{https://gitlab.com/lejoly/personal_project}.
 
 \section{Content storing}
 \subsection{Database model discussion}
@@ -75,11 +75,11 @@ To store the different information about a user and the data related to his free
 The relational database management system chosen is \textit{MySQL} since it is an open-source software which is commonly use. Moreover, it does not require too much work to set it up.
 
 \subsection{Relational database structure}
-The information that the database need to store will be explained in detailed.\\
+The information that the database needs to store will be explained in detailed.\\
 
 First of all, we need to store some information about a user such as an email which is unique and a password that allows the user to establish a connection with the internal website. This website is an integral part of the freezer system manager and gives additional information about the user such as the token linked to the user account. This token is mandatory to have access to the freezer manager API and it is generated uniquely. It is also used to identify a user. \\
 
-A user has also two additional information that are the language and learning fields. The language field is used to specify the language used by the user as explained earlier. It can be interesting for third applications to have some knowledge about the user. The learning field is used to save some parameters that could be useful for learning algorithm. For this project I do no use it because I did not have enough time to find and test some of these algorithms. So a default value \textit{[0,0]} is simply put. To summarize a user is defined through 5 fields which are a token, a password, an email, a language, and a learning.\\
+A user has also two additional information that are the language and learning fields. The language field is used to specify the language used by the user as explained earlier. It can be interesting for third applications to have some knowledge about the user. The learning field is used to save some parameters that could be useful for learning algorithm. For this project I did not use it because I did not have enough time to find and test some of these algorithms. So a default value \textit{[0,0]} is simply put. To summarize a user is defined through 5 fields which are a token, a password, an email, a language, and a learning.\\
 
 After defined a user, we need to define the other objects that will be stored and linked to a user.\\
 
@@ -124,7 +124,7 @@ The database uses \textit{MySQL}. The engine used is \textit{InnoDB} with utf8mb
 \label{fig:sqldb}
 \end{figure}
 
-As discussed above the architecture of the database allows to skip some tables to backup like Product\_to\_type and List\_freezers. These two tables can be reconstructed with the others tables. Thus, it is not mandatory to backups these ones.\\
+As discussed above the architecture of the database allows to skip some tables to backup like \textit{Product\_to\_type and List\_freezers}. These two tables can be reconstructed with the others tables. Thus, it is not mandatory to backups these ones.\\
 
 To use the database we need to fill it with some data. This filling part has been done manually. The reason of that is to represent something that has a sense and can represent a lambda user. Moreover, I made this choice because initially I wanted to develop some preference learning algorithm and in this optic fill a database with random objects has no sense. 
 
@@ -135,10 +135,10 @@ The type of application chosen to manage these things is a website. This choice 
 
 The internal website is divided into three distinct parts. The first one concerns the account creation, the second concerns a user panel that can be accessed when an account is created, and the last section is dedicated to the admin panel. This panel is only dedicated to the administrator of the freezer application. \\
 
-The recommanded protections for a website are not configured or use the default configuration files. To secure a website some files such as \textit{.htaccess} or \textit{php.ini} need to be correctly set in accordance with the server. The transactions made between a user and the server are done by using \textit{HTTP} protocol but to be secure \textit{HTTPS} should be used. Moreover, the redirection pages are not configured and/or personalized but for a production website it is required.
+The recommended protections for a website are not configured or use the default configuration files. To secure a website some files such as \textit{.htaccess} or \textit{php.ini} need to be correctly set in accordance with the server. The transactions made between a user and the server are done by using \textit{HTTP} protocol but to be secure \textit{HTTPS} should be used. Moreover, the redirection pages are not configured and/or personalized but for a production website it is required.
 
 \subsection{Account creation}
-To use the API a user need to create an account with an e-mail address and a password. A webpage (\autoref{fig:register}) is built to achieve this goal( \textit{website/register.php}). To have a the password encrypted, a \textit{PHP} function called \textit{crypt()} is used with a salt. By default, \textit{crypt} function uses the DES algorithm. This algorithm was the most widely used algorithm during many years. Nowadays this algorithm is not secure to crypt data but in the case of the project is the algorithm chosen.\\
+To use the API a user need to create an account with an e-mail address and a password. A webpage (\autoref{fig:register}) is built to achieve this goal(\textit{website/register.php}). To have a the password encrypted, a \textit{PHP} function called \textit{crypt()} is used with a salt. By default, \textit{crypt} function uses the DES algorithm. This algorithm was the most widely used algorithm during many years. Nowadays this algorithm is not secure to crypt data but in the case of the project is the algorithm chosen.\\
 If the objective is to put in production the project. It is recommended to change the password encryption to use another type of encryption like SHA 512 or another secure encryption algorithm.\\
 
 When the account has been created it is linked to a token. This token is generated on the server side with the PHP function \textit{random\_bytes} which is recommended to generate string of cryptographic random bytes that are suitable for cryptographic use. The length  specified for the generation is 32 bytes. Thus, the number of possibilities is $(2^8)^{32} = 2^{256}$. After that, the random sequence generated is transformed into a hexadecimal string to be more readable by a novice user.\\
@@ -151,7 +151,7 @@ When the account has been created it is linked to a token. This token is generat
 
 Note that the token generated is static but in general a token has an expiration date. I did not go into that direction because it becomes complex to manage such token. \\
 
-When the account is created a user can use the API to build its own software and manage his freezers with the help of The API and the token linked to its account or use an existing application that uses the API. The third part applications should only asked your token and anything else.\\
+When the account is created a user can use the API to build its own software and manage his freezers with the help of The API and the token linked to its account or use an existing application that uses the API. Third applications should only ask for your token and nothing else.\\
 
 \subsection{User panel}
 When a user possesses an account. He has the possibility to access to a user panel of the freezer system manager with the \textit{website/login.php} page \autoref{fig:login}. If the information given are correct, he will be redirected to the user panel page \textit{website/user/user\_interface.php} \autoref{fig:userPanel}.
@@ -189,16 +189,18 @@ When the identifier and the password given are correct. You will be redirected t
 \label{fig:adminPanel}
 \end{figure}
 
-\section{API REST}
-A REST API is built on a server that establishes a communication between the database and the client. REST API is useful for several reasons. The first reason is that it is a client-server that means the server evolves independently of the client. Moreover, with a REST API you can develop applications without worrying about changes in queries since they are the same on any terminal. Finally, new functionalities can be added easily since the REST API is based on URI. We Just need to specify a new URI and specify what the request need to achieve.\\
+\section{REST API}
+A REST API is built on a server that establishes a communication between the database and the client. REST API is useful for several reasons. The first reason is that it is a client-server that means the server evolves independently of the client. Moreover, with a REST API you can develop applications without worrying about changes in queries since they are the same on any terminal. Finally, new functionalities can be added easily since the REST API is based on URI. We Just need to specify a new URI and specify what the request needs to achieve.\\
 
 The REST API server implemented in the project scope cannot be really called a RESTful server because all specifications asked to be certified as REST are not fulfilled. A layered system and cacheability are not implemented because it was too complex to set up and I would have spent a lot of time to set up these parts.\\
 
-Since the REST API needs to work with bowers which specify in request headers the field \textit{Origin} for some type of requests \textit{POST}, the REST API needs to use cross-origin resource sharing (CORS). The CORS allows the REST API server to accept AJAX requests which are forbidden due to the same-origin security policy.\\
+Since the REST API needs to work with bowers that specify inside their \textit{HTTP} request headers the field \textit{Origin} for some type of requests like \textit{POST}, the REST API needs to use cross-origin resource sharing (CORS). The CORS allows the REST API server to accept AJAX requests which are forbidden due to the same-origin security policy.\\
 
 A limiter system has been set to limit the number of requests that a user can do by minute (100 requests) and by day (24000 requests). The user IP address is used to detect a user. The system that achieves this task is an extension of the flask micro-framework and it is called \textit{flask-limiter}.\\
 
-Also note that flask single threaded with version 0.12.2. With the stable version 1.0 that comes up April 26th 2018, it is possible to use several threads in development mode. To put the flask server in production and gives the possibility to use several threads it is recommended to use \textit{Gunicorn} or \textit{uWSGI}.
+Also note that flask is single threaded with version 0.12.2. With the stable version 1.0 that comes up April 26th 2018, it is possible to use several threads in development mode. To put the flask server in production and gives the possibility to use several threads it is recommended to use \textit{Gunicorn} \footnote{\url{http://gunicorn.org/}} or \textit{uWSGI}\footnote{\url{https://uwsgi-docs.readthedocs.io/en/latest/}}.\\
+
+Finally, concerning the protocol used to achieve the different transactions it is the HTTP protocol. It is recommended to use a secure protocol like HTTPS if we want to use the API in production. But for the scope of the project I did not set up an HTTPS protocol since you need to set up a server like \textit{gunicorn} to have a trust SSL certificate.
 \subsection{Folder architecture}
 The REST API follows the folder architecture given below. The folder \textit{tests} is used to implement the different unit tests done on the server. The others files defined at the root of the REST\_api folders are used to build the server itself.
 
@@ -225,7 +227,7 @@ The REST API follows the folder architecture given below. The folder \textit{tes
 \subsection{Server}
 As you can see with the folder description above, the server is developed in python. I made this choice because I wanted to discover the possibilities offered by this language but others languages are also perfectly fit to achieve that such as \textit{Java, PHP, JavaScript,...}\\
 
-A micro-framework is used to develop the Python server with Python language. This framework is Flask and it is build an \textit{Werkzeug} and \textit{Jinja 2}. The version of Flask used to develop this project is 0.12.2. The stable version of the micro-framework just comes up (April 26th 2018) with a number of changes. \\
+A micro-framework is used to develop the Python server with Python language. This framework is Flask \footnote{\url{http://flask.pocoo.org/}} and it is build an \textit{Werkzeug} and \textit{Jinja 2}. The version of Flask used to develop this project is 0.12.2. The stable version of the micro-framework just comes up (April 26th 2018) with a number of changes. \\
 
 To interact with the \textit{MySQL} database I used the module \textit{MysqlDB} \footnote{\url{https://github.com/PyMySQL/mysqlclient-python}}. This module is not the best known nor the most used. Nevertheless, this module allows to write SQL requests in a pure SQL fashion. I chose this module instead of others well-known modules based on a Object Relational Mapper (ORM) such as \textit{sqlachemy} for two reasons. The first one is that an ORM like \textit{sqlalchemy} makes abstractions of the SQL part. It can be an advantage in terms of optimizations, to manage cursors,... The drawback of ORM is that you cannot necessarily understand what is behind this module. The second reason is that the set up of ORM is no so easy to do correctly. It seems understandable since the ORM makes abstraction of sql part. Thus, I made the choice to take the \textit{MysqlDB} instead of \textit{sqlachemy} module. Nevertheless, for a production application, it is recommended to use an ORM because these tools are optimized to achieved requests, They give the possibility to change database type without changing all requests in the code. Moreover, the application can be maintained by people not necessarily mastering the SQL language.
 \subsection{Functionalities implemented}
@@ -341,7 +343,7 @@ Explanation of the  JSON object:
 The architecture of the JSON object to send must be:
 \begin{lstlisting}[language=json]
 {
- "freezer_id": the id of an exisitng freezer,
+ "freezer_id": the id of an existing freezer,
  "num_boxes": "4",
  "name": "my_name"
 }
@@ -616,7 +618,7 @@ Explanation of the  JSON object:
 \end{enumerate}
 
 \subsection{Documentation}
-To understand how to use the REST API a website with a documentation has been made. The tool used to build this documentation is \textit{MkDocs}. This tool is commonly used to build documentation and are used for instance by \textit{Keras}. Markdown is used to write the documentation and the tools translates it into static html page. It is really easy to use if you know the Markdown language. \\
+To understand how to use the REST API a website with a documentation has been made. The tool used to build this documentation is \textit{MkDocs}\footnote{\url{https://www.mkdocs.org/}}. This tool is commonly used to build documentation and are used for instance by \textit{Keras}. Markdown is used to write the documentation and the tools translates it into static html page. It is really easy to use if you know the Markdown language. \\
 
 This documentation explain what are the available requests that can be done, how to achieve a correct request and what are the results sent back.
 For each request an example using the \textit{client URL request library (cURL)} is given. The choice of this tool has been made because  it is cross-platform and not difficult to use. But it can be used with any other tool that can achieve http requests.
@@ -631,7 +633,7 @@ For each request an example using the \textit{client URL request library (cURL)}
 The documentation site can be found \textit{documentation/api-documentation/site/index.html}
 
 \subsection{Unit tests}
-To test the different functionalities implemented with the REST API, some unit tests have been done. The list of tests done is not exhaustive and can be extended. The units tests essentially cover the routes of the requests, the status code returned depending of the request done, the JSON objects sent, the content-type sent, and the methods implemented.\\
+To test the different functionalities implemented with the REST API, some unit tests have been done. The list of tests done is not exhaustive and can be extended. The units tests essentially cover the routes of the requests, the status code returned depending on the request done, the JSON objects sent, the content-type sent, and the methods implemented.\\
 
 The tests done are defined in the test folder \textit{REST\_api/tests/tests.py}. They are based on the \textit{unittest} python module. The quantity of unit tests done is around 40 tests. The \autoref{fig:unittests} depicts the results of a portion of tests done. As you can see the time elapsed between the starting time of a request and the end time is fast. The unit tests \textit{test\_XX\_XX\_methods\_not\_implemented} are slower because several requests are done inside of them. Also note that the REST API is single threaded for this project and for production perceptive it will be multithreaded with the help of \textit{gunicorn or uwsgi}. Then the performances observed will change.
 \begin{figure}[H]
@@ -666,7 +668,7 @@ The \autoref{fig:dashboard_types} depicts the output displayed to the user when 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.30]{./images/dashboard_types.png}
+\includegraphics[scale=0.25]{./images/dashboard_types.png}
 \caption{product types}
 \label{fig:dashboard_types}
 \end{figure}
@@ -676,7 +678,7 @@ The freezer tile is dedicated to manipulations that can be done on user's freeze
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.3]{./images/dashboard_freezers.png}
+\includegraphics[scale=0.25]{./images/dashboard_freezers.png}
 \caption{freezers}
 \label{fig:dashboard_freezers}
 \end{figure}
@@ -688,7 +690,7 @@ On the \autoref{fig:dashboard_products1} a user can select parameters for a spec
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.4]{./images/dashboard_products1.png}
+\includegraphics[scale=0.3]{./images/dashboard_products1.png}
 \caption{Display products}
 \label{fig:dashboard_products1}
 \end{figure}
@@ -707,15 +709,17 @@ The trends tile is dedicated to display tendencies of users. The \autoref{fig:da
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.3]{./images/dashboard_trends.png}
+\includegraphics[scale=0.4]{./images/dashboard_trends.png}
 \caption{Trends tile}
 \label{fig:dashboard_trends}
 \end{figure}
 
 \subsection{Website development}
-The external website is developed with several languages \textit{CSS, HTML, JavaScript}. Moreover, some frameworks et tools are used. To have a responsive website, the containers of the bootstrap framework are used. Bootstrap is very well-known in the world of web development. It is one of the famous framework used to build the skeleton of a website. To have dynamic tables, I used a plug-in called \textit{tablesorter} developed with \textit{JQuery} and finally for the plot generation I used \textit{chart.js} \\
+The external website is developed with several languages \textit{CSS, HTML, JavaScript}. Moreover, some frameworks et tools are used. To have a responsive website, the containers of the \textit{Bootstrap}\footnote{\url{https://getbootstrap.com/}} framework are used. \textit{Bootstrap} is very well-known in the world of web development. It is one of the famous framework used to build the skeleton of a website. To have dynamic tables, I used a plug-in called \textit{tablesorter}\footnote{\url{https://mottie.github.io/tablesorter/docs/index.html}} developed with \textit{JQuery} and finally for the plot generation I used \textit{chart.js}\footnote{\url{https://www.chartjs.org/}} \\
 
 The rest of the website is developed from scratch with pure \textit{JavaScript} (no framework used). I used the pure \textit{JavaScript} instead of framework like \textit{JQuery} because I did not see the real benefits of a specific framework. Moreover, there are a plethora of \textit{JavaScript} frameworks and most of them require some practice before using it.\\
+%%nouvelle page
+\newpage
 
 \section{Project challenges}
 \subsection{Problems faced}
@@ -747,8 +751,4 @@ This personal project is a good personal experience and it should be strongly ad
 
 As far as I am concerned, this personal project gives me the possibility to think about the different aspects of a project in general. The bounds to establish to avoid leaving the scope of the project and focuses all your time on a specific aspect of your project which is essential for a production project but does not really matter in the scope of a personal project.\\
 
-In my case, I decided to not explore some technical aspects such as establishing an accurate data security (expiration on the token, reliable encryption of password, configuration of the different servers to be secure,...). The aim was not to neglect these technical aspects but to provide a functional project. The time allowed for the personal project course is limited, thus you need to make some choices concerning the aspects to develop.\\
-
-Moreover, this personal project gives me the possibility to use what I have learned in some courses and discover new things. For instance, how to build a server with flask.\\
-
-Finally, I think I will continue to develop this project for personal enrichment.
+In my case, I decided to not explore some technical aspects such as establishing an accurate data security (expiration on the token, reliable encryption of password, configuration of the different servers to be secure,...). The aim was not to neglect these technical aspects but to provide a functional project. The time allowed for the personal project course is limited, thus you need to make some choices concerning the aspects to develop. Moreover, this personal project gives me the possibility to use what I have learned in some courses and discover new things. For instance, how to build a server with flask. Finally, I think I will continue to develop this project for personal enrichment.
