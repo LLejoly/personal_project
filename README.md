@@ -50,6 +50,6 @@ When the  Xampp server is running you can run `flask_run.sh` script with databas
 Then all servers need to use the API are set.
 
 # TODO list
-[ ] Create a better site example
-[ ] Rework the SQL commands with SQLalchemy
-[ ] Add new functionalities
+[] Create a better site example
+[] Rework the SQL commands with SQLalchemy
+[] Add new functionalities
